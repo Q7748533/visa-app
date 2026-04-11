@@ -79,6 +79,8 @@ Raw Data:
 ${rawData}
 
 Please extract the following fields (set to null or empty array if not present in data):
+
+===== CORE FIELDS =====
 - name: Parking lot name
 - address: Full address
 - dailyRate: Daily price (number, in USD)
@@ -89,15 +91,24 @@ Please extract the following fields (set to null or empty array if not present i
 - tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
 - shuttleFrequency: Shuttle frequency description (e.g., "Every 10-15 mins")
 - shuttleHours: Shuttle operating hours
-- arrivalDirections: Arrival instructions. Prioritize navigation_tip field content (how to reach the parking lot), otherwise use redemption_instructions.arrival array (steps after parking)
-- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from restrictions field, categorize intelligently for SEO:
-   * Suggested categories: Cancellation Policy, Arrival Instructions, Departure Instructions, Overstay Policy, Modification Policy, Amenities, Other Restrictions
-   * Clean HTML tags and links, use concise text
-   * Merge similar content (e.g., combine Android/Apple app links into one)
-   * Keep only the most critical information for each category for SEO
+- arrivalDirections: Arrival instructions
+- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]
 - isIndoor: Whether indoor parking (boolean, true/false)
 - hasValet: Whether valet service available (boolean, true/false)
 - is24Hours: Whether open 24 hours (boolean, true/false)
+
+===== WAY.COM EXTENSION FIELDS =====
+- description: Detailed parking lot description (from listingDesc or description field)
+- shuttleDesc: Detailed shuttle service description (from shuttleDescription)
+- cancellationPolicy: Cancellation policy text (from cancellationPolicy)
+- parkingAccess: Arrival/parking instructions (from parkingAccess, clean HTML tags)
+- operatingDays: Operating hours summary (from operatingDays, format as readable text like "Open 24/7")
+- contactPhone: Contact phone number (from contactValue or phone)
+- recommendationPct: Recommendation percentage (from recommendationPercentage, number 0-100)
+- locationRating: Location rating (from reviewAttribute.locationRating, number 0-5)
+- staffRating: Staff/service rating (from reviewAttribute.staffRating, number 0-5)
+- facilityRating: Facility rating (from reviewAttribute.facilityRating, number 0-5)
+- safetyRating: Safety rating (from reviewAttribute.safetyRating, number 0-5)
 
 IMPORTANT INSTRUCTIONS:
 1. ALL text content MUST be in English ONLY. Do not use any Chinese or other languages.
@@ -117,14 +128,25 @@ Format:
   "tags": ["Self Park", "Covered"],
   "shuttleFrequency": "Every 10-15 mins",
   "shuttleHours": "24/7",
-  "arrivalDirections": "Arrival directions text or JSON",
+  "arrivalDirections": "Arrival directions text",
   "thingsToKnow": [
     {"title": "Cancellation Policy", "content": "Reservations are non-refundable"},
     {"title": "Operating Hours", "content": "Open 24 hours"}
   ],
   "isIndoor": false,
   "hasValet": false,
-  "is24Hours": true
+  "is24Hours": true,
+  "description": "Detailed description of the parking lot...",
+  "shuttleDesc": "Free shuttle service running every 15 minutes...",
+  "cancellationPolicy": "Flexible cancellation up to check-in time...",
+  "parkingAccess": "This facility is open 24/7...",
+  "operatingDays": "Open 24/7",
+  "contactPhone": "+1 7184806663",
+  "recommendationPct": 98,
+  "locationRating": 4.1,
+  "staffRating": 4.9,
+  "facilityRating": 4.8,
+  "safetyRating": 4.5
 }`;
 }
 

@@ -96,3 +96,20 @@ model ParkingLot {
   @@index([isActive])
   @@index([deletedAt])
 }
+
+// ==========================================
+// 3. AI 异步任务队列
+// ==========================================
+model AIParsingTask {
+  id          String   @id @default(cuid())
+  status      String   // 'pending' | 'processing' | 'completed' | 'failed'
+  taskType    String   // 'parking_parse' | 'facility_extract' 等
+  inputData   String   // 输入的原始数据（JSON）
+  result      String?  // AI 处理结果（JSON）
+  error       String?  // 错误信息
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}

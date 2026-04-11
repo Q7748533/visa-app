@@ -71,6 +71,25 @@ model ParkingLot {
   arrivalDirections String? // 到达路线指引（JSON格式，分方向）
   thingsToKnow    String?  // 注意事项列表（JSON格式）
 
+  // ===== Way.com 特有字段 =====
+  description         String?   // listingDesc - 详细描述
+  shuttleDesc         String?   // shuttleDescription - 班车详细描述
+  cancellationPolicy  String?   // cancellationPolicy - 取消政策
+  parkingAccess       String?   // parkingAccess - 到达指引（HTML）
+  operatingDays       String?   // operatingDays - 运营时间（JSON）
+  
+  // 细分评分（Way.com 特有）
+  locationRating      Float?    // reviewAttribute.locationRating
+  staffRating         Float?    // reviewAttribute.staffRating
+  facilityRating      Float?    // reviewAttribute.facilityRating
+  safetyRating        Float?    // reviewAttribute.safetyRating
+  
+  // 推荐率
+  recommendationPct   Int?      // recommendationPercentage
+  
+  // 联系方式
+  contactPhone        String?   // contactValue
+
   // 信任背书（前端 UI 需要的星级评分）
   rating          Float?   // 评分，例如: 4.8
   reviewCount     Int?     // 评论数，例如: 1240
@@ -79,7 +98,7 @@ model ParkingLot {
   affiliateUrl    String?  // 跳转到 Way.com / SpotHero 的联盟分佣链接
 
   // 爬虫溯源标记
-  dataSource      String?  // 数据来源（如：spothero, way.com, official）
+  dataSource      String   @default("way.com") // way.com | spothero | manual
   rawContent      String?  // AI 提取前的原始抓取文本（备查）
   lastCheckedAt   DateTime? // 价格最后爬取时间，SEO 页面可显示"数据更新时间: 2026-04-07"
 

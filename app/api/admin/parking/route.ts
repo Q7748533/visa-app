@@ -139,6 +139,19 @@ export async function POST(req: Request) {
         shuttleHours: data.shuttleHours || null,
         arrivalDirections: data.arrivalDirections || null,
         thingsToKnow: data.thingsToKnow || null,
+        // Way.com 特有字段
+        description: data.description || null,
+        shuttleDesc: data.shuttleDesc || null,
+        cancellationPolicy: data.cancellationPolicy || null,
+        parkingAccess: data.parkingAccess || null,
+        operatingDays: data.operatingDays || null,
+        contactPhone: data.contactPhone || null,
+        recommendationPct: data.recommendationPct ? parseInt(data.recommendationPct) : null,
+        locationRating: data.locationRating ? parseFloat(data.locationRating) : null,
+        staffRating: data.staffRating ? parseFloat(data.staffRating) : null,
+        facilityRating: data.facilityRating ? parseFloat(data.facilityRating) : null,
+        safetyRating: data.safetyRating ? parseFloat(data.safetyRating) : null,
+        dataSource: data.dataSource || 'way.com',
       },
     });
 

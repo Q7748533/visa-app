@@ -371,8 +371,80 @@ export default async function ParkingDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Description */}
+              {parking.description && (
+                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
+                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                    <span className="p-1.5 md:p-2 bg-blue-50 text-blue-600 rounded-lg">
+                      <Car className="w-4 h-4 md:w-5 md:h-5" />
+                    </span>
+                    About This Facility
+                  </h2>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {parking.description}
+                  </p>
+                </div>
+              )}
+
+              {/* Detailed Ratings (Way.com) */}
+              {(parking.locationRating || parking.staffRating || parking.facilityRating || parking.safetyRating) && (
+                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
+                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                    <span className="p-1.5 md:p-2 bg-amber-50 text-amber-600 rounded-lg">
+                      <Star className="w-4 h-4 md:w-5 md:h-5" />
+                    </span>
+                    Detailed Ratings
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    {parking.locationRating && (
+                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
+                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Location</p>
+                        <div className="flex items-center justify-center gap-1">
+                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                          <span className="text-lg font-black text-slate-800">{parking.locationRating}</span>
+                        </div>
+                      </div>
+                    )}
+                    {parking.staffRating && (
+                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
+                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Service</p>
+                        <div className="flex items-center justify-center gap-1">
+                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                          <span className="text-lg font-black text-slate-800">{parking.staffRating}</span>
+                        </div>
+                      </div>
+                    )}
+                    {parking.facilityRating && (
+                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
+                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Facility</p>
+                        <div className="flex items-center justify-center gap-1">
+                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                          <span className="text-lg font-black text-slate-800">{parking.facilityRating}</span>
+                        </div>
+                      </div>
+                    )}
+                    {parking.safetyRating && (
+                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
+                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Safety</p>
+                        <div className="flex items-center justify-center gap-1">
+                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                          <span className="text-lg font-black text-slate-800">{parking.safetyRating}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {parking.recommendationPct && (
+                    <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-center">
+                      <p className="text-sm text-emerald-800">
+                        <span className="font-black text-emerald-600">{parking.recommendationPct}%</span> of guests recommend this facility
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Shuttle Schedule */}
-              {(parking.shuttleFrequency || parking.shuttleHours) && (
+              {(parking.shuttleFrequency || parking.shuttleHours || parking.shuttleDesc) && (
                 <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm relative overflow-hidden">
                   <div className="absolute -right-4 -top-4 opacity-[0.03]">
                     <Bus className="w-36 h-36 md:w-48 md:h-48" />
@@ -383,6 +455,11 @@ export default async function ParkingDetailPage({ params }: Props) {
                     </span>
                     Shuttle Schedule & Details
                   </h2>
+                  {parking.shuttleDesc && (
+                    <p className="text-sm text-slate-600 mb-4 leading-relaxed relative z-10">
+                      {parking.shuttleDesc}
+                    </p>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-3 md:gap-4 relative z-10">
                     {parking.shuttleFrequency && (
                       <div className="bg-slate-50 p-4 md:p-5 rounded-xl md:rounded-2xl border border-slate-100">
@@ -401,7 +478,7 @@ export default async function ParkingDetailPage({ params }: Props) {
               )}
 
               {/* Arrival Directions */}
-              {(arrivalDirections || arrivalDirectionsText) && (
+              {(arrivalDirections || arrivalDirectionsText || parking.parkingAccess) && (
                 <div className="bg-indigo-50 rounded-2xl md:rounded-3xl border border-indigo-100 p-5 md:p-6 lg:p-8 shadow-sm">
                   <h2 className="text-lg md:text-xl font-black text-indigo-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
                     <span className="p-1.5 md:p-2 bg-indigo-200 text-indigo-700 rounded-lg">
@@ -410,11 +487,16 @@ export default async function ParkingDetailPage({ params }: Props) {
                     Arrival & Directions
                   </h2>
                   <div className="space-y-4 md:space-y-6 text-sm font-medium text-indigo-900/80 leading-relaxed">
+                    {/* Way.com parkingAccess */}
+                    {parking.parkingAccess && (
+                      <div dangerouslySetInnerHTML={{ __html: parking.parkingAccess }} />
+                    )}
+
                     {/* 普通文本格式 */}
                     {arrivalDirectionsText && (
                       <p>{arrivalDirectionsText}</p>
                     )}
-                    
+
                     {/* JSON 数组格式：步骤列表 */}
                     {arrivalDirections && Array.isArray(arrivalDirections) && (
                       <ol className="space-y-4 list-decimal list-inside">
@@ -425,7 +507,7 @@ export default async function ParkingDetailPage({ params }: Props) {
                         ))}
                       </ol>
                     )}
-                    
+
                     {/* JSON 对象格式：fromWest/fromNorth */}
                     {arrivalDirections && !Array.isArray(arrivalDirections) && (
                       <>
@@ -541,14 +623,14 @@ export default async function ParkingDetailPage({ params }: Props) {
                     </p>
                   </div>
                   
-                  {/* Q4: Cancellation - from thingsToKnow if available */}
-                  {thingsToKnow.some((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation')) && (
+                  {/* Q4: Cancellation - from cancellationPolicy or thingsToKnow */}
+                  {(parking.cancellationPolicy || thingsToKnow.some((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'))) && (
                     <div className="border-b border-slate-100 pb-4 md:pb-6 last:border-0 last:pb-0">
                       <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2">
                         What is the cancellation policy?
                       </h3>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        {thingsToKnow.find((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'))?.content}
+                        {parking.cancellationPolicy || thingsToKnow.find((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'))?.content}
                       </p>
                     </div>
                   )}

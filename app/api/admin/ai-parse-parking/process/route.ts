@@ -90,66 +90,89 @@ Raw Data:
 ${rawData}
 
 Please extract the following fields (set to null or empty array if not present in data):
-- name: Parking lot name
-- address: Full address
-- dailyRate: Daily price (number, in USD)
-- distanceMiles: Distance from airport in miles (number)
-- shuttleMins: Shuttle time in minutes (number)
-- rating: Rating (number between 1-5)
-- reviewCount: Number of reviews (number)
-- tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
-- shuttleFrequency: Shuttle frequency description. Extract using these rules:
-   1. Check transportation.type field:
-      - If "on_demand_shuttle" → output "On Demand"
-      - If "scheduled_shuttle" → continue to extract frequency
-   2. For scheduled shuttles, extract from (in priority order):
-      a. redemption_instructions.arrival/departure text (e.g., "shuttle runs every 15 minutes")
-      b. transportation.schedule.fast_frequency + slow_frequency (e.g., "Every 15-16 mins")
-      c. shuttle.fastFrequency + slowFrequency (e.g., "Every 35-45 mins")
-   3. Convert numeric minutes to readable text like "Every X-Y mins"
-   4. If no frequency data found but type is scheduled_shuttle → output "Contact for schedule"
-- shuttleHours: Shuttle operating hours. Extract from:
-   1. transportation.hours_of_operation.text (e.g., "24/7" or "5:00 AM - 12:00 AM")
-   2. redemption_instructions text mentioning hours (e.g., "between the hours of 5 am and 1 pm")
-   3. shuttle.hours field
-- arrivalDirections: Arrival instructions. Prioritize:
-   1. navigation_tip field content (how to reach the parking lot)
-   2. redemption_instructions.arrival array (steps after parking, clean HTML tags)
-- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from restrictions field, categorize intelligently for SEO:
-   * Suggested categories: Cancellation Policy, Arrival Instructions, Departure Instructions, Overstay Policy, Modification Policy, Amenities, Other Restrictions
-   * Clean HTML tags and links, use concise text
-   * Merge similar content (e.g., combine Android/Apple app links into one)
-   * Keep only the most critical information for each category for SEO
-- isIndoor: Whether indoor parking (boolean, true/false)
-- hasValet: Whether valet service available (boolean, true/false)
-- is24Hours: Whether open 24 hours (boolean, true/false)
 
-IMPORTANT INSTRUCTIONS:
-1. ALL text content MUST be in English ONLY. Do not use any Chinese or other languages.
-2. thingsToKnow must be an array format, each element contains title and content
-3. Boolean values must be true or false, not strings
-4. Only return JSON object, do not include any other text
+===== CORE FIELDS (Way.com format) =====
+- name: Parking lot name (from listingName)
+- description: Detailed description (from listingDesc)
+- address: Full address (from address.addressString or combine address fields)
+- dailyRate: Daily price (number, in USD, from parkingTypes[0].listingPrice or parkingTypes[0].avgPrice)
+- distanceMiles: Distance from airport in miles (from airportDistance)
+- shuttleMins: Shuttle duration in minutes (extract from shuttleDescription or parkingTypes[0].duration)
+- rating: Overall rating (number between 1-5, from avgRating)
+- reviewCount: Number of reviews (from ratingCount or reviewAttribute.reviewCount)
+
+===== WAY.COM SPECIFIC FIELDS =====
+- shuttleDesc: Detailed shuttle description (from shuttleDescription, e.g., "Free shuttle service to and from the airport terminals, running every 15 minutes daily")
+- cancellationPolicy: Cancellation policy text (from cancellationPolicy)
+- parkingAccess: Arrival/parking instructions (from parkingAccess, clean HTML tags but keep structure)
+- operatingDays: Operating hours summary (from operatingDays array, format as readable text like "Open 24/7" or "Mon-Fri: 6AM-10PM, Sat-Sun: 8AM-8PM")
+- contactPhone: Contact phone number (from contactValue)
+- recommendationPct: Recommendation percentage (from recommendationPercentage)
+
+===== DETAILED RATINGS (Way.com) =====
+- locationRating: Location rating (from reviewAttribute.locationRating)
+- staffRating: Staff/service rating (from reviewAttribute.staffRating)
+- facilityRating: Facility rating (from reviewAttribute.facilityRating)
+- safetyRating: Safety rating (from reviewAttribute.safetyRating)
+
+===== FACILITY FEATURES =====
+- tags: Array of amenity tags (from amenities[].amenityName, convert to concise tags like ["Staffed", "Free Shuttle", "Camera Surveillance", "24 Hour Attendant"])
+- isIndoor: Whether indoor/covered parking (boolean, check amenities for "Covered" or parkingTypes for "Indoor")
+- hasValet: Whether valet service available (boolean, check parkingTypes[].parkingType for "Valet" or amenities)
+- is24Hours: Whether open 24 hours (boolean, check operatingDays or customMessage for "24/7")
+
+===== ADDITIONAL INFO =====
+- shuttleFrequency: Shuttle frequency short version (extract from shuttleDesc, e.g., "Every 15 mins")
+- shuttleHours: Shuttle operating hours (from shuttleDesc or operatingDays)
+- arrivalDirections: Simplified arrival directions (extract key info from parkingAccess, plain text)
+- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from:
+   * cancellationPolicy → "Cancellation Policy"
+   * customMessage → "Important Notes"
+   * parkingAccess → "Arrival Instructions"
+   * amenities → "Amenities"
+   Clean HTML tags, use concise text, keep only critical information
+
+===== INSTRUCTIONS =====
+1. ALL text content MUST be in English ONLY
+2. For dailyRate: Convert to number (e.g., 19.70 not "19.70")
+3. For operatingDays: If all days are 00:00-23:59, output "Open 24/7"
+4. For parkingAccess: Remove HTML tags but preserve paragraph structure
+5. thingsToKnow must be an array format with title and content
+6. Boolean values must be true or false, not strings
+7. Only return JSON object, do not include any other text
 
 Format:
 {
-  "name": "...",
-  "address": "...",
-  "dailyRate": 25.99,
-  "distanceMiles": 2.5,
-  "shuttleMins": 10,
-  "rating": 4.5,
-  "reviewCount": 120,
-  "tags": ["Self Park", "Covered"],
-  "shuttleFrequency": "Every 10-15 mins",
-  "shuttleHours": "24/7",
-  "arrivalDirections": "Arrival directions text or JSON",
-  "thingsToKnow": [
-    {"title": "Cancellation Policy", "content": "Reservations are non-refundable"},
-    {"title": "Operating Hours", "content": "Open 24 hours"}
-  ],
+  "name": "ARB Parking JFK Airport",
+  "description": "ARB Parking JFK Airport, just 0.8 mile from JFK Airport...",
+  "address": "128-20 152nd Ave, Queens, New York, 11420",
+  "dailyRate": 19.70,
+  "distanceMiles": 0.8,
+  "shuttleMins": 8,
+  "rating": 5.0,
+  "reviewCount": 688,
+  "shuttleDesc": "Free shuttle service to and from the airport terminals, running every 15 minutes daily",
+  "cancellationPolicy": "Flexible. You can cancel the parking reservation up to the minute before the check-in time and receive a full refund.",
+  "parkingAccess": "This facility is open 24/7. Customers must print out their confirmation emails...",
+  "operatingDays": "Open 24/7",
+  "contactPhone": "+1 7184806663",
+  "recommendationPct": 98,
+  "locationRating": 4.1,
+  "staffRating": 4.9,
+  "facilityRating": 4.8,
+  "safetyRating": 4.5,
+  "tags": ["Staffed", "Free Shuttle", "Camera Surveillance", "24 Hour Attendant", "Security Guard"],
   "isIndoor": false,
-  "hasValet": false,
-  "is24Hours": true
+  "hasValet": true,
+  "is24Hours": true,
+  "shuttleFrequency": "Every 15 mins",
+  "shuttleHours": "24/7",
+  "arrivalDirections": "Show your email confirmation to the attendant on your smartphone or as a printout...",
+  "thingsToKnow": [
+    {"title": "Cancellation Policy", "content": "Flexible cancellation up to check-in time with full refund"},
+    {"title": "Vehicle Types", "content": "Mini Van/SUV: +$5/day, Large SUV/Truck: +$7/day"},
+    {"title": "Check-in", "content": "Print confirmation and place on dashboard before handing to valet"}
+  ]
 }`;
 }
 

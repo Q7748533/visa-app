@@ -35,6 +35,19 @@ interface ParkingLot {
   shuttleHours: string | null;
   arrivalDirections: string | null;
   thingsToKnow: Array<{title?: string; content: string}> | null;
+  // Way.com 特有字段
+  description: string | null;
+  shuttleDesc: string | null;
+  cancellationPolicy: string | null;
+  parkingAccess: string | null;
+  operatingDays: string | null;
+  contactPhone: string | null;
+  recommendationPct: number | null;
+  locationRating: number | null;
+  staffRating: number | null;
+  facilityRating: number | null;
+  safetyRating: number | null;
+  dataSource: string;
 }
 
 export default function EditParkingPage({ params }: { params: Promise<{ id: string }> }) {
@@ -61,6 +74,19 @@ export default function EditParkingPage({ params }: { params: Promise<{ id: stri
     shuttleHours: '',
     arrivalDirections: '',
     thingsToKnow: [],
+    // Way.com 特有字段
+    description: '',
+    shuttleDesc: '',
+    cancellationPolicy: '',
+    parkingAccess: '',
+    operatingDays: '',
+    contactPhone: '',
+    recommendationPct: null,
+    locationRating: null,
+    staffRating: null,
+    facilityRating: null,
+    safetyRating: null,
+    dataSource: 'way.com',
   });
   const [airports, setAirports] = useState<Airport[]>([]);
   const [loading, setLoading] = useState(false);
@@ -227,9 +253,21 @@ export default function EditParkingPage({ params }: { params: Promise<{ id: stri
           shuttleFrequency: formData.shuttleFrequency || null,
           shuttleHours: formData.shuttleHours || null,
           arrivalDirections: formData.arrivalDirections || null,
-          thingsToKnow: formData.thingsToKnow && formData.thingsToKnow.length > 0 
-            ? JSON.stringify(formData.thingsToKnow) 
+          thingsToKnow: formData.thingsToKnow && formData.thingsToKnow.length > 0
+            ? JSON.stringify(formData.thingsToKnow)
             : null,
+          // Way.com 特有字段
+          description: formData.description || null,
+          shuttleDesc: formData.shuttleDesc || null,
+          cancellationPolicy: formData.cancellationPolicy || null,
+          parkingAccess: formData.parkingAccess || null,
+          operatingDays: formData.operatingDays || null,
+          contactPhone: formData.contactPhone || null,
+          recommendationPct: formData.recommendationPct ? parseInt(formData.recommendationPct.toString()) : null,
+          locationRating: formData.locationRating ? parseFloat(formData.locationRating.toString()) : null,
+          staffRating: formData.staffRating ? parseFloat(formData.staffRating.toString()) : null,
+          facilityRating: formData.facilityRating ? parseFloat(formData.facilityRating.toString()) : null,
+          safetyRating: formData.safetyRating ? parseFloat(formData.safetyRating.toString()) : null,
         }),
       });
 
@@ -672,6 +710,187 @@ export default function EditParkingPage({ params }: { params: Promise<{ id: stri
               />
               <span className="text-sm text-slate-700">启用</span>
             </label>
+          </div>
+
+          {/* Way.com 特有字段 - 分隔标题 */}
+          <div className="md:col-span-2 mt-6 pt-6 border-t border-slate-200">
+            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Way.com</span>
+              扩展字段
+            </h3>
+          </div>
+
+          {/* 详细描述 */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              详细描述
+            </label>
+            <textarea
+              value={formData.description || ''}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              placeholder="停车场详细描述..."
+              rows={4}
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 班车详细描述 */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              班车详细描述
+            </label>
+            <input
+              type="text"
+              value={formData.shuttleDesc || ''}
+              onChange={(e) => setFormData({ ...formData, shuttleDesc: e.target.value })}
+              placeholder="如：Free shuttle service to and from the airport terminals, running every 15 minutes daily"
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 取消政策 */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              取消政策
+            </label>
+            <textarea
+              value={formData.cancellationPolicy || ''}
+              onChange={(e) => setFormData({ ...formData, cancellationPolicy: e.target.value })}
+              placeholder="如：Flexible. You can cancel the parking reservation up to the minute before the check-in time..."
+              rows={3}
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 到达指引 */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              到达指引 (Parking Access)
+            </label>
+            <textarea
+              value={formData.parkingAccess || ''}
+              onChange={(e) => setFormData({ ...formData, parkingAccess: e.target.value })}
+              placeholder="到达停车场的详细指引..."
+              rows={4}
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 运营时间 */}
+          <div>
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              运营时间
+            </label>
+            <input
+              type="text"
+              value={formData.operatingDays || ''}
+              onChange={(e) => setFormData({ ...formData, operatingDays: e.target.value })}
+              placeholder="如：Open 24/7"
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 联系电话 */}
+          <div>
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              联系电话
+            </label>
+            <input
+              type="text"
+              value={formData.contactPhone || ''}
+              onChange={(e) => setFormData({ ...formData, contactPhone: e.target.value })}
+              placeholder="如：+1 7184806663"
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 推荐率 */}
+          <div>
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              推荐率 (%)
+            </label>
+            <input
+              type="number"
+              value={formData.recommendationPct || ''}
+              onChange={(e) => setFormData({ ...formData, recommendationPct: e.target.value ? parseInt(e.target.value) : null })}
+              placeholder="如：98"
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          {/* 数据来源 */}
+          <div>
+            <label className="block text-sm font-bold text-slate-700 mb-2">
+              数据来源
+            </label>
+            <select
+              value={formData.dataSource || 'way.com'}
+              onChange={(e) => setFormData({ ...formData, dataSource: e.target.value })}
+              className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+            >
+              <option value="way.com">Way.com</option>
+              <option value="spothero">SpotHero</option>
+              <option value="manual">手动录入</option>
+            </select>
+          </div>
+
+          {/* 细分评分 */}
+          <div className="md:col-span-2 mt-4">
+            <h4 className="text-sm font-bold text-slate-700 mb-3">细分评分 (Way.com)</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <label className="block text-xs text-slate-500 mb-1">位置评分</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  value={formData.locationRating || ''}
+                  onChange={(e) => setFormData({ ...formData, locationRating: e.target.value ? parseFloat(e.target.value) : null })}
+                  placeholder="0-5"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-slate-500 mb-1">服务评分</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  value={formData.staffRating || ''}
+                  onChange={(e) => setFormData({ ...formData, staffRating: e.target.value ? parseFloat(e.target.value) : null })}
+                  placeholder="0-5"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-slate-500 mb-1">设施评分</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  value={formData.facilityRating || ''}
+                  onChange={(e) => setFormData({ ...formData, facilityRating: e.target.value ? parseFloat(e.target.value) : null })}
+                  placeholder="0-5"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-slate-500 mb-1">安全评分</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  value={formData.safetyRating || ''}
+                  onChange={(e) => setFormData({ ...formData, safetyRating: e.target.value ? parseFloat(e.target.value) : null })}
+                  placeholder="0-5"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </div>
+            </div>
           </div>
         </div>
 

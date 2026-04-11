@@ -166,6 +166,9 @@ export async function POST(req: Request) {
         staffRating: data.staffRating ? parseFloat(data.staffRating) : null,
         facilityRating: data.facilityRating ? parseFloat(data.facilityRating) : null,
         safetyRating: data.safetyRating ? parseFloat(data.safetyRating) : null,
+        // 评论数据
+        rawReviews: data.rawReviews || null,
+        reviewSummary: data.reviewSummary ? JSON.stringify(data.reviewSummary) : null,
         dataSource: data.dataSource || 'way.com',
       },
     });

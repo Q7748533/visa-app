@@ -94,6 +94,18 @@ model ParkingLot {
   rating          Float?   // 评分，例如: 4.8
   reviewCount     Int?     // 评论数，例如: 1240
 
+  // ===== 用户评论数据 =====
+  rawReviews          String?   // 原始用户评论数据（JSON数组，备查）
+  reviewSummary       String?   // AI清洗后的评论摘要（JSON格式）
+  // reviewSummary 结构: {
+  //   "overallSentiment": "positive",
+  //   "pros": ["Fast shuttle", "Clean facility"],
+  //   "cons": ["Limited spaces"],
+  //   "commonThemes": ["shuttle service", "staff friendliness"],
+  //   "representativeQuotes": ["Shuttle was quick and easy"],
+  //   "ratingDistribution": {"5": 60, "4": 25, "3": 10, "2": 3, "1": 2}
+  // }
+
   // 💰 联盟分佣通道
   affiliateUrl    String?  // 跳转到 Way.com / SpotHero 的联盟分佣链接
 

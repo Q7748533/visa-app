@@ -39,6 +39,15 @@ interface ParsedParkingData {
   staffRating?: number;
   facilityRating?: number;
   safetyRating?: number;
+  // 评论摘要
+  reviewSummary?: {
+    overallSentiment: string;
+    pros: string[];
+    cons: string[];
+    commonThemes: string[];
+    representativeQuotes: string[];
+    ratingDistribution: Record<string, number>;
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -121,6 +130,17 @@ Please extract the following fields (set to null or empty array if not present i
 - staffRating: Staff/service rating (from reviewAttribute.staffRating, number 0-5)
 - facilityRating: Facility rating (from reviewAttribute.facilityRating, number 0-5)
 - safetyRating: Safety rating (from reviewAttribute.safetyRating, number 0-5)
+
+===== USER REVIEWS ANALYSIS (if review data provided) =====
+- reviewSummary: Object containing analyzed review data (DO NOT include raw reviews, only extracted insights):
+  {
+    "overallSentiment": "positive" | "mixed" | "negative",
+    "pros": ["Fast shuttle service", "Friendly staff", "Clean facility"], // Top 3-5 positive aspects
+    "cons": ["Limited parking spaces"], // Top 1-3 negative aspects (if any)
+    "commonThemes": ["shuttle speed", "staff helpfulness", "facility cleanliness"], // Recurring topics
+    "representativeQuotes": ["Shuttle was quick and easy", "Staff was very helpful"], // 2-3 authentic-sounding paraphrased quotes (not copied)
+    "ratingDistribution": {"5": 60, "4": 25, "3": 10, "2": 3, "1": 2} // Percentage distribution
+  }
 
 IMPORTANT INSTRUCTIONS:
 1. ALL text content MUST be in English ONLY. Do not use any Chinese or other languages.
@@ -311,6 +331,8 @@ function parseAIResponse(response: string): ParsedParkingData {
         staffRating: parsed.staffRating || undefined,
         facilityRating: parsed.facilityRating || undefined,
         safetyRating: parsed.safetyRating || undefined,
+        // 评论摘要
+        reviewSummary: parsed.reviewSummary || undefined,
       };
     }
     throw new Error('无法解析 AI 响应');

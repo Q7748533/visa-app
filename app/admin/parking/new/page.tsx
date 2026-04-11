@@ -138,6 +138,8 @@ export default function NewParkingPage() {
             staffRating: parsed.staffRating !== undefined ? String(parsed.staffRating) : prev.staffRating,
             facilityRating: parsed.facilityRating !== undefined ? String(parsed.facilityRating) : prev.facilityRating,
             safetyRating: parsed.safetyRating !== undefined ? String(parsed.safetyRating) : prev.safetyRating,
+            // 评论摘要
+            reviewSummary: parsed.reviewSummary ? JSON.stringify(parsed.reviewSummary, null, 2) : prev.reviewSummary,
           };
         });
 

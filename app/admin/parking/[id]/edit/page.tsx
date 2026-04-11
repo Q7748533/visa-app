@@ -220,6 +220,8 @@ export default function EditParkingPage({ params }: { params: Promise<{ id: stri
             staffRating: parsed.staffRating !== undefined ? parsed.staffRating : prev.staffRating,
             facilityRating: parsed.facilityRating !== undefined ? parsed.facilityRating : prev.facilityRating,
             safetyRating: parsed.safetyRating !== undefined ? parsed.safetyRating : prev.safetyRating,
+            // 评论摘要
+            reviewSummary: parsed.reviewSummary || prev.reviewSummary,
           };
         });
 

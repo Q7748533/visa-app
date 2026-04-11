@@ -98,7 +98,7 @@ export default async function AirportsPage() {
     itemListElement: airportCodes.map((code, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://airportmatrix.com/airport/${code.toLowerCase()}/parking`,
+      url: `https://airportmatrix.com/airports/${code.toLowerCase()}/parking`,
       name: `${code} Airport Parking`,
     })),
   };
@@ -119,7 +119,7 @@ export default async function AirportsPage() {
           addressLocality: airport.city.split(",")[0]?.trim(),
           addressCountry: "US",
         },
-        url: `https://airportmatrix.com/airport/${airport.iata.toLowerCase()}/parking`,
+        url: `https://airportmatrix.com/airports/${airport.iata.toLowerCase()}/parking`,
       },
     })),
   };

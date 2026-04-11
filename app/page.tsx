@@ -255,7 +255,7 @@ export default async function HomePage() {
               {popularAirports.map((airport) => (
                 <Link
                   key={airport.iata}
-                  href={`/airport/${airport.iata.toLowerCase()}/parking`}
+                  href={`/airports/${airport.iata.toLowerCase()}/parking`}
                   className="bg-white rounded-xl p-3 md:p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center"
                 >
                   <div className="text-lg md:text-xl font-black text-blue-600">{airport.iata}</div>

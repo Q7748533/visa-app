@@ -95,7 +95,7 @@ export async function GET(request: NextRequest) {
         city: `${a.city}, ${a.country}`,
         isPopular: a.isPopular,
         parkingCount: a._count.parkings,
-        url: `/airport/${a.iataCode?.toLowerCase() || a.iata.toLowerCase()}/parking`,
+        url: `/airports/${a.iataCode?.toLowerCase() || a.iata.toLowerCase()}/parking`,
       })),
       parkings: parkings.map(p => ({
         id: p.id,

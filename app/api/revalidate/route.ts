@@ -53,8 +53,8 @@ export async function POST(request: NextRequest) {
         // 刷新机场详情页
         if (iata) {
           const iataLower = iata.toLowerCase();
-          revalidatePath(`/airport/${iataLower}/parking`);
-          revalidated.push(`/airport/${iataLower}/parking`);
+          revalidatePath(`/airports/${iataLower}/parking`);
+          revalidated.push(`/airports/${iataLower}/parking`);
           
           // 同时刷新机场列表页（因为列表页显示该机场的最低价格）
           revalidatePath('/airports');

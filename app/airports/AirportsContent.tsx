@@ -85,7 +85,7 @@ export default function AirportsContent({
             {popularAirports.map(airport => (
               <Link
                 key={`pop-${airport.iata}`}
-                href={`/airport/${airport.iata.toLowerCase()}/parking`}
+                href={`/airports/${airport.iata.toLowerCase()}/parking`}
                 className="group bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl md:rounded-2xl p-4 md:p-5 text-white hover:shadow-xl hover:shadow-blue-900/20 hover:-translate-y-1 transition-all relative overflow-hidden"
                 aria-label={`View ${airport.name} (${airport.iata}) airport parking${airport.minRate ? ` — from $${airport.minRate.toFixed(2)}/day` : ""}`}
               >
@@ -163,7 +163,7 @@ function AirportDirectory({ airports }: { airports: AirportData[] }) {
           {airports.map((airport) => (
             <Link
               key={airport.iata}
-              href={`/airport/${airport.iata.toLowerCase()}/parking`}
+              href={`/airports/${airport.iata.toLowerCase()}/parking`}
               className="group block md:grid md:grid-cols-12 gap-4 px-4 md:px-6 py-3 md:py-4 hover:bg-slate-50 transition-colors items-center"
               aria-label={`${airport.name} (${airport.iata}) parking${airport.minRate ? ` — from $${airport.minRate.toFixed(2)}/day` : ""}`}
             >

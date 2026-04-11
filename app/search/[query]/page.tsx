@@ -181,7 +181,7 @@ export default async function SearchResultsPage({
         ...airports.map((airport, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          url: `https://airportmatrix.com/airport/${(airport.iataCode || airport.iata).toLowerCase()}/parking`,
+          url: `https://airportmatrix.com/airports/${(airport.iataCode || airport.iata).toLowerCase()}/parking`,
           name: `${(airport.iataCode || airport.iata).toUpperCase()} Airport Parking`,
         })),
         ...parkings.map((parking, index) => ({
@@ -273,7 +273,7 @@ export default async function SearchResultsPage({
                     {airports.map((airport) => (
                       <Link
                         key={airport.iata}
-                        href={`/airport/${(airport.iataCode || airport.iata).toLowerCase()}/parking`}
+                        href={`/airports/${(airport.iataCode || airport.iata).toLowerCase()}/parking`}
                         className="block bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:border-blue-300 transition-all"
                       >
                         <div className="flex items-start justify-between">
@@ -403,7 +403,7 @@ export default async function SearchResultsPage({
                   {["JFK", "LAX", "ORD", "DFW", "ATL"].map((code) => (
                     <Link
                       key={code}
-                      href={`/airport/${code.toLowerCase()}/parking`}
+                      href={`/airports/${code.toLowerCase()}/parking`}
                       className="flex items-center justify-between py-2 text-slate-600 hover:text-blue-600 transition-colors"
                     >
                       <span>{code} Airport</span>

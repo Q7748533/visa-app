@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { cookies } from 'next/headers';
-import { revalidatePath } from 'next/cache';
+import { revalidateAirport, revalidateParking } from '@/app/api/revalidate/route';
 
 // 验证管理员身份
 async function verifyAdmin() {
@@ -145,10 +145,11 @@ export async function PUT(
       },
     });
 
-    // 重新验证相关页面缓存
-    const iataLower = data.airportIataCode.toLowerCase();
-    revalidatePath(`/airport/${iataLower}/parking`);
-    revalidatePath(`/parking/${parking.slug}`);
+    // 刷新缓存 - 异步执行，不阻塞响应
+    Promise.all([
+      revalidateParking(parking.slug),
+      revalidateAirport(data.airportIataCode),
+    ]).catch(console.error);
 
     return NextResponse.json({
       success: true,
@@ -198,12 +199,10 @@ export async function DELETE(
       data: { isActive: false, deletedAt: new Date() },
     });
 
-    // 重新验证相关页面缓存
-    const iataLower = parking.airport.iataCode?.toLowerCase() || '';
-    if (iataLower) {
-      revalidatePath(`/airport/${iataLower}/parking`);
+    // 刷新缓存 - 异步执行，不阻塞响应
+    if (parking.airport.iataCode) {
+      revalidateAirport(parking.airport.iataCode).catch(console.error);
     }
-    revalidatePath(`/parking/${parking.slug}`);
 
     return NextResponse.json({
       success: true,

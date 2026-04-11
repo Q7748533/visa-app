@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { cookies } from 'next/headers';
+import { revalidateAirport, revalidateParking } from '@/app/api/revalidate/route';
 
 // 生成 SEO 友好的 slug
 function generateSlug(airportIataCode: string, name: string): string {
@@ -148,6 +149,10 @@ export async function POST(req: Request) {
         featured: data.featured || false,
         isActive: data.isActive !== false,
         affiliateUrl: data.affiliateUrl || null,
+        // 评论数据
+        rawReviews: data.rawReviews || null,
+        reviewSummary: data.reviewSummary ? JSON.stringify(data.reviewSummary) : null,
+        dataSource: data.dataSource || 'way.com',
         // 详情页扩展字段
         address: data.address || null,
         shuttleFrequency: data.shuttleFrequency || null,
@@ -166,12 +171,14 @@ export async function POST(req: Request) {
         staffRating: data.staffRating ? parseFloat(data.staffRating) : null,
         facilityRating: data.facilityRating ? parseFloat(data.facilityRating) : null,
         safetyRating: data.safetyRating ? parseFloat(data.safetyRating) : null,
-        // 评论数据
-        rawReviews: data.rawReviews || null,
-        reviewSummary: data.reviewSummary ? JSON.stringify(data.reviewSummary) : null,
-        dataSource: data.dataSource || 'way.com',
       },
     });
+
+    // 刷新缓存 - 异步执行，不阻塞响应
+    Promise.all([
+      revalidateParking(parking.slug),
+      revalidateAirport(data.airportIataCode),
+    ]).catch(console.error);
 
     return NextResponse.json({
       success: true,
@@ -206,11 +213,24 @@ export async function DELETE(req: Request) {
       );
     }
 
+    // 获取要删除的停车场的机场信息，用于刷新缓存
+    const parkingsToDelete = await prisma.parkingLot.findMany({
+      where: { id: { in: ids } },
+      select: { airportIataCode: true },
+    });
+
+    const affectedAirports = [...new Set(parkingsToDelete.map(p => p.airportIataCode))];
+
     const result = await prisma.parkingLot.deleteMany({
       where: {
         id: { in: ids },
       },
     });
+
+    // 刷新缓存 - 异步执行，不阻塞响应
+    Promise.all(
+      affectedAirports.map(iata => revalidateAirport(iata))
+    ).catch(console.error);
 
     return NextResponse.json({
       success: true,

@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { prisma } from "@/lib/db";
+import { ParkingLot, RelatedParkingLot } from "./types";
+import { parseTags, parseArrivalDirections, parseThingsToKnow, generateGeneralFAQs } from "./utils";
 import {
-  ArrowLeft,
-  MapPin,
-  Clock,
-  Star,
-  Car,
-  Bus,
-  ExternalLink,
-  DollarSign,
-  Navigation,
-  AlertTriangle,
-  Check,
-  HelpCircle,
-} from "lucide-react";
+  ParkingHero,
+  ParkingDescription,
+  ParkingRatings,
+  ParkingShuttle,
+  ParkingDirections,
+  ParkingThingsToKnow,
+  ParkingFAQ,
+  ParkingAmenities,
+  ParkingRelated,
+  ParkingBookingCard,
+  ParkingJsonLd,
+} from "./components";
 
 // Static generation with ISR - revalidate every hour
 export const revalidate = 3600;
@@ -24,31 +26,31 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-async function getParkingLot(slug: string) {
+async function getParkingLot(slug: string): Promise<ParkingLot | null> {
   const parking = await prisma.parkingLot.findUnique({
     where: { slug, isActive: true },
     include: {
       airport: true,
     },
   });
-  return parking;
+  return parking as unknown as ParkingLot | null;
 }
 
-async function getRelatedParkingLots(airportId: string, currentSlug: string, limit: number = 3) {
-  
+async function getRelatedParkingLots(
+  airportId: string,
+  currentSlug: string,
+  limit: number = 3
+): Promise<RelatedParkingLot[]> {
   const lots = await prisma.parkingLot.findMany({
-    where: { 
-      airportIataCode: airportId, 
+    where: {
+      airportIataCode: airportId,
       isActive: true,
-      slug: { not: currentSlug }
+      slug: { not: currentSlug },
     },
-    orderBy: [
-      { featured: 'desc' },
-      { dailyRate: 'asc' }
-    ],
+    orderBy: [{ featured: "desc" }, { dailyRate: "asc" }],
     take: limit,
   });
-  return lots;
+  return lots as unknown as RelatedParkingLot[];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -111,150 +113,30 @@ export default async function ParkingDetailPage({ params }: Props) {
   // 获取同机场的其他停车场
   const relatedLots = await getRelatedParkingLots(parking.airportIataCode, slug, 3);
 
-  // 安全解析 JSON 字段
-  let tags: string[] = [];
-  try {
-    if (parking.tags && parking.tags.trim() !== '' && parking.tags !== '[]') {
-      tags = JSON.parse(parking.tags);
-    }
-  } catch (e) {
-    console.error('Failed to parse tags:', e);
-  }
-  
-  // 处理 arrivalDirections - 支持 JSON 格式或普通文本
-  let arrivalDirections: any = null;
-  let arrivalDirectionsText: string | null = null;
-  try {
-    if (parking.arrivalDirections && parking.arrivalDirections.trim() !== '' && parking.arrivalDirections !== '{}') {
-      const trimmed = parking.arrivalDirections.trim();
-      if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
-        // JSON 格式
-        arrivalDirections = JSON.parse(parking.arrivalDirections);
-      } else {
-        // 普通文本格式
-        arrivalDirectionsText = parking.arrivalDirections;
-      }
-    }
-  } catch (e) {
-    console.error('Failed to parse arrivalDirections:', e);
-    arrivalDirectionsText = parking.arrivalDirections;
-  }
-  
-  let thingsToKnow: Array<{title?: string; content: string}> = [];
-  try {
-    if (parking.thingsToKnow && parking.thingsToKnow.trim() !== '' && parking.thingsToKnow !== '[]') {
-      const trimmed = parking.thingsToKnow.trim();
-      if (trimmed.startsWith('[')) {
-        // 标准格式：数组
-        thingsToKnow = JSON.parse(parking.thingsToKnow);
-      } else if (trimmed.startsWith('{')) {
-        // 错误格式：对象（可能是 arrivalDirections 的数据）
-        // 尝试转换或忽略
-        console.warn('thingsToKnow is an object, not an array. Data may be incorrect.');
-        thingsToKnow = [];
-      }
-    }
-  } catch (e) {
-    console.error('Failed to parse thingsToKnow:', e);
-    thingsToKnow = [];
-  }
+  // 解析数据
+  const tags = parseTags(parking.tags);
+  const { directions: arrivalDirections, text: arrivalDirectionsText } = parseArrivalDirections(parking.arrivalDirections);
+  const thingsToKnow = parseThingsToKnow(parking.thingsToKnow);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ParkingFacility",
-    name: parking.name,
-    description: `${parking.name} at ${parking.airport.name} (${parking.airport.iata}). $${parking.dailyRate}/day with free shuttle.`,
-    url: `https://airportmatrix.com/parking/${slug}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: parking.airport.city,
-      addressRegion: "USA",
-      streetAddress: parking.address || `${parking.airport.city}, ${parking.airport.country}`,
-    },
-    priceRange: `$${parking.dailyRate}`,
-    aggregateRating: parking.rating
-      ? {
-          "@type": "AggregateRating",
-          ratingValue: parking.rating,
-          reviewCount: parking.reviewCount || 0,
-          bestRating: 5,
-          worstRating: 1,
-        }
-      : undefined,
-    amenityFeature: [
-      { "@type": "LocationFeatureSpecification", name: "Free Shuttle", value: true },
-      { "@type": "LocationFeatureSpecification", name: "24/7 Service", value: parking.is24Hours },
-      { "@type": "LocationFeatureSpecification", name: "Indoor Parking", value: parking.isIndoor },
-      { "@type": "LocationFeatureSpecification", name: "Valet Service", value: parking.hasValet },
-    ].filter((a) => a.value),
-    openingHoursSpecification: parking.is24Hours
-      ? {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          opens: "00:00",
-          closes: "23:59",
-        }
-      : undefined,
-    geo: parking.distanceMiles
-      ? {
-          "@type": "GeoCoordinates",
-          latitude: 0,
-          longitude: 0,
-        }
-      : undefined,
-  };
-
-  // FAQ Schema - 通用 FAQ + Things You Should Know
-  const generalFAQs = [
-    {
-      question: `Do parking lots at ${parking.airport.iata} offer discounts for longer stays?`,
-      answer: `Yes, many airport parking facilities offer discounted daily rates for extended stays. While our listed prices show the base rate for comparison, you can often save 10-20% per day when booking 3+ days of parking. The exact discount varies by facility, season, and availability.`,
-    },
-    {
-      question: `How does the shuttle service work at ${parking.name}?`,
-      answer: `${parking.shuttleFrequency ? `This facility offers ${parking.shuttleFrequency} shuttle service to ${parking.airport.iata} airport. ` : `This facility provides shuttle service to ${parking.airport.iata} airport. `}${parking.shuttleHours ? `Shuttles operate ${parking.shuttleHours}. ` : 'Shuttles typically run 24/7. '}Simply park your vehicle and proceed to the designated shuttle pickup area. Upon your return, the shuttle will bring you back to your car.`,
-    },
-    {
-      question: `Is my vehicle secure at ${parking.name}?`,
-      answer: `${parking.isIndoor ? 'This facility offers covered/indoor parking, providing additional protection from weather elements. ' : 'This is an open-air parking facility. '}Most airport parking lots have security measures including surveillance cameras, on-site staff, and gated access. We recommend removing valuables from your vehicle and ensuring it is locked before leaving.`,
-    },
-  ];
-
-  const cancellationFAQ = thingsToKnow.find((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'));
-  if (cancellationFAQ) {
-    generalFAQs.push({
-      question: `What is the cancellation policy for ${parking.name}?`,
-      answer: cancellationFAQ.content,
-    });
-  }
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      ...generalFAQs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-      ...thingsToKnow.map((item) => ({
-        "@type": "Question",
-        name: item.title || `What should I know about ${parking.name}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.content,
-        },
-      })),
-    ],
-  };
+  // 生成 FAQ
+  const generalFAQs = generateGeneralFAQs(
+    parking.airport.iata,
+    parking.dailyRate,
+    parking.shuttleFrequency,
+    parking.shuttleHours,
+    parking.isIndoor,
+    parking.cancellationPolicy,
+    thingsToKnow
+  );
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <ParkingJsonLd
+        parking={parking}
+        slug={slug}
+        generalFAQs={generalFAQs}
+        thingsToKnow={thingsToKnow}
+      />
 
       <div className="min-h-screen bg-slate-50 font-sans pb-32 text-slate-800">
         {/* Header */}
@@ -287,453 +169,58 @@ export default async function ParkingDetailPage({ params }: Props) {
 
           <div className="grid lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8 items-start">
             {/* Left Column - Info */}
-              <div className="lg:col-span-2 space-y-4 md:space-y-6">
-              
-              {/* Main Info Card */}
-              <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
-                <div className="flex flex-col md:flex-row justify-between items-start gap-3 md:gap-4 mb-5 md:mb-6">
-                  <div>
-                    <div className="flex items-center gap-1.5 md:gap-2 mb-2 md:mb-3">
-                      <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-100 text-slate-700 font-black text-[9px] md:text-[10px] uppercase tracking-wider rounded-lg">
-                        {parking.airport.iata} Airport
-                      </span>
-                      {parking.featured && (
-                        <span className="px-2 md:px-3 py-0.5 md:py-1 bg-amber-100 text-amber-700 font-black text-[9px] md:text-[10px] uppercase tracking-wider rounded-lg">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-1.5 md:mb-2">
-                      {parking.name} Parking at {parking.airport.iata} Airport
-                    </h1>
-                    <p className="text-slate-500 font-medium flex items-start sm:items-center mt-3 text-sm sm:text-base">
-                      <MapPin className="w-4 h-4 mr-1.5 mt-0.5 sm:mt-0 text-slate-400 shrink-0" />
-                      {parking.address || `${parking.airport.city}, ${parking.airport.country}`}
-                    </p>
-                  </div>
-                  {parking.rating && (
-                    <div className="text-left md:text-right shrink-0">
-                      <div className="flex items-center gap-1 text-amber-500 justify-start md:justify-end">
-                        <Star className="w-6 h-6 fill-amber-500" />
-                        <span className="font-black text-2xl text-slate-900">{parking.rating}</span>
-                      </div>
-                      <p className="text-sm font-semibold text-slate-400 mt-1">{parking.reviewCount || 0} reviews</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 md:gap-2 mb-6 md:mb-8">
-                  {parking.hasValet ? (
-                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Valet Parking</span>
-                  ) : (
-                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Self Park</span>
-                  )}
-                  {parking.isIndoor ? (
-                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Indoor</span>
-                  ) : (
-                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Uncovered</span>
-                  )}
-                  <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">On-Site Staff</span>
-                  <span className="px-2 md:px-3 py-0.5 md:py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full border border-emerald-100">Free Shuttle</span>
-                </div>
-
-                {/* Key Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 py-4 md:py-6 border-t border-slate-100">
-                  <div className="text-center">
-                    <div className="w-9 h-9 md:w-10 md:h-10 mx-auto bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-1.5 md:mb-2">
-                      <DollarSign className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 md:mb-1">Base Rate</p>
-                    <p className="font-black text-slate-900 text-sm md:text-base">${parking.dailyRate.toFixed(2)}</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-9 h-9 md:w-10 md:h-10 mx-auto bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-1.5 md:mb-2">
-                      <MapPin className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 md:mb-1">Distance</p>
-                    <p className="font-black text-slate-900 text-sm md:text-base">{parking.distanceMiles ? `${parking.distanceMiles} mi` : "N/A"}</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-9 h-9 md:w-10 md:h-10 mx-auto bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-1.5 md:mb-2">
-                      <Clock className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 md:mb-1">Travel Time</p>
-                    <p className="font-black text-slate-900 text-sm md:text-base">{parking.shuttleMins ? `${parking.shuttleMins} min` : "N/A"}</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-9 h-9 md:w-10 md:h-10 mx-auto bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-1.5 md:mb-2">
-                      <Car className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5 md:mb-1">Lot Type</p>
-                    <p className="font-black text-slate-900 text-sm md:text-base">{parking.type === "OFFICIAL" ? "Official" : "Off-Site"}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Description */}
-              {parking.description && (
-                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
-                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                    <span className="p-1.5 md:p-2 bg-blue-50 text-blue-600 rounded-lg">
-                      <Car className="w-4 h-4 md:w-5 md:h-5" />
-                    </span>
-                    About This Facility
-                  </h2>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {parking.description}
-                  </p>
-                </div>
-              )}
-
-              {/* Detailed Ratings (Way.com) */}
-              {(parking.locationRating || parking.staffRating || parking.facilityRating || parking.safetyRating) && (
-                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
-                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                    <span className="p-1.5 md:p-2 bg-amber-50 text-amber-600 rounded-lg">
-                      <Star className="w-4 h-4 md:w-5 md:h-5" />
-                    </span>
-                    Detailed Ratings
-                  </h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-                    {parking.locationRating && (
-                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Location</p>
-                        <div className="flex items-center justify-center gap-1">
-                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                          <span className="text-lg font-black text-slate-800">{parking.locationRating}</span>
-                        </div>
-                      </div>
-                    )}
-                    {parking.staffRating && (
-                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Service</p>
-                        <div className="flex items-center justify-center gap-1">
-                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                          <span className="text-lg font-black text-slate-800">{parking.staffRating}</span>
-                        </div>
-                      </div>
-                    )}
-                    {parking.facilityRating && (
-                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Facility</p>
-                        <div className="flex items-center justify-center gap-1">
-                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                          <span className="text-lg font-black text-slate-800">{parking.facilityRating}</span>
-                        </div>
-                      </div>
-                    )}
-                    {parking.safetyRating && (
-                      <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-100 text-center">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Safety</p>
-                        <div className="flex items-center justify-center gap-1">
-                          <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                          <span className="text-lg font-black text-slate-800">{parking.safetyRating}</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  {parking.recommendationPct && (
-                    <div className="mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-center">
-                      <p className="text-sm text-emerald-800">
-                        <span className="font-black text-emerald-600">{parking.recommendationPct}%</span> of guests recommend this facility
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Shuttle Schedule */}
-              {(parking.shuttleFrequency || parking.shuttleHours || parking.shuttleDesc) && (
-                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm relative overflow-hidden">
-                  <div className="absolute -right-4 -top-4 opacity-[0.03]">
-                    <Bus className="w-36 h-36 md:w-48 md:h-48" />
-                  </div>
-                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3 relative z-10">
-                    <span className="p-1.5 md:p-2 bg-blue-50 text-blue-600 rounded-lg">
-                      <Clock className="w-4 h-4 md:w-5 md:h-5" />
-                    </span>
-                    Shuttle Schedule & Details
-                  </h2>
-                  {parking.shuttleDesc && (
-                    <p className="text-sm text-slate-600 mb-4 leading-relaxed relative z-10">
-                      {parking.shuttleDesc}
-                    </p>
-                  )}
-                  <div className="grid sm:grid-cols-2 gap-3 md:gap-4 relative z-10">
-                    {parking.shuttleFrequency && (
-                      <div className="bg-slate-50 p-4 md:p-5 rounded-xl md:rounded-2xl border border-slate-100">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5 md:mb-1">Frequency</p>
-                        <p className="text-base md:text-lg font-black text-slate-800">{parking.shuttleFrequency}</p>
-                      </div>
-                    )}
-                    {parking.shuttleHours && (
-                      <div className="bg-slate-50 p-4 md:p-5 rounded-xl md:rounded-2xl border border-slate-100">
-                        <p className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-0.5 md:mb-1">Operating Hours</p>
-                        <p className="text-base md:text-lg font-black text-slate-800">{parking.shuttleHours}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Arrival Directions */}
-              {(arrivalDirections || arrivalDirectionsText || parking.parkingAccess) && (
-                <div className="bg-indigo-50 rounded-2xl md:rounded-3xl border border-indigo-100 p-5 md:p-6 lg:p-8 shadow-sm">
-                  <h2 className="text-lg md:text-xl font-black text-indigo-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                    <span className="p-1.5 md:p-2 bg-indigo-200 text-indigo-700 rounded-lg">
-                      <Navigation className="w-4 h-4 md:w-5 md:h-5" />
-                    </span>
-                    Arrival & Directions
-                  </h2>
-                  <div className="space-y-4 md:space-y-6 text-sm font-medium text-indigo-900/80 leading-relaxed">
-                    {/* Way.com parkingAccess */}
-                    {parking.parkingAccess && (
-                      <div dangerouslySetInnerHTML={{ __html: parking.parkingAccess }} />
-                    )}
-
-                    {/* 普通文本格式 */}
-                    {arrivalDirectionsText && (
-                      <p>{arrivalDirectionsText}</p>
-                    )}
-
-                    {/* JSON 数组格式：步骤列表 */}
-                    {arrivalDirections && Array.isArray(arrivalDirections) && (
-                      <ol className="space-y-4 list-decimal list-inside">
-                        {arrivalDirections.map((step: { text?: string; description?: string }, index: number) => (
-                          <li key={index} className="pl-2">
-                            {step.text || step.description || ''}
-                          </li>
-                        ))}
-                      </ol>
-                    )}
-
-                    {/* JSON 对象格式：fromWest/fromNorth */}
-                    {arrivalDirections && !Array.isArray(arrivalDirections) && (
-                      <>
-                        {arrivalDirections.fromWest && (
-                          <div>
-                            <strong className="text-indigo-900 block mb-1 text-base">🚗 From West and South:</strong>
-                            <p>{arrivalDirections.fromWest.description}</p>
-                            {arrivalDirections.fromWest.warning && (
-                              <div className="mt-2 md:mt-3 bg-rose-50 border border-rose-100 p-2.5 md:p-3.5 rounded-xl flex items-start gap-2 md:gap-3">
-                                <AlertTriangle className="w-4 h-4 md:w-5 md:h-5 text-rose-500 shrink-0 mt-0.5" />
-                                <p className="text-rose-700 font-bold text-sm">{arrivalDirections.fromWest.warning}</p>
-                              </div>
-                            )}
-                          </div>
-                        )}
-                        {arrivalDirections.fromNorth && (
-                          <>
-                            <div className="h-px w-full bg-indigo-200/60" />
-                            <div>
-                              <strong className="text-indigo-900 block mb-1 text-base">🚙 From North to East:</strong>
-                              <p>{arrivalDirections.fromNorth.description}</p>
-                              {arrivalDirections.fromNorth.warning && (
-                                <div className="mt-2 md:mt-3 bg-rose-50 border border-rose-100 p-2.5 md:p-3.5 rounded-xl flex items-start gap-2 md:gap-3">
-                                  <AlertTriangle className="w-4 h-4 md:w-5 md:h-5 text-rose-500 shrink-0 mt-0.5" />
-                                  <p className="text-rose-700 font-bold text-sm">{arrivalDirections.fromNorth.warning}</p>
-                                </div>
-                              )}
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Things You Should Know */}
-              {thingsToKnow.length > 0 && (
-                <div className="bg-amber-50 rounded-2xl md:rounded-3xl border border-amber-100 p-5 md:p-6 lg:p-8 shadow-sm">
-                  <h2 className="text-lg md:text-xl font-black text-amber-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                    <span className="p-1.5 md:p-2 bg-amber-200 text-amber-700 rounded-lg">
-                      <AlertTriangle className="w-4 h-4 md:w-5 md:h-5" />
-                    </span>
-                    Things You Should Know
-                  </h2>
-                  <ul className="space-y-3 md:space-y-4">
-                    {thingsToKnow.map((item: { title?: string; content: string }, index: number) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
-                        <p className="text-sm font-medium text-amber-900/80 leading-relaxed">
-                          {item.title && <strong className="text-amber-900">{item.title}:</strong>} {item.content}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* FAQ Section - SEO Optimized */}
-              <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
-                <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                  <span className="p-1.5 md:p-2 bg-blue-100 text-blue-600 rounded-lg">
-                    <HelpCircle className="w-4 h-4 md:w-5 md:h-5" />
-                  </span>
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4 md:space-y-6">
-                  {/* Q1: Long-term discounts */}
-                  <div className="border-b border-slate-100 pb-4 md:pb-6 last:border-0 last:pb-0">
-                    <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2">
-                      Do parking lots offer discounts for longer stays?
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Yes, many airport parking facilities offer <strong>discounted daily rates for extended stays</strong>. 
-                      While our listed prices show the base rate for comparison, you can often save 10-20% per day when booking 3+ days of parking. 
-                      For example, a lot showing ${Number(parking.dailyRate).toFixed(2)}/day might charge less per day for a 5-day reservation. 
-                      The exact discount varies by facility, season, and availability.
-                    </p>
-                  </div>
-                  
-                  {/* Q2: Shuttle service */}
-                  <div className="border-b border-slate-100 pb-4 md:pb-6 last:border-0 last:pb-0">
-                    <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2">
-                      How does the shuttle service work?
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {parking.shuttleFrequency 
-                        ? `This facility offers ${parking.shuttleFrequency.toLowerCase()} shuttle service to ${parking.airport.iata} airport. `
-                        : `This facility provides shuttle service to ${parking.airport.iata} airport. `
-                      }
-                      {parking.shuttleHours 
-                        ? `Shuttles operate ${parking.shuttleHours.toLowerCase()}. `
-                        : 'Shuttles typically run 24/7. '
-                      }
-                      Simply park your vehicle and proceed to the designated shuttle pickup area. 
-                      Upon your return, the shuttle will bring you back to your car.
-                    </p>
-                  </div>
-                  
-                  {/* Q3: Security */}
-                  <div className="border-b border-slate-100 pb-4 md:pb-6 last:border-0 last:pb-0">
-                    <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2">
-                      Is my vehicle secure at this facility?
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {parking.isIndoor 
-                        ? 'This facility offers covered/indoor parking, providing additional protection from weather elements. '
-                        : 'This is an open-air parking facility. '
-                      }
-                      Most airport parking lots have security measures including surveillance cameras, 
-                      on-site staff, and gated access. We recommend removing valuables from your vehicle 
-                      and ensuring it is locked before leaving.
-                    </p>
-                  </div>
-                  
-                  {/* Q4: Cancellation - from cancellationPolicy or thingsToKnow */}
-                  {(parking.cancellationPolicy || thingsToKnow.some((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'))) && (
-                    <div className="border-b border-slate-100 pb-4 md:pb-6 last:border-0 last:pb-0">
-                      <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2">
-                        What is the cancellation policy?
-                      </h3>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        {parking.cancellationPolicy || thingsToKnow.find((item: {title?: string}) => item.title?.toLowerCase().includes('cancellation'))?.content}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Amenities */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm">
-                <h2 className="text-xl font-black text-slate-900 mb-6">Amenities & Services</h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className={`flex items-center p-4 rounded-xl ${parking.is24Hours ? "bg-emerald-50" : "bg-slate-50"}`}>
-                    <Clock className={`w-5 h-5 mr-3 ${parking.is24Hours ? "text-emerald-600" : "text-slate-400"}`} />
-                    <div>
-                      <p className="font-bold text-slate-900">24/7 Operation</p>
-                      <p className="text-sm text-slate-500">{parking.is24Hours ? "Always open" : "Limited hours"}</p>
-                    </div>
-                  </div>
-                  <div className={`flex items-center p-4 rounded-xl ${parking.isIndoor ? "bg-emerald-50" : "bg-slate-50"}`}>
-                    <Car className={`w-5 h-5 mr-3 ${parking.isIndoor ? "text-emerald-600" : "text-slate-400"}`} />
-                    <div>
-                      <p className="font-bold text-slate-900">Covered Parking</p>
-                      <p className="text-sm text-slate-500">{parking.isIndoor ? "Indoor/Canopy available" : "Open air"}</p>
-                    </div>
-                  </div>
-                  <div className={`flex items-center p-4 rounded-xl ${parking.hasValet ? "bg-emerald-50" : "bg-slate-50"}`}>
-                    <Car className={`w-5 h-5 mr-3 ${parking.hasValet ? "text-emerald-600" : "text-slate-400"}`} />
-                    <div>
-                      <p className="font-bold text-slate-900">Valet Service</p>
-                      <p className="text-sm text-slate-500">{parking.hasValet ? "Available" : "Self-park only"}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center p-4 rounded-xl bg-emerald-50">
-                    <Bus className="w-5 h-5 mr-3 text-emerald-600" />
-                    <div>
-                      <p className="font-bold text-slate-900">Free Shuttle</p>
-                      <p className="text-sm text-slate-500">To terminal & back</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Related Parking Lots */}
-              {relatedLots.length > 0 && (
-                <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
-                  <h2 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-6">More Options at {parking.airport.iata}</h2>
-                  <div className="space-y-3 md:space-y-4">
-                    {relatedLots.map((lot) => (
-                      <Link 
-                        key={lot.id} 
-                        href={`/parking/${lot.slug}`}
-                        className="block p-3 md:p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors border border-slate-100"
-                      >
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-bold text-slate-900 text-sm">{lot.name}</h3>
-                          <span className="text-emerald-600 font-black text-sm">${lot.dailyRate.toFixed(2)}</span>
-                        </div>
-                        <div className="flex items-center gap-3 text-xs text-slate-500">
-                          {lot.distanceMiles && (
-                            <span className="flex items-center gap-1">
-                              <MapPin className="w-3 h-3" />
-                              {lot.distanceMiles} mi
-                            </span>
-                          )}
-                          {lot.shuttleMins && (
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {lot.shuttleMins} min
-                            </span>
-                          )}
-                          {lot.rating && (
-                            <span className="flex items-center gap-1">
-                              <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
-                              {lot.rating}
-                            </span>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                  <Link 
-                    href={`/airport/${parking.airport.iataCode}/parking`}
-                    className="block mt-4 text-center text-sm font-bold text-blue-600 hover:text-blue-700"
-                  >
-                    View All {parking.airport.iata} Parking Options →
-                  </Link>
-                </div>
-              )}
+            <div className="lg:col-span-2 space-y-4 md:space-y-6">
+              <ParkingHero parking={parking} />
+              <ParkingDescription description={parking.description} />
+              <ParkingRatings
+                locationRating={parking.locationRating}
+                staffRating={parking.staffRating}
+                facilityRating={parking.facilityRating}
+                safetyRating={parking.safetyRating}
+                recommendationPct={parking.recommendationPct}
+              />
+              <ParkingShuttle
+                shuttleFrequency={parking.shuttleFrequency}
+                shuttleHours={parking.shuttleHours}
+                shuttleDesc={parking.shuttleDesc}
+              />
+              <ParkingDirections
+                directions={arrivalDirections}
+                textDirections={arrivalDirectionsText}
+                parkingAccess={parking.parkingAccess}
+              />
+              <ParkingThingsToKnow items={thingsToKnow} />
+              <ParkingFAQ
+                airportIata={parking.airport.iata}
+                dailyRate={parking.dailyRate}
+                shuttleFrequency={parking.shuttleFrequency}
+                shuttleHours={parking.shuttleHours}
+                isIndoor={parking.isIndoor}
+                cancellationPolicy={parking.cancellationPolicy}
+                thingsToKnow={thingsToKnow}
+              />
+              <ParkingAmenities
+                is24Hours={parking.is24Hours}
+                isIndoor={parking.isIndoor}
+                hasValet={parking.hasValet}
+              />
+              <ParkingRelated lots={relatedLots} airport={parking.airport} />
 
               {/* Airport Information */}
               <div className="bg-blue-50 rounded-2xl md:rounded-3xl border border-blue-100 p-5 md:p-6 lg:p-8 shadow-sm">
                 <h2 className="text-base md:text-lg font-black text-blue-900 mb-3 md:mb-4">About {parking.airport.iata} Airport</h2>
                 <p className="text-sm text-blue-800/80 leading-relaxed mb-4">
-                  {parking.airport.name} ({parking.airport.iata}) serves the {parking.airport.city} area. 
+                  {parking.airport.name} ({parking.airport.iata}) serves the {parking.airport.city} area.
                   This off-site parking facility offers significant savings compared to on-airport parking rates.
                 </p>
                 <div className="space-y-2 text-sm">
-                  <Link 
+                  <Link
                     href={`/airport/${parking.airport.iataCode}/parking`}
                     className="block text-blue-700 font-semibold hover:text-blue-800"
                   >
                     → All {parking.airport.iata} parking options
                   </Link>
-                  <Link 
+                  <Link
                     href="/airports"
                     className="block text-blue-700 font-semibold hover:text-blue-800"
                   >
@@ -745,56 +232,10 @@ export default async function ParkingDetailPage({ params }: Props) {
 
             {/* Right Column - Booking Card */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="bg-white rounded-3xl border border-slate-200 p-8 sticky top-24 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-                <div className="mb-8">
-                  <p className="text-sm font-bold text-slate-500 mb-1 uppercase tracking-wider">Base rate</p>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-5xl font-black text-slate-900 tracking-tighter">${parking.dailyRate.toFixed(2)}</span>
-                    <span className="text-sm font-medium text-slate-400">/day</span>
-                  </div>
-                </div>
-
-                {parking.affiliateUrl ? (
-                  <a
-                    href={parking.affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full bg-slate-900 hover:bg-black text-white font-bold text-lg py-4 rounded-xl transition-all active:scale-[0.98] mb-6 shadow-md text-center"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Reserve Space
-                      <ExternalLink className="w-4 h-4" />
-                    </span>
-                  </a>
-                ) : (
-                  <button
-                    disabled
-                    className="block w-full bg-slate-300 text-slate-500 font-bold text-lg py-4 rounded-xl cursor-not-allowed mb-6"
-                  >
-                    Booking Coming Soon
-                  </button>
-                )}
-
-                <div className="space-y-4">
-                  <div className="flex items-center text-sm font-medium text-slate-600">
-                    <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-                    Free cancellation anytime
-                  </div>
-                  <div className="flex items-center text-sm font-medium text-slate-600">
-                    <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-                    Guaranteed parking spot
-                  </div>
-                  <div className="flex items-center text-sm font-medium text-slate-600">
-                    <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-                    Direct official booking
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-center gap-2">
-                  <Check className="w-4 h-4 text-slate-400" />
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Best Rate Guarantee</span>
-                </div>
-              </div>
+              <ParkingBookingCard
+                dailyRate={parking.dailyRate}
+                affiliateUrl={parking.affiliateUrl}
+              />
             </div>
           </div>
         </main>

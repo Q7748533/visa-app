@@ -23,6 +23,9 @@ const migrations = [
   `ALTER TABLE "ParkingLot" ADD COLUMN "shuttleHours" TEXT;`,
   `ALTER TABLE "ParkingLot" ADD COLUMN "arrivalDirections" TEXT;`,
   `ALTER TABLE "ParkingLot" ADD COLUMN "thingsToKnow" TEXT;`,
+  // 评论相关字段
+  `ALTER TABLE "ParkingLot" ADD COLUMN "rawReviews" TEXT;`,
+  `ALTER TABLE "ParkingLot" ADD COLUMN "reviewSummary" TEXT;`,
 ];
 
 async function runMigrations() {

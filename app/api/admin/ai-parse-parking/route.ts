@@ -27,6 +27,18 @@ interface ParsedParkingData {
   isIndoor?: boolean;
   hasValet?: boolean;
   is24Hours?: boolean;
+  // Way.com 扩展字段
+  description?: string;
+  shuttleDesc?: string;
+  cancellationPolicy?: string;
+  parkingAccess?: string;
+  operatingDays?: string;
+  contactPhone?: string;
+  recommendationPct?: number;
+  locationRating?: number;
+  staffRating?: number;
+  facilityRating?: number;
+  safetyRating?: number;
 }
 
 export async function POST(request: NextRequest) {
@@ -283,6 +295,18 @@ function parseAIResponse(response: string): ParsedParkingData {
         isIndoor: parsed.isIndoor || undefined,
         hasValet: parsed.hasValet || undefined,
         is24Hours: parsed.is24Hours !== undefined ? parsed.is24Hours : undefined,
+        // Way.com 扩展字段
+        description: parsed.description || undefined,
+        shuttleDesc: parsed.shuttleDesc || undefined,
+        cancellationPolicy: parsed.cancellationPolicy || undefined,
+        parkingAccess: parsed.parkingAccess ? stripHtmlTags(parsed.parkingAccess) : undefined,
+        operatingDays: parsed.operatingDays || undefined,
+        contactPhone: parsed.contactPhone || undefined,
+        recommendationPct: parsed.recommendationPct || undefined,
+        locationRating: parsed.locationRating || undefined,
+        staffRating: parsed.staffRating || undefined,
+        facilityRating: parsed.facilityRating || undefined,
+        safetyRating: parsed.safetyRating || undefined,
       };
     }
     throw new Error('无法解析 AI 响应');

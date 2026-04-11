@@ -583,7 +583,7 @@ export default async function ParkingDetailPage({ params }: Props) {
                     <p className="text-sm text-slate-600 leading-relaxed">
                       Yes, many airport parking facilities offer <strong>discounted daily rates for extended stays</strong>. 
                       While our listed prices show the base rate for comparison, you can often save 10-20% per day when booking 3+ days of parking. 
-                      For example, a lot showing ${parking.dailyRate}/day might charge less per day for a 5-day reservation. 
+                      For example, a lot showing ${Number(parking.dailyRate).toFixed(2)}/day might charge less per day for a 5-day reservation. 
                       The exact discount varies by facility, season, and availability.
                     </p>
                   </div>

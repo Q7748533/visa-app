@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { unstable_noStore as noStore } from "next/cache";
 import { prisma } from "@/lib/db";
 import {
   ArrowLeft,
@@ -17,14 +16,14 @@ import {
   Check,
 } from "lucide-react";
 
+// Static generation with ISR - revalidate every hour
+export const revalidate = 3600;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 async function getParkingLot(slug: string) {
-  // 禁用缓存，确保获取最新数据
-  noStore();
-  
   const parking = await prisma.parkingLot.findUnique({
     where: { slug, isActive: true },
     include: {
@@ -35,7 +34,6 @@ async function getParkingLot(slug: string) {
 }
 
 async function getRelatedParkingLots(airportId: string, currentSlug: string, limit: number = 3) {
-  noStore();
   
   const lots = await prisma.parkingLot.findMany({
     where: { 

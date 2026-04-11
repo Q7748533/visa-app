@@ -103,8 +103,8 @@ Please extract the following fields (set to null or empty array if not present i
 - tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
 - shuttleFrequency: Shuttle frequency description (e.g., "Every 10-15 mins")
 - shuttleHours: Shuttle operating hours
-- arrivalDirections: Arrival instructions
-- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]
+- arrivalDirections: Arrival instructions (concise, practical directions on how to reach the parking lot and check in. Extract from parkingAccess field, keep only the essential arrival steps)
+- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from customMessage, cancellationPolicy, and other policy fields. DO NOT include arrival instructions here - only policies, restrictions, fees, and important rules
 - isIndoor: Whether indoor parking (boolean, true/false)
 - hasValet: Whether valet service available (boolean, true/false)
 - is24Hours: Whether open 24 hours (boolean, true/false)
@@ -127,6 +127,10 @@ IMPORTANT INSTRUCTIONS:
 2. thingsToKnow must be an array format, each element contains title and content
 3. Boolean values must be true or false, not strings
 4. Only return JSON object, do not include any other text
+5. AVOID DUPLICATION: arrivalDirections and thingsToKnow should NOT contain the same information. 
+   - arrivalDirections = practical steps to arrive and check in (e.g., "Show your confirmation email to the attendant")
+   - thingsToKnow = policies, fees, restrictions (e.g., "Vehicle Charges: Mini Van / SUV: $5 per day")
+6. DO NOT put operating hours (24/7) in arrivalDirections - it belongs in operatingDays field
 
 Format:
 {

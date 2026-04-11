@@ -208,6 +208,18 @@ export default function EditParkingPage({ params }: { params: Promise<{ id: stri
             isIndoor: parsed.isIndoor !== undefined ? parsed.isIndoor : prev.isIndoor,
             hasValet: parsed.hasValet !== undefined ? parsed.hasValet : prev.hasValet,
             is24Hours: parsed.is24Hours !== undefined ? parsed.is24Hours : prev.is24Hours,
+            // Way.com 特有字段
+            description: parsed.description || prev.description,
+            shuttleDesc: parsed.shuttleDesc || prev.shuttleDesc,
+            cancellationPolicy: parsed.cancellationPolicy || prev.cancellationPolicy,
+            parkingAccess: parsed.parkingAccess || prev.parkingAccess,
+            operatingDays: parsed.operatingDays || prev.operatingDays,
+            contactPhone: parsed.contactPhone || prev.contactPhone,
+            recommendationPct: parsed.recommendationPct !== undefined ? parsed.recommendationPct : prev.recommendationPct,
+            locationRating: parsed.locationRating !== undefined ? parsed.locationRating : prev.locationRating,
+            staffRating: parsed.staffRating !== undefined ? parsed.staffRating : prev.staffRating,
+            facilityRating: parsed.facilityRating !== undefined ? parsed.facilityRating : prev.facilityRating,
+            safetyRating: parsed.safetyRating !== undefined ? parsed.safetyRating : prev.safetyRating,
           };
         });
 

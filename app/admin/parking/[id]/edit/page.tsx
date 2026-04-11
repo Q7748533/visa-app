@@ -47,6 +47,15 @@ interface ParkingLot {
   staffRating: number | null;
   facilityRating: number | null;
   safetyRating: number | null;
+  // 评论摘要
+  reviewSummary: {
+    overallSentiment: string;
+    pros: string[];
+    cons: string[];
+    commonThemes: string[];
+    representativeQuotes: string[];
+    ratingDistribution: Record<string, number>;
+  } | null;
   dataSource: string;
 }
 

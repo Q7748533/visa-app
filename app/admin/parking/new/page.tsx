@@ -47,6 +47,7 @@ export default function NewParkingPage() {
     staffRating: '',
     facilityRating: '',
     safetyRating: '',
+    reviewSummary: '',
     dataSource: 'way.com',
   });
   const [airports, setAirports] = useState<Airport[]>([]);

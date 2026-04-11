@@ -4,7 +4,7 @@
  * 使用多次 AI 调用来逐个提取每个设施
  */
 
-export const runtime = 'edge';
+export const maxDuration = 60;
 
 import { NextRequest, NextResponse } from 'next/server';
 

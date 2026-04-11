@@ -39,18 +39,24 @@ export async function GET(req: Request) {
     const [airports, total] = await Promise.all([
       prisma.airport.findMany({
         where,
-        orderBy: [{ continent: 'asc' }, { country: 'asc' }, { city: 'asc' }],
+        orderBy: [{ city: 'asc' }],
         skip: (page - 1) * limit,
         take: limit,
         select: {
           id: true,
           iata: true,
+          iataCode: true,
           name: true,
           city: true,
           country: true,
-          continent: true,
           isPopular: true,
+          isActive: true,
           updatedAt: true,
+          _count: {
+            select: {
+              parkings: true,
+            },
+          },
         },
       }),
       prisma.airport.count({ where }),
@@ -66,6 +72,65 @@ export async function GET(req: Request) {
     console.error('Get airports error:', error);
     return NextResponse.json(
       { error: '获取数据失败', details: error instanceof Error ? error.message : '未知错误' },
+      { status: 500 }
+    );
+  }
+}
+
+// 创建新机场
+export async function POST(req: Request) {
+  try {
+    const isAdmin = await verifyAdmin();
+    if (!isAdmin) {
+      return NextResponse.json(
+        { error: '未授权访问' },
+        { status: 401 }
+      );
+    }
+
+    const data = await req.json();
+
+    // 验证必填字段
+    if (!data.iata || !data.name || !data.city || !data.country) {
+      return NextResponse.json(
+        { error: '请填写所有必填字段' },
+        { status: 400 }
+      );
+    }
+
+    // 检查 IATA 是否已存在
+    const existing = await prisma.airport.findUnique({
+      where: { iata: data.iata.toUpperCase() },
+    });
+
+    if (existing) {
+      return NextResponse.json(
+        { error: `机场 ${data.iata.toUpperCase()} 已存在` },
+        { status: 400 }
+      );
+    }
+
+    const airport = await prisma.airport.create({
+      data: {
+        iata: data.iata.toUpperCase(),
+        iataCode: data.iata.toLowerCase(),
+        name: data.name,
+        city: data.city,
+        country: data.country || 'USA',
+        isPopular: data.isPopular || false,
+        isActive: data.isActive !== false,
+        slug: `${data.iata.toLowerCase()}-${data.city.toLowerCase().replace(/\s+/g, '-')}`.substring(0, 50),
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      airport,
+    });
+  } catch (error) {
+    console.error('Create airport error:', error);
+    return NextResponse.json(
+      { error: '创建机场失败', details: error instanceof Error ? error.message : '未知错误' },
       { status: 500 }
     );
   }

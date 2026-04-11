@@ -1,0 +1,1333 @@
+{
+    "airport": {
+        "code": "LAS",
+        "full_name": "Harry Reid International Airport",
+        "short_name": "Harry Reid International Airport",
+        "latitude": 36.09528032636728,
+        "longitude": -115.15463002182616
+    },
+    "tracking": {
+        "action_id": "ec3567a1-4b82-4e1e-89a9-2e778b11b657",
+        "search_id": "5c993d66-51b8-47e1-87ea-ff9e82474ba8"
+    },
+    "@next": "",
+    "results": [
+        {
+            "distance": {
+                "linear_meters": 610.1622253954489
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100164494",
+                            "quote_valid_until": "2026-04-13T12:00:00-07:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 2800
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-07:00",
+                                "ends": "2026-04-13T12:00:00-07:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 2800
+                                },
+                                "facility_id": "115386",
+                                "rate_id": "1100164494",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$6.00 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2400
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$6.00 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2400
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 600
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 12,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "229993",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_130,h_132,q_50,x_65,y_66,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745422377/m7u5lhw7906k5ho90psz.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "119948",
+                                "illustration": {
+                                    "id": "12",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636881/pp3uajdxl5u9lrnak1as.png",
+                                    "alt_text": "License Plate"
+                                },
+                                "text": "<p>Make sure your license plate matches the plate on your Parking Pass.&nbsp;</p>"
+                            },
+                            {
+                                "id": "119947",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "<p>You may ONLY park&nbsp;in the Spaces that are marked with Blue Metropolis Signs. These spaces are located toward the back of the lot. Failure to park in these Marked spaces may result in a ticket, tow, or boot.</p>"
+                            },
+                            {
+                                "id": "118289",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>Gather your belongings and request your taxi/rideshare to the airport.&nbsp;</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "118290",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>Upon your arrival back to the airport, gather your belongings and reserve your taxi/ridshare back to the lot.&nbsp;</p>"
+                            },
+                            {
+                                "id": "102314",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Simply leave when you're ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Airport Center LAS - Uncovered Self Park",
+                    "slug": "5030-paradise-rd",
+                    "operator_display_name": "Metropolis Parking",
+                    "id": "115386",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 5030 Paradise Rd. This is the entrance address for the 5030 Paradise Rd. - Airport Center Las Vegas Lot, operated by Metropolis. It is located on the East/Left-hand side of Paradise Rd. (a one-way street) between E Bell Dr. and Gus Giuffre Dr.",
+                    "images": [
+                        {
+                            "id": "229605",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745279877/tcidtxb1wlpfw8kpr5jv.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229603",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745279873/wipn1cpgrbddnbi2lan5.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229602",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745279873/kjlgszlpt9nkpy4uemky.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "138555",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "5030 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89119",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 36.097956,
+                            "longitude": -115.14848399999997
+                        },
+                        {
+                            "id": "138665",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "5030 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89119",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 36.098304000000006,
+                            "longitude": -115.14896300000001
+                        }
+                    ],
+                    "restrictions": [
+                        "There is currently no shuttle service to/from LAS airport. Customers must secure a taxi/rideshare for transportation."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.2,
+                        "count": 23,
+                        "one_star_count": 2,
+                        "two_star_count": 1,
+                        "three_star_count": 2,
+                        "four_star_count": 2,
+                        "five_star_count": 16
+                    },
+                    "inventory": {
+                        "default_quantity": 15
+                    },
+                    "operator_id": 22106169,
+                    "company_id": 1171,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2269.7932736512794
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166419",
+                            "quote_valid_until": "2026-04-13T12:00:00-07:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 10750
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-07:00",
+                                "ends": "2026-04-13T12:00:00-07:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 10750
+                                },
+                                "facility_id": "10315",
+                                "rate_id": "1100166419",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$23.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 9500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 750
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$23.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 9500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 750
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2375
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 20,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "264263",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_679,h_346,q_50,x_339,y_173,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1756917662/ojepcx83vfblxtzts9jf.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "24639",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "Check in at the front desk and present your Parking Pass (either printed or on a mobile device). You will receive a daily parking permit that you must display on your vehicle."
+                            },
+                            {
+                                "id": "106055",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn’t say “Reserved”."
+                            },
+                            {
+                                "id": "128205",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>There is no shuttle service to the airport. You may book a ride to the airport using Rideshare or Taxi!</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "128208",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>When you return to the airport, please arrange transportation back to the facility using Rideshare or a Taxi. There is no shuttle service from the airport.</p>"
+                            },
+                            {
+                                "id": "128209",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Simply leave when you're ready to go!</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": {
+                            "max_height": 76,
+                            "max_length": 210,
+                            "max_width": 80
+                        }
+                    },
+                    "clearance_inches": 76,
+                    "status": "on_sales_allowed",
+                    "title": "Residence Inn Las Vegas Hughes Center - Uncovered Self Parking",
+                    "slug": "370-hughes-ctr-dr",
+                    "operator_display_name": "Ashford Inc Parking",
+                    "id": "10315",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 370 Hughes Center Dr. This is the Residence Inn Las Vegas Hughes Center lot, operated by Ashford Inc. It is located on the north side of Hughes Center Dr. between Paradise Rd. and Center Cl. The entrance is marked by a red 'residence inn' sign with white lettering.",
+                    "images": [
+                        {
+                            "id": "229660",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_5712,h_4284,q_50,x_2856,y_2142,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745332206/m7l5q27nwannua7b9y4d.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229661",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_5712,h_4284,q_50,x_2856,y_2142,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745332309/ntbisnzid8ybgvqf06ra.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229668",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_5712,h_4284,q_50,x_2856,y_2142,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745332457/tmtlkpn4ojq8huxqu1lz.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229669",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_5712,h_4284,q_50,x_2856,y_2142,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745332523/bjcqtrwlxtopquyevoxa.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "229670",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_5712,h_4284,q_50,x_2856,y_2142,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1745332533/tedswavmadposo86qit8.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "106816",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "370 Hughes Center Drive",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89169",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 36.1156596,
+                            "longitude": -115.1560756
+                        },
+                        {
+                            "id": "11011",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "370 Hughes Center Drive",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89169",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 36.11565999999999,
+                            "longitude": -115.15607599999998
+                        }
+                    ],
+                    "restrictions": [
+                        "Height restriction: 6' 4\"",
+                        "Standard sized vehicles only. Due to size constraints, this location is unable to accommodate minivans, midsize and large SUVs, pickup trucks, and passenger vans."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.6,
+                        "count": 86,
+                        "one_star_count": 7,
+                        "two_star_count": 4,
+                        "three_star_count": 0,
+                        "four_star_count": 6,
+                        "five_star_count": 69
+                    },
+                    "inventory": {
+                        "default_quantity": 20
+                    },
+                    "operator_id": 3856968,
+                    "company_id": 990,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 3901.860988700953
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166527",
+                            "quote_valid_until": "2026-04-13T12:00:00-07:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 15050
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-07:00",
+                                "ends": "2026-04-13T12:00:00-07:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 15050
+                                },
+                                "facility_id": "86498",
+                                "rate_id": "1100166527",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$33.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 13500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 1050
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$33.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 13500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 1050
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 3375
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 5,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "264253",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_653,h_411,q_50,x_326,y_205,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1756916814/qoarfwobc0ahyn57impi.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "91533",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "Upon arrival, please check in with the front desk in order to register your vehicle and obtain parking lot access."
+                            },
+                            {
+                                "id": "91535",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere as advised by the front desk. "
+                            },
+                            {
+                                "id": "128198",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>There is no shuttle service to the airport. You may book a ride to the airport using Rideshare or Taxi!</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "128201",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>When you return to the airport, please arrange transportation back to the facility using Rideshare or a Taxi. There is no shuttle service from the airport.</p>"
+                            },
+                            {
+                                "id": "128202",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Simply leave when you're ready to go!</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Courtyard by Marriott Las Vegas Convention Center - Uncovered Self Park",
+                    "slug": "3275-paradise-rd",
+                    "operator_display_name": "Courtyard by Marriott Las Vegas Convention Center Parking",
+                    "id": "86498",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 3275 Paradise Rd. This is the Courtyard by Marriott Las Vegas Convention Center parking lot, operated by Courtyard by Marriott Las Vegas Convention Center. It is located on the West side of the Paradise Rd. between Convention Center Dr. and E Desert Inn Rd. You can only access this location by traveling South on Paradise Rd.",
+                    "images": [
+                        {
+                            "id": "176142",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1719249239/xluyarvb4hdz2jkvadsc.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "176143",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1719249239/plazr7wsu1l4t2ky4k8k.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "248886",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1751984854/pxoe14atitsblyku9pqw.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "248889",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1751984883/vm0a7vlkwoyywm7vums9.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "248893",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1751984913/donk0dsnc7ggbcyp9u87.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "117379",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "3275 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89109",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 36.130351,
+                            "longitude": -115.15608
+                        },
+                        {
+                            "id": "87623",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "3275 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89109",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 36.130196,
+                            "longitude": -115.15530100000001
+                        }
+                    ],
+                    "restrictions": [],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.7,
+                        "count": 35,
+                        "one_star_count": 1,
+                        "two_star_count": 0,
+                        "three_star_count": 2,
+                        "four_star_count": 2,
+                        "five_star_count": 30
+                    },
+                    "inventory": {
+                        "default_quantity": 5
+                    },
+                    "operator_id": 17024030,
+                    "company_id": 13596,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 4002.608598075956
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100115168",
+                            "quote_valid_until": "2026-04-13T12:00:00-07:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 12900
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-07:00",
+                                "ends": "2026-04-13T12:00:00-07:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 12900
+                                },
+                                "facility_id": "87831",
+                                "rate_id": "1100115168",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$28.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 11500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 900
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$28.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 11500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 900
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2875
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 25,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "264290",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_679,h_346,q_50,x_339,y_173,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1756923499/et9exstwubao5guzacyn.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "92721",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "Upon arrival, please check in with the front desk in order to register your vehicle and obtain parking lot access."
+                            },
+                            {
+                                "id": "92722",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You will be instructed on where to park by the front desk."
+                            },
+                            {
+                                "id": "128219",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>There is no shuttle service to the airport. You may book a ride to the airport using Rideshare or Taxi!</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "128221",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>When you return to the airport, please arrange transportation back to the facility using Rideshare or a Taxi. There is no shuttle service from the airport.</p>"
+                            },
+                            {
+                                "id": "128222",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Simply leave when you're ready to go!&nbsp;</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Residence Inn by Marriott LVCC - Uncovered Self Parking",
+                    "slug": "3225-paradise-rd",
+                    "operator_display_name": "Residence Inn by Marriott LVCC Parking",
+                    "id": "87831",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 3225 Paradise Rd. This is the Residence Inn by Marriott LVCC parking lot, operated by Residence Inn by Marriott LVCC. It is located on the West side of the Paradise Rd. between Convention Center Dr. and E Desert Inn Rd. You can only access this location by traveling South on Paradise Rd.",
+                    "images": [
+                        {
+                            "id": "176145",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1719249555/nyyqelnvxb1qc8jen7gt.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "234091",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1746890612/by2mvoey0npnkiyqdqdu.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "234092",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1746890702/hb7boxyzjsp7zpr5io6v.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "234093",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1746890729/izofnutbshaky4mpc2ul.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "176146",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1719249559/fpvxdfixdazsg7jpr4fy.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "117688",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "3225 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89109",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 36.13127099999999,
+                            "longitude": -115.155416
+                        },
+                        {
+                            "id": "88956",
+                            "city": "Las Vegas",
+                            "state": "NV",
+                            "street_address": "3225 Paradise Road",
+                            "time_zone": "America/Los_Angeles",
+                            "country": "US",
+                            "postal_code": "89109",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 36.13127099999999,
+                            "longitude": -115.155416
+                        }
+                    ],
+                    "restrictions": [],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.9,
+                        "count": 34,
+                        "one_star_count": 2,
+                        "two_star_count": 0,
+                        "three_star_count": 0,
+                        "four_star_count": 1,
+                        "five_star_count": 31
+                    },
+                    "inventory": {
+                        "default_quantity": 25
+                    },
+                    "operator_id": 17426012,
+                    "company_id": 14157,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        }
+    ],
+    "display": {
+        "map_radius": 4002.608598075956,
+        "max_distance_meters": -1
+    }
+}

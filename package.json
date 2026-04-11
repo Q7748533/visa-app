@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "update-parking": "tsx scripts/update-parking-details.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.17.2",
-    "@prisma/adapter-libsql": "^7.6.0",
+    "@prisma/adapter-libsql": "^5.22.0",
     "@prisma/client": "^5.22.0",
+    "better-sqlite3": "^12.8.0",
     "dotenv": "^17.4.1",
     "lucide-react": "^1.7.0",
     "next": "16.2.2",

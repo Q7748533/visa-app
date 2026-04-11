@@ -13,24 +13,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Airport Matrix | Showers, Luggage Storage & Sleeping Pods at 500+ Airports",
-  description: "Find showers, luggage storage, sleeping pods, and transport at 500+ airports worldwide. Real-time facility locations for stress-free travel. Verified airport infrastructure data curated by frequent flyers and aviation professionals since 2024.",
-  keywords: ["airport showers", "luggage storage", "sleeping pods", "airport facilities", "transit hotels", "airport transport"],
+  title: "Airport Matrix | Save Up to 70% on Airport Parking at 50+ US Airports",
+  description: "Compare official terminal parking rates with verified off-site lots. Book secure parking with free 24/7 shuttles at 50+ major US airports. Save up to 70% vs airport garage prices.",
+  keywords: ["airport parking", "airport parking rates", "off-site parking", "airport parking coupons", "parking near airport", "cheap airport parking", "airport parking shuttle"],
   authors: [{ name: "Airport Matrix Team", url: "https://airportmatrix.com/about" }],
   creator: "Airport Matrix",
   publisher: "Airport Matrix",
   openGraph: {
-    title: "Airport Matrix | Airport Facility Finder",
-    description: "Showers, storage & sleeping pods at 500+ airports. Real-time data for travelers.",
+    title: "Airport Matrix | Save Up to 70% on Airport Parking",
+    description: "Compare airport parking rates. Book verified off-site lots with free shuttles at 50+ US airports.",
     type: "website",
     locale: "en_US",
     siteName: "Airport Matrix",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Airport Matrix | Airport Facility Finder",
-    description: "Find showers, luggage storage & sleeping pods at 500+ airports",
+    title: "Airport Matrix | Save Up to 70% on Airport Parking",
+    description: "Compare airport parking rates. Verified lots with free 24/7 shuttles.",
     creator: "@airportmatrix",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   verification: {
     google: "google-site-verification-code",

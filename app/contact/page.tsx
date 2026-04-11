@@ -1,276 +1,259 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
-import { Metadata } from "next";
+import {
+  ArrowLeft, Mail, MessageSquare,
+  HelpCircle, AlertCircle, CheckCircle2
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Airport Matrix",
-  description: "Get in touch with Airport Matrix. Report data errors, suggest improvements, or partner with us. We typically respond within 24-48 hours.",
-  keywords: ["contact airport matrix", "report data error", "airport data partnership", "media inquiry"],
-  alternates: {
-    canonical: "https://www.airportmatrix.com/contact",
-  },
+  title: "Contact AirportMatrix — Report Pricing Errors & Partnership Inquiries",
+  description: "Contact AirportMatrix for pricing error reports, parking lot partnership inquiries, press requests, or general questions about our airport parking comparison service.",
+  keywords: [
+    "contact airportmatrix",
+    "airportmatrix support",
+    "report airport parking pricing error",
+    "airport parking partnership",
+    "parking lot listing airportmatrix",
+  ],
   openGraph: {
-    title: "Contact Us | Airport Matrix",
-    description: "Get in touch with Airport Matrix. Report data errors or partner with us.",
-    url: "https://www.airportmatrix.com/contact",
-    siteName: "Airport Matrix",
-    locale: "en_US",
+    title: "Contact AirportMatrix — Pricing Reports & Partnerships",
+    description: "Reach out to report incorrect parking rates, inquire about listing your parking lot, or ask general questions about AirportMatrix.",
     type: "website",
   },
+  alternates: {
+    canonical: "https://airportmatrix.com/contact",
+  },
 };
 
-export const revalidate = 86400;
-
-// Schema.org structured data
-const contactPageSchema = {
+const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Airport Matrix",
-  "description": "Get in touch with Airport Matrix. Report data errors, suggest improvements, or partner with us.",
-  "url": "https://www.airportmatrix.com/contact",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Airport Matrix",
-    "url": "https://www.airportmatrix.com",
-    "email": "hello@airportmatrix.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Support",
-      "email": "hello@airportmatrix.com",
-      "availableLanguage": ["English"]
-    }
-  }
+  "@type": "Organization",
+  name: "AirportMatrix",
+  url: "https://airportmatrix.com",
+  description: "Independent travel data aggregator helping US travelers find and compare verified off-site airport parking lots vs official terminal garage rates.",
+  contactPoint: {
+    "@type": "ContactPage",
+    url: "https://airportmatrix.com/contact",
+  },
 };
-
-const contactReasons = [
-  {
-    icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
-    title: "Report Data Error",
-    description: "Found incorrect facility information? Help us fix it within 48 hours."
-  },
-  {
-    icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-    title: "Missing Airport",
-    description: "Suggest an airport to add to our database. We prioritize based on traveler demand."
-  },
-  {
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-    title: "Partner With Us",
-    description: "Airport operators and facility providers: collaborate on accurate data sharing."
-  },
-  {
-    icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z",
-    title: "Media Inquiry",
-    description: "Press, bloggers, and researchers: request data insights or interviews."
-  }
-];
-
-const faqs = [
-  {
-    question: "How quickly do you respond to inquiries?",
-    answer: "We typically respond within 24-48 hours during business days. Data error reports are prioritized and often resolved within 24 hours."
-  },
-  {
-    question: "Do you offer data licensing?",
-    answer: "We provide curated airport facility datasets for travel apps, research institutions, and aviation companies. Contact us for details."
-  }
-];
 
 export default function ContactPage() {
   return (
     <>
-      <Script id="contact-page-schema" type="application/ld+json">
-        {JSON.stringify(contactPageSchema)}
-      </Script>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
 
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pb-20">
-        {/* Navigation */}
-        <nav className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50" role="navigation" aria-label="Main navigation">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-3" aria-label="Airport Matrix Home">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg shadow-blue-600/20">M</div>
-              <span className="text-xl font-bold tracking-tight text-slate-900">AIRPORT<span className="text-blue-600">MATRIX</span></span>
+      <div className="min-h-screen bg-slate-50 font-sans pb-24">
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <Link href="/" className="flex items-center text-slate-500 hover:text-blue-600 transition-colors font-medium min-h-[44px]">
+              <ArrowLeft className="w-5 h-5 mr-2" aria-hidden="true" />
+              Home
             </Link>
-            <div className="hidden md:flex items-center gap-1 text-sm font-medium">
-              <Link href="/airport-showers" className="px-4 py-2 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">Showers</Link>
-              <Link href="/airport-storage" className="px-4 py-2 text-slate-600 hover:text-sky-600 hover:bg-sky-50 rounded-lg transition-colors">Storage</Link>
-              <Link href="/airport-sleeping" className="px-4 py-2 text-slate-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">Sleeping</Link>
-              <Link href="/airport-transport" className="px-4 py-2 text-slate-600 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-colors">Transport</Link>
-              <div className="w-px h-6 bg-slate-200 mx-2" />
-              <Link href="/" className="px-3 py-2 text-slate-500 hover:text-slate-900 transition-colors text-xs">Home</Link>
+            <div className="font-black text-xl tracking-tight text-slate-900">
+              Airport<span className="text-blue-600">Matrix</span>
             </div>
           </div>
-        </nav>
+        </header>
 
-        <div className="max-w-6xl mx-auto px-6 pt-12">
-          {/* Header */}
-          <div className="max-w-3xl mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 text-sm font-semibold rounded-full mb-6 shadow-sm border border-blue-100/50">
-              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-              We are here to help
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20">
+
+          {/* 头部区域 */}
+          <div className="text-center mb-14 md:mb-16">
+            <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+              <MessageSquare className="w-8 h-8" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tight mb-6">
-              Contact <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Us</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 px-2">
+              Contact AirportMatrix
             </h1>
-            <p className="text-xl text-slate-600 max-w-2xl leading-relaxed">
-              Have a question, found an error, or want to collaborate? We are here to help travelers navigate airports worldwide.
+            <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed">
+              Have a pricing error to report, a parking lot to list, or a partnership idea? Drop us a message and we typically respond within 48 hours.
             </p>
           </div>
 
-          {/* Contact Reasons */}
-          <section className="mb-20" aria-labelledby="contact-reasons-heading">
-            <h2 id="contact-reasons-heading" className="text-2xl font-bold text-slate-900 mb-8">How Can We Help?</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {contactReasons.map((reason, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 border border-slate-200/60 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 border border-blue-100">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={reason.icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">{reason.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {reason.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <div className="grid md:grid-cols-12 gap-8 lg:gap-12">
 
-          {/* Contact Form */}
-          <section className="mb-20" aria-labelledby="contact-form-heading">
-            <h2 id="contact-form-heading" className="text-2xl font-bold text-slate-900 mb-8">Send Us a Message</h2>
-            <div className="bg-white rounded-2xl border border-slate-200/60 p-8 shadow-sm">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="Your name"
-                    />
+            {/* 左侧：联系信息 */}
+            <div className="md:col-span-5 space-y-6">
+
+              {/* 客服免责 */}
+              <div className="bg-amber-50 rounded-2xl p-5 border border-amber-200">
+                <h2 className="text-base font-bold text-amber-900 flex items-center gap-2 mb-3">
+                  <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" aria-hidden="true" />
+                  Booking Issues? Contact Your Provider Directly
+                </h2>
+                <p className="text-sm text-amber-800 leading-relaxed font-medium">
+                  AirportMatrix is a comparison engine. We don&rsquo;t manage reservations. For cancellations, refunds, or shuttle questions, contact{" "}
+                  <strong>SpotHero</strong>, <strong>Way.com</strong>, or the parking facility directly.
+                </p>
+              </div>
+
+              {/* 联系信息卡片 */}
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h2 className="text-lg font-bold text-slate-900 mb-6">Reach Us By Email</h2>
+                <ul className="space-y-6">
+                  <li className="flex items-start">
+                    <Mail className="w-6 h-6 text-blue-600 mr-4 shrink-0 mt-0.5" aria-hidden="true" />
+                    <div>
+                      <div className="font-bold text-slate-900 mb-1">General Inquiries</div>
+                      <div className="text-sm text-slate-500 mb-2">Questions about our data, coverage, or how the matrix works.</div>
+                      <a
+                        href="/contact?subject=general"
+                        className="text-sm text-blue-600 hover:underline font-bold break-all"
+                      >
+                        hello@airportmatrix.com
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <HelpCircle className="w-6 h-6 text-emerald-600 mr-4 shrink-0 mt-0.5" aria-hidden="true" />
+                    <div>
+                      <div className="font-bold text-slate-900 mb-1">Report Incorrect Pricing</div>
+                      <div className="text-sm text-slate-500 mb-2">Spotted a rate that looks wrong? We verify all reports within 24 hours.</div>
+                      <a
+                        href="/contact?subject=pricing"
+                        className="text-sm text-blue-600 hover:underline font-bold break-all"
+                      >
+                        pricing@airportmatrix.com
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="w-6 h-6 text-purple-600 mr-4 shrink-0 mt-0.5" aria-hidden="true" />
+                    <div>
+                      <div className="font-bold text-slate-900 mb-1">Partnerships &amp; Lot Listings</div>
+                      <div className="text-sm text-slate-500 mb-2">Parking operators: get listed on AirportMatrix to reach thousands of travelers monthly.</div>
+                      <a
+                        href="/contact?subject=partnership"
+                        className="text-sm text-blue-600 hover:underline font-bold break-all"
+                      >
+                        partners@airportmatrix.com
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* FAQ Mini */}
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h2 className="text-base font-bold text-slate-900 mb-4">Common Questions</h2>
+                <ul className="space-y-3" aria-label="Frequently asked contact questions">
+                  {[
+                    ["How fast do you respond?", "Typically within 48 hours on business days."],
+                    ["Do you handle booking issues?", "No — please contact your booking provider directly."],
+                    ["Can I list my lot for free?", "Reach out to partners@airportmatrix.com to discuss options."],
+                  ].map(([q, a]) => (
+                    <li key={q} className="text-sm">
+                      <div className="font-bold text-slate-800">{q}</div>
+                      <div className="text-slate-500">{a}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* 右侧：表单 */}
+            <div className="md:col-span-7">
+              <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-xl shadow-slate-200/50">
+                <h2 className="text-xl font-bold text-slate-900 mb-6">Send us a message</h2>
+
+                <form
+                  action="/contact"
+                  method="POST"
+                  className="space-y-6"
+                  noValidate
+                  aria-label="Contact AirportMatrix form"
+                >
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="first-name" className="block text-sm font-bold text-slate-700 mb-2">First Name</label>
+                      <input
+                        id="first-name"
+                        name="firstName"
+                        type="text"
+                        autoComplete="given-name"
+                        placeholder="Jane"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all min-h-[48px]"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="last-name" className="block text-sm font-bold text-slate-700 mb-2">Last Name</label>
+                      <input
+                        id="last-name"
+                        name="lastName"
+                        type="text"
+                        autoComplete="family-name"
+                        placeholder="Doe"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all min-h-[48px]"
+                      />
+                    </div>
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">
+                      Email Address <span className="text-red-500" aria-label="required">*</span>
+                    </label>
                     <input
-                      type="email"
                       id="email"
                       name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="jane@example.com"
                       required
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="you@example.com"
+                      aria-required="true"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all min-h-[48px]"
                     />
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">Subject</label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-blue-500 focus:outline-none transition-colors"
+
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-bold text-slate-700 mb-2">Topic</label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer min-h-[48px]"
+                    >
+                      <option value="general">General Inquiry</option>
+                      <option value="pricing">Report Incorrect Pricing</option>
+                      <option value="partnership">Business Partnership / Add My Lot</option>
+                      <option value="bug">Website Bug / Technical Issue</option>
+                      <option value="press">Press Inquiry</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-2">
+                      Message <span className="text-red-500" aria-label="required">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      placeholder="How can we help you? Be specific — screenshots of incorrect prices help us fix issues faster."
+                      required
+                      aria-required="true"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-y min-h-[120px]"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-md active:scale-95 flex justify-center items-center gap-2 min-h-[52px]"
+                    aria-label="Send message to AirportMatrix"
                   >
-                    <option value="">Select a topic</option>
-                    <option value="data-error">Report Data Error</option>
-                    <option value="missing-airport">Missing Airport</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="media">Media Inquiry</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-colors resize-none"
-                    placeholder="Describe your inquiry in detail..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </section>
+                    <MessageSquare className="w-5 h-5" aria-hidden="true" />
+                    Send Message
+                  </button>
 
-          {/* Direct Contact */}
-          <section className="mb-20" aria-labelledby="direct-contact-heading">
-            <h2 id="direct-contact-heading" className="text-2xl font-bold text-slate-900 mb-8">Direct Contact</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <a
-                href="mailto:hello@airportmatrix.com"
-                className="flex items-center gap-4 bg-white rounded-2xl border border-slate-200/60 p-6 hover:border-blue-300 transition-colors shadow-sm"
-              >
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-slate-500 mb-1">Email</div>
-                  <div className="text-slate-900 font-semibold">hello@airportmatrix.com</div>
-                </div>
-              </a>
-              <a
-                href="https://twitter.com/airportmatrix"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white rounded-2xl border border-slate-200/60 p-6 hover:border-blue-300 transition-colors shadow-sm"
-              >
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100">
-                  <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-slate-500 mb-1">Twitter</div>
-                  <div className="text-slate-900 font-semibold">@airportmatrix</div>
-                </div>
-              </a>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section aria-labelledby="faq-heading">
-            <h2 id="faq-heading" className="text-2xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-2xl border border-slate-200/60 p-6 shadow-sm">
-                  <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.question}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {faq.answer}
+                  <p className="text-xs text-slate-500 text-center font-medium" role="status" aria-live="polite">
+                    We aim to respond to all inquiries within 48 business hours.
                   </p>
-                </div>
-              ))}
+                </form>
+              </div>
             </div>
-          </section>
-        </div>
 
-        {/* Footer */}
-        <footer className="border-t border-slate-200 bg-white mt-20" role="contentinfo">
-          <div className="max-w-6xl mx-auto px-6 py-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-              <div>© 2024-2026 Airport Matrix. All rights reserved.</div>
-              <nav className="flex gap-6" aria-label="Footer navigation">
-                <Link href="/about" className="hover:text-slate-900">About</Link>
-                <Link href="/data-sources" className="hover:text-slate-900">Data Sources</Link>
-                <Link href="/privacy" className="hover:text-slate-900">Privacy</Link>
-                <Link href="/terms" className="hover:text-slate-900">Terms</Link>
-              </nav>
-            </div>
           </div>
-        </footer>
-      </main>
+        </main>
+      </div>
     </>
   );
 }

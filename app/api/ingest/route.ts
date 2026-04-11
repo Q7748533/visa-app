@@ -40,19 +40,13 @@ export async function POST(req: Request) {
 
     await prisma.airport.upsert({
       where: { iata },
-      update: {
-        luggageData: JSON.stringify(data.luggage),
-        showerData: JSON.stringify(data.showers),
-        sleepData: JSON.stringify(data.sleep),
-        transitData: JSON.stringify(data.transit),
-      },
+      update: {},
       create: {
         iata,
         name: `${iata} International Airport`,
         city: "TBD",
         country: "TBD",
         slug: `${iata.toLowerCase()}-airport`,
-        luggageData: JSON.stringify(data.luggage),
       }
     });
 

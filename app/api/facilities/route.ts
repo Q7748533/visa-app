@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
 
     // 如果提供了 ID，返回单个设施
     if (id) {
-      const facility = await prisma.facility.findUnique({
+      const facility = await (prisma as any).facility.findUnique({
         where: { id },
         include: { airport: true },
       });
@@ -57,7 +57,7 @@ export async function GET(request: NextRequest) {
       where.services = { contains: service };
     }
 
-    const facilities = await prisma.facility.findMany({
+    const facilities = await (prisma as any).facility.findMany({
       where,
       orderBy: { createdAt: 'desc' },
       include: {
@@ -116,8 +116,7 @@ export async function POST(request: NextRequest) {
           iata: airportIata,
           name: body.airportName || `${airportIata} Airport`,
           city: body.airportCity || airportIata,
-          country: body.airportCountry || 'Unknown',
-          continent: body.airportContinent || 'Unknown',
+          country: body.airportCountry || 'USA',
           slug: `${airportIata.toLowerCase()}-airport`,
         },
       });
@@ -166,7 +165,7 @@ export async function POST(request: NextRequest) {
       rawContent: body.rawContent,
     };
 
-    const facility = await prisma.facility.create({
+    const facility = await (prisma as any).facility.create({
       data: createData,
       include: { airport: true },
     });
@@ -202,7 +201,7 @@ export async function PUT(request: NextRequest) {
     const body = await request.json();
 
     // 检查设施是否存在
-    const existing = await prisma.facility.findUnique({ where: { id } });
+    const existing = await (prisma as any).facility.findUnique({ where: { id } });
     if (!existing) {
       return NextResponse.json(
         { success: false, error: 'Facility not found' },
@@ -254,7 +253,7 @@ export async function PUT(request: NextRequest) {
         : JSON.stringify(body.serviceDetails);
     }
 
-    const facility = await prisma.facility.update({
+    const facility = await (prisma as any).facility.update({
       where: { id },
       data: updateData,
       include: { airport: true },
@@ -289,7 +288,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // 检查设施是否存在
-    const existing = await prisma.facility.findUnique({ where: { id } });
+    const existing = await (prisma as any).facility.findUnique({ where: { id } });
     if (!existing) {
       return NextResponse.json(
         { success: false, error: 'Facility not found' },
@@ -297,7 +296,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    await prisma.facility.delete({ where: { id } });
+    await (prisma as any).facility.delete({ where: { id } });
 
     return NextResponse.json({ 
       success: true, 

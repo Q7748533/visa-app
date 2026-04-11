@@ -1,509 +1,367 @@
-import Link from "next/link";
-import Script from "next/script";
 import type { Metadata } from "next";
-import { prisma } from "@/lib/db";
+import Link from "next/link";
 import SearchBox from "./components/SearchBox";
+import Header from "./components/Header";
+import { ShieldCheck, Bus, Ban, Star, X, Globe } from "lucide-react";
+import { prisma } from "@/lib/db";
 
-// ISR 缓存：24小时更新一次，极速秒开且省钱
-export const revalidate = 86400;
+export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "Airport Showers, Storage & Sleeping Pods | Airport Matrix",
-  description: "Find airport showers, luggage storage, sleeping pods & city transport. Real-time 2026 data for 500+ airports. Plan your layover with verified facility info.",
-  keywords: ["airport showers", "luggage storage", "sleeping pods", "airport transport", "airport facilities", "airport lockers", "transit hotels"],
-  alternates: {
-    canonical: "https://www.airportmatrix.com",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    title: "Airport Showers, Storage & Sleeping Pods | Airport Matrix",
-    description: "Find showers, luggage storage & sleeping pods at major airports worldwide",
-    url: "https://www.airportmatrix.com",
-    siteName: "Airport Matrix",
-    locale: "en_US",
-    type: "website",
-    images: [{
-      url: "https://www.airportmatrix.com/og-image.jpg",
-      width: 1200,
-      height: 630,
-      alt: "Airport Matrix - Find airport showers, storage and sleeping pods",
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Airport Showers, Storage & Sleeping Pods | Airport Matrix",
-    description: "Find showers, luggage storage & sleeping pods at major airports worldwide",
-    images: ["https://www.airportmatrix.com/og-image.jpg"],
-  },
-};
+interface HomeStats {
+  airportCount: number;
+  lotCount: number;
+  minRate: number;
+  maxOfficialRate: number;
+  avgOffSiteRate: number;
+  shuttlePct: number;
+  totalReviews: number;
+  avgRating: number;
+}
 
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Airport Matrix",
-  "url": "https://www.airportmatrix.com",
-  "description": "Find showers, luggage storage, sleeping pods at 500+ airports worldwide",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://www.airportmatrix.com/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-};
+interface PopularAirport {
+  iata: string;
+  name: string;
+  city: string;
+  minRate: number;
+}
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Airport Matrix",
-  "url": "https://www.airportmatrix.com",
-  "logo": "https://www.airportmatrix.com/logo.png",
-  "foundingDate": "2024",
-  "description": "Curated airport facility database by frequent flyers and aviation professionals",
-  "sameAs": []
-};
+async function getHomeStats(): Promise<HomeStats> {
+  const [airportCount, lots, officialLots, offSiteLots] = await Promise.all([
+    prisma.airport.count({ where: { isActive: true } }),
+    prisma.parkingLot.findMany({
+      where: { isActive: true },
+      select: { dailyRate: true, is24Hours: true, rating: true, reviewCount: true, type: true },
+    }),
+    prisma.parkingLot.findMany({
+      where: { isActive: true, type: "OFFICIAL" },
+      select: { dailyRate: true },
+    }),
+    prisma.parkingLot.findMany({
+      where: { isActive: true, type: "OFF_SITE" },
+      select: { dailyRate: true, is24Hours: true },
+    }),
+  ]);
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "https://www.airportmatrix.com"
-  }]
-};
+  const allRates = lots.map(l => Number(l.dailyRate));
+  const totalReviews = lots.reduce((sum, l) => sum + (l.reviewCount || 0), 0);
+  const ratedLots = lots.filter(l => l.rating);
+  const offSite24h = offSiteLots.filter(l => l.is24Hours);
 
-function generateItemListSchema(airports: { code: string; name: string; city: string; country: string }[]) {
   return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Popular Airports",
-    "description": "Most popular airports with facility information",
-    "itemListElement": airports.map((airport, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": `${airport.name} (${airport.code})`,
-      "url": `https://www.airportmatrix.com/airport/${airport.code.toLowerCase()}`,
-      "item": {
-        "@type": "Airport",
-        "name": airport.name,
-        "iataCode": airport.code,
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": airport.city,
-          "addressCountry": airport.country
-        }
-      }
-    }))
+    airportCount,
+    lotCount: lots.length,
+    minRate: allRates.length > 0 ? Math.min(...allRates) : 5,
+    maxOfficialRate: officialLots.length > 0 ? Math.max(...officialLots.map(l => Number(l.dailyRate))) : 50,
+    avgOffSiteRate: offSiteLots.length > 0 ? Math.round(offSiteLots.reduce((s, l) => s + Number(l.dailyRate), 0) / offSiteLots.length) : 12,
+    shuttlePct: offSiteLots.length > 0 ? Math.round((offSite24h.length / offSiteLots.length) * 100) : 95,
+    totalReviews,
+    avgRating: ratedLots.length > 0 ? Math.round((ratedLots.reduce((s, l) => s + (l.rating || 0), 0) / ratedLots.length) * 10) / 10 : 4.6,
   };
 }
 
-async function getPopularAirports() {
-  try {
-    const airports = await prisma.airport.findMany({
-      where: { isPopular: true }, // 只展示被标记为 Popular 的超级枢纽
-      take: 6,
-      orderBy: { searchVolume: 'desc' }, // 优先展示搜索量大的
-      select: {
-        iata: true,
-        name: true,
-        city: true,
-        country: true,
-        showerData: true,
-        luggageData: true,
-        sleepData: true,
-        transitData: true,
-      }
-    });
+async function getPopularAirports(limit = 8): Promise<PopularAirport[]> {
+  const airports = await prisma.airport.findMany({
+    where: { isActive: true, isPopular: true },
+    orderBy: { searchVolume: "desc" },
+    take: limit,
+    include: {
+      parkings: {
+        where: { isActive: true },
+        orderBy: { dailyRate: "asc" },
+        take: 1,
+        select: { dailyRate: true },
+      },
+    },
+  });
 
-    return airports.map(airport => ({
-      code: airport.iata,
-      name: airport.name,
-      city: airport.city,
-      country: airport.country,
-      showers: !!airport.showerData,
-      storage: !!airport.luggageData,
-      sleeping: !!airport.sleepData,
-      transport: !!airport.transitData,
-    }));
-  } catch (error) {
-    console.error('Failed to fetch airports:', error);
-    // Fallback to empty array if database is not available
-    return [];
-  }
+  return airports.map(a => ({
+    iata: a.iata,
+    name: a.name.replace("International Airport", "").replace("Airport", "").trim(),
+    city: a.city,
+    minRate: a.parkings[0] ? Number(a.parkings[0].dailyRate) : 0,
+  }));
 }
 
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getHomeStats();
 
+  return {
+    title: `Airport Parking Comparison | Save 70% at ${stats.airportCount}+ US Airports`,
+    description: `Compare parking rates at ${stats.airportCount} US airports. ${stats.lotCount}+ verified lots from $${stats.minRate}/day. ${stats.shuttlePct}% with free 24/7 shuttles. Save up to 70% vs terminal garages.`,
+    keywords: [
+      "airport parking",
+      "airport parking rates",
+      "off-site airport parking",
+      "airport parking coupons",
+      "parking near airport",
+      "cheap airport parking",
+      "airport parking shuttle",
+      "airport parking comparison",
+    ],
+    openGraph: {
+      title: `AirportMatrix | Save Up to 70% at ${stats.airportCount}+ US Airports`,
+      description: `Compare terminal rates with ${stats.lotCount}+ verified off-site lots. Book secure parking from $${stats.minRate}/day with free shuttles.`,
+      type: "website",
+    },
+    alternates: {
+      canonical: "https://airportmatrix.com",
+    },
+  };
+}
 
-export default async function Home() {
-  const airports = await getPopularAirports();
+export default async function HomePage() {
+  const [stats, popularAirports] = await Promise.all([
+    getHomeStats(),
+    getPopularAirports(8),
+  ]);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `AirportMatrix | Save Up to 70% on Airport Parking`,
+    description: `Compare official terminal rates with verified off-site parking lots. Book secure parking with free shuttles at ${stats.airportCount} major US airports.`,
+    url: "https://airportmatrix.com",
+    mainEntity: {
+      "@type": "Service",
+      name: "Airport Parking Comparison",
+      provider: {
+        "@type": "Organization",
+        name: "AirportMatrix",
+        url: "https://airportmatrix.com",
+      },
+      areaServed: "United States",
+      serviceType: "Airport Parking Booking",
+    },
+  };
 
   return (
     <>
-      <Script id="website-schema" type="application/ld+json">
-        {JSON.stringify(websiteSchema)}
-      </Script>
-      <Script id="organization-schema" type="application/ld+json">
-        {JSON.stringify(organizationSchema)}
-      </Script>
-      <Script id="breadcrumb-schema" type="application/ld+json">
-        {JSON.stringify(breadcrumbSchema)}
-      </Script>
-      {airports.length > 0 && (
-        <Script id="itemlist-schema" type="application/ld+json">
-          {JSON.stringify(generateItemListSchema(airports))}
-        </Script>
-      )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-        <nav className="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50" role="navigation" aria-label="Main navigation">
-          <div className="max-w-6xl mx-auto px-6 py-4">
-            {/* Desktop Header */}
-            <div className="flex justify-between items-center">
-              <Link href="/" className="flex items-center gap-3" aria-label="Airport Matrix Home">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg shadow-blue-600/20">
-                  M
-                </div>
-                <span className="text-xl font-bold tracking-tight text-slate-900">AIRPORT<span className="text-blue-600">MATRIX</span></span>
-              </Link>
-              <div className="hidden md:flex items-center gap-1 text-sm font-medium">
-                <Link href="/airport-showers" className="px-4 py-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                  Showers
-                </Link>
-                <Link href="/airport-storage" className="px-4 py-2 text-sky-600 hover:bg-sky-50 rounded-lg transition-colors">
-                  Storage
-                </Link>
-                <Link href="/airport-sleeping" className="px-4 py-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-                  Sleeping
-                </Link>
-                <Link href="/airport-transport" className="px-4 py-2 text-amber-600 hover:bg-amber-50 rounded-lg transition-colors">
-                  Transport
-                </Link>
-                <div className="w-px h-6 bg-slate-200 mx-2" />
-                <Link href="/about" className="px-3 py-2 text-slate-500 hover:text-slate-900 transition-colors text-xs">
-                  About
-                </Link>
-              </div>
-            </div>
-            {/* Mobile Quick Access Bar */}
-            <div className="md:hidden mt-4 -mx-6 px-6 pb-2">
-              <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 -mb-2">
-                <Link href="/airport-showers" className="flex-shrink-0 px-4 py-3 bg-emerald-50 text-emerald-600 text-sm font-medium rounded-full whitespace-nowrap min-h-[44px] flex items-center">
-                  Showers
-                </Link>
-                <Link href="/airport-storage" className="flex-shrink-0 px-4 py-3 bg-sky-50 text-sky-600 text-sm font-medium rounded-full whitespace-nowrap min-h-[44px] flex items-center">
-                  Storage
-                </Link>
-                <Link href="/airport-sleeping" className="flex-shrink-0 px-4 py-3 bg-purple-50 text-purple-600 text-sm font-medium rounded-full whitespace-nowrap min-h-[44px] flex items-center">
-                  Sleeping
-                </Link>
-                <Link href="/airport-transport" className="flex-shrink-0 px-4 py-3 bg-amber-50 text-amber-600 text-sm font-medium rounded-full whitespace-nowrap min-h-[44px] flex items-center">
-                  Transport
-                </Link>
-              </div>
-            </div>
+      <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+        <Header />
+
+        <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center mt-8 sm:mt-12 md:mt-24 mb-12 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-100 text-blue-800 text-xs md:text-sm font-bold mb-6 md:mb-8 shadow-sm" role="banner">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" aria-hidden="true"></span>
+            Save up to 70% on Airport Parking
           </div>
-        </nav>
 
-        <div className="max-w-6xl mx-auto px-6 py-20">
-          <header className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 text-sm font-semibold rounded-full mb-6">
-              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" aria-hidden="true" />
-              Airport Facilities Worldwide
-            </div>
-            <h1 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tight mb-6">
-              Airport Facilities <span className="text-slate-300">|</span> <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" aria-label="Showers, Storage, Sleeping Pods & Transport">Showers, Storage, Sleeping Pods & Transport</span>
-            </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Find showers, luggage storage, sleeping pods and transport at airports worldwide. Real-time verified data for stress-free travel.
-            </p>
-            <div className="mt-6 flex items-center justify-center gap-6 text-sm text-slate-500">
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-                Community Verified
-              </span>
-              <span className="w-1 h-1 bg-slate-400 rounded-full" />
-              <span>Regular Updates</span>
-            </div>
-          </header>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mb-4 md:mb-6 leading-tight px-2">
+            Airport Parking Comparison: Save up to <span className="text-blue-600">70%</span> on US Airport Parking
+          </h1>
 
-          <section className="mb-16" role="search" aria-label="Airport search">
-            <SearchBox />
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mb-8 md:mb-12 font-medium leading-relaxed px-2 md:px-4">
+            Stop paying <strong className="text-slate-900">${stats.maxOfficialRate}/day</strong> at terminal garages.
+            Compare official rates with <strong className="text-slate-900">{stats.lotCount}+</strong> verified off-site lots.
+            Book secure parking from <strong className="text-slate-900">${stats.minRate}/day</strong> with free shuttles at <strong className="text-slate-900">{stats.airportCount}</strong> major US airports.
+          </p>
+
+          <SearchBox />
+
+          <section aria-labelledby="trust-heading" className="mt-16 md:mt-20 max-w-4xl w-full px-3 md:px-4">
+            <h2 id="trust-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-6 md:mb-8 text-center">
+              Why Travelers Trust AirportMatrix
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-12">
+              {[
+                { Icon: ShieldCheck, bg: "bg-emerald-100", color: "text-emerald-600", label: `${stats.lotCount}+ Secure Lots` },
+                { Icon: Bus, bg: "bg-blue-100", color: "text-blue-600", label: `${stats.shuttlePct}% Free Shuttles` },
+                { Icon: Ban, bg: "bg-purple-100", color: "text-purple-600", label: "Free Cancellation" },
+                { Icon: Star, bg: "bg-amber-100", color: "text-amber-600", label: `${stats.totalReviews.toLocaleString()}+ Reviews` },
+              ].map(({ Icon, bg, color, label }) => (
+                <div key={label} className="flex flex-col items-center gap-2 md:gap-3">
+                  <div className={`${bg} p-3 md:p-4 rounded-full ${color}`} aria-hidden="true">
+                    <Icon className="w-6 h-6 md:w-8 md:h-8" />
+                  </div>
+                  <span className="font-bold text-slate-700">{label}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
-          <section className="mb-16" aria-labelledby="popular-airports-heading">
-            <div className="flex items-center justify-between mb-8">
-              <h2 id="popular-airports-heading" className="text-2xl font-bold text-slate-900">Popular Airports</h2>
-              <Link href="/airports" className="text-sm font-semibold text-blue-600 hover:text-blue-700">View All →</Link>
+          <section className="mt-16 md:mt-20 max-w-4xl w-full px-3 md:px-4 text-left">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-4 md:mb-6 text-center">
+              How Airport Parking Comparison Works
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              <div className="bg-white rounded-xl p-4 md:p-6 border border-slate-200">
+                <div className="text-2xl md:text-3xl font-black text-blue-600 mb-2 md:mb-3">1</div>
+                <h3 className="font-bold text-slate-900 mb-2">Search Your Airport</h3>
+                <p className="text-slate-600 text-sm">Enter your airport code (JFK, LAX, etc.) or city name to find available parking options.</p>
+              </div>
+              <div className="bg-white rounded-xl p-4 md:p-6 border border-slate-200">
+                <div className="text-2xl md:text-3xl font-black text-blue-600 mb-2 md:mb-3">2</div>
+                <h3 className="font-bold text-slate-900 mb-2">Compare Rates</h3>
+                <p className="text-slate-600 text-sm">See side-by-side pricing for official airport garages vs verified off-site lots.</p>
+              </div>
+              <div className="bg-white rounded-xl p-4 md:p-6 border border-slate-200">
+                <div className="text-2xl md:text-3xl font-black text-blue-600 mb-2 md:mb-3">3</div>
+                <h3 className="font-bold text-slate-900 mb-2">Book &amp; Save</h3>
+                <p className="text-slate-600 text-sm">Reserve your spot online with free cancellation. Save up to 70% vs drive-up rates.</p>
+              </div>
             </div>
-            {airports.length > 0 ? (
-              <div className="space-y-4">
-                {airports.map((airport) => (
-                  <article key={airport.code} className="group bg-white rounded-2xl border border-slate-200/50 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 overflow-hidden">
-                    <div className="p-6">
-                      {/* 头部：机场信息 - 点击进入机场主页 */}
-                      <Link href={`/airport/${airport.code.toLowerCase()}`} className="block mb-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                              <span className="text-2xl font-black text-slate-700">{airport.code}</span>
-                            </div>
-                            <div>
-                              <h3 className="text-lg font-bold text-slate-900">{airport.name}</h3>
-                              <span className="text-sm text-slate-500 font-medium">{airport.city}, {airport.country}</span>
-                            </div>
-                          </div>
-                          <div className="hidden sm:flex items-center gap-2 text-slate-400 group-hover:text-blue-600 transition-colors">
-                            <span className="text-sm font-medium">View Details</span>
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-                          </div>
-                        </div>
+          </section>
+
+          <section className="mt-16 md:mt-20 max-w-3xl w-full px-3 md:px-4 text-left">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-6 md:mb-8 text-center">
+              Common Questions About Airport Parking
+            </h2>
+            <div className="space-y-3 md:space-y-4">
+              <details className="bg-white rounded-xl border border-slate-200 overflow-hidden group">
+                <summary className="px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base text-slate-900 cursor-pointer hover:bg-slate-50 flex justify-between items-center gap-2">
+                  <span className="flex-1">How much can I save with off-site airport parking?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">▼</span>
+                </summary>
+                <div className="px-4 md:px-6 pb-3 md:pb-4 text-slate-600 text-sm">
+                  Off-site parking lots typically cost 50-70% less than official airport garages. For example, while official terminals charge up to ${stats.maxOfficialRate}/day, our verified off-site lots start at just ${stats.minRate}/day with free shuttle service included. That&apos;s an average savings of ${Math.round(stats.maxOfficialRate - stats.avgOffSiteRate)} per day!
+                </div>
+              </details>
+              <details className="bg-white rounded-xl border border-slate-200 overflow-hidden group">
+                <summary className="px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base text-slate-900 cursor-pointer hover:bg-slate-50 flex justify-between items-center gap-2">
+                  <span className="flex-1">Is off-site airport parking safe?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">▼</span>
+                </summary>
+                <div className="px-4 md:px-6 pb-3 md:pb-4 text-slate-600 text-sm">
+                  Yes. All {stats.lotCount}+ parking lots listed on AirportMatrix are verified for security features including 24/7 surveillance, gated access, and on-site staff. We only partner with established operators with proven track records and {stats.totalReviews.toLocaleString()}+ verified reviews averaging {stats.avgRating}/5 stars.
+                </div>
+              </details>
+              <details className="bg-white rounded-xl border border-slate-200 overflow-hidden group">
+                <summary className="px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base text-slate-900 cursor-pointer hover:bg-slate-50 flex justify-between items-center gap-2">
+                  <span className="flex-1">How does the free shuttle service work?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">▼</span>
+                </summary>
+                <div className="px-4 md:px-6 pb-3 md:pb-4 text-slate-600 text-sm">
+                  All off-site parking lots include complimentary shuttle service to and from the airport terminal. Shuttles run every 15-30 minutes, 24/7 ({stats.shuttlePct}% of our partner lots offer round-the-clock service). Simply park your car, check in at the front desk, and board the next available shuttle.
+                </div>
+              </details>
+              <details className="bg-white rounded-xl border border-slate-200 overflow-hidden group">
+                <summary className="px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base text-slate-900 cursor-pointer hover:bg-slate-50 flex justify-between items-center gap-2">
+                  <span className="flex-1">Can I cancel my parking reservation?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">▼</span>
+                </summary>
+                <div className="px-4 md:px-6 pb-3 md:pb-4 text-slate-600 text-sm">
+                  Yes, most reservations can be cancelled free of charge up to 24 hours before your scheduled arrival. Check the specific cancellation policy for your chosen parking lot during booking.
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section className="mt-16 md:mt-20 max-w-4xl w-full px-3 md:px-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-4 md:mb-6 text-center">
+              Popular Airport Parking Destinations
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {popularAirports.map((airport) => (
+                <Link
+                  key={airport.iata}
+                  href={`/airport/${airport.iata.toLowerCase()}/parking`}
+                  className="bg-white rounded-xl p-3 md:p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all text-center"
+                >
+                  <div className="text-lg md:text-xl font-black text-blue-600">{airport.iata}</div>
+                  <div className="text-xs md:text-sm text-slate-600">{airport.city}</div>
+                  <div className="text-xs text-slate-400 mt-1">From ${airport.minRate}/day</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </main>
+
+        <footer className="bg-slate-900 text-slate-300 mt-auto">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+              <div className="col-span-2 md:col-span-1">
+                <div className="font-black text-xl text-white mb-4 tracking-tight">
+                  Airport<span className="text-blue-400">Matrix</span>
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed mb-5">
+                  Independent airport parking comparison engine. We help US travelers find secure off-site parking at a fraction of terminal garage prices.
+                </p>
+                <div className="flex gap-3">
+                    <a
+                    href="https://twitter.com/airportmatrix"
+                    aria-label="AirportMatrix on Twitter"
+                    className="w-9 h-9 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors text-slate-400 hover:text-white"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <X className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                    <a
+                    href="https://github.com/airportmatrix"
+                    aria-label="AirportMatrix on GitHub"
+                    className="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors text-slate-400 hover:text-white"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Globe className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+
+              <nav aria-label="Parking navigation">
+                <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Browse</h3>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    ["All Airports", "/airports", "all-airports"],
+                    ["How It Works", "/about", "how-it-works"],
+                  ].map(([label, href, key]) => (
+                    <li key={key ?? href}>
+                      <Link href={href} className="hover:text-white transition-colors">
+                        {label}
                       </Link>
-
-                      {/* 服务可用性指示器 - 点击进入对应服务页面 */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {/* Showers */}
-                        {airport.showers ? (
-                          <Link href={`/airport/${airport.code.toLowerCase()}/showers`} className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50/50 hover:bg-emerald-100/50 transition-colors">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-emerald-100 text-emerald-600">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Showers</span>
-                                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                              </div>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                                <div className="h-full rounded-full bg-emerald-500 w-full" />
-                              </div>
-                            </div>
-                          </Link>
-                        ) : (
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 opacity-50">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-200 text-slate-400">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Showers</span>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full" />
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Storage */}
-                        {airport.storage ? (
-                          <Link href={`/airport/${airport.code.toLowerCase()}/luggage-storage`} className="flex items-center gap-3 p-3 rounded-xl bg-sky-50/50 hover:bg-sky-100/50 transition-colors">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-sky-100 text-sky-600">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Storage</span>
-                                <span className="w-2 h-2 rounded-full bg-sky-500" />
-                              </div>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                                <div className="h-full rounded-full bg-sky-500 w-full" />
-                              </div>
-                            </div>
-                          </Link>
-                        ) : (
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 opacity-50">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-200 text-slate-400">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Storage</span>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full" />
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Sleeping */}
-                        {airport.sleeping ? (
-                          <Link href={`/airport/${airport.code.toLowerCase()}/sleeping`} className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/50 hover:bg-purple-100/50 transition-colors">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-purple-100 text-purple-600">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Sleeping</span>
-                                <span className="w-2 h-2 rounded-full bg-purple-500" />
-                              </div>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                                <div className="h-full rounded-full bg-purple-500 w-full" />
-                              </div>
-                            </div>
-                          </Link>
-                        ) : (
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 opacity-50">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-200 text-slate-400">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Sleeping</span>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full" />
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Transport */}
-                        {airport.transport ? (
-                          <Link href={`/airport/${airport.code.toLowerCase()}/transport`} className="flex items-center gap-3 p-3 rounded-xl bg-amber-50/50 hover:bg-amber-100/50 transition-colors">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-amber-100 text-amber-600">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Transport</span>
-                                <span className="w-2 h-2 rounded-full bg-amber-500" />
-                              </div>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                                <div className="h-full rounded-full bg-amber-500 w-full" />
-                              </div>
-                            </div>
-                          </Link>
-                        ) : (
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 opacity-50">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-200 text-slate-400">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                              </svg>
-                            </div>
-                            <div className="flex-1">
-                              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Transport</span>
-                              <div className="mt-1 h-1.5 bg-slate-200 rounded-full" />
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12 bg-white rounded-2xl border border-slate-200/50">
-                <p className="text-slate-500">No airports found in database. Please run the seed script to add airports.</p>
-                <code className="mt-4 inline-block px-4 py-2 bg-slate-100 rounded-lg text-sm">npx prisma db seed</code>
-              </div>
-            )}
-          </section>
-
-          <section aria-labelledby="services-heading">
-            <h2 id="services-heading" className="text-2xl font-bold text-slate-900 mb-8">Airport Services</h2>
-            <div className="grid md:grid-cols-4 gap-4">
-              <Link href="/airport-showers" className="group bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-emerald-200 hover:shadow-lg hover:shadow-emerald-100/50 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Showers</h3>
-                <p className="text-sm text-slate-500">Freshen up at airports</p>
-              </Link>
-              <Link href="/airport-storage" className="group bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/50 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Storage</h3>
-                <p className="text-sm text-slate-500">Secure luggage lockers</p>
-              </Link>
-              <Link href="/airport-sleeping" className="group bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Sleeping</h3>
-                <p className="text-sm text-slate-500">Pods & quiet zones</p>
-              </Link>
-              <Link href="/airport-transport" className="group bg-white rounded-2xl p-6 border border-slate-200/50 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-100/50 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Transport</h3>
-                <p className="text-sm text-slate-500">City connections</p>
-              </Link>
-            </div>
-          </section>
-
-          <section className="mt-16 pt-16 border-t border-slate-200">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Why Travelers Trust Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Verified Data</h3>
-                <p className="text-sm text-slate-600">Information confirmed by airport authorities and traveler community</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Real-time Updates</h3>
-                <p className="text-sm text-slate-600">Database regularly refreshed with verified facility information</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Global Coverage</h3>
-                <p className="text-sm text-slate-600">Major airports worldwide, from international hubs to regional terminals</p>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <footer className="border-t border-slate-200 bg-white mt-20" role="contentinfo">
-          <div className="max-w-6xl mx-auto px-6 py-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-              <div>© 2024-2026 Airport Matrix. All rights reserved.</div>
-              <nav className="flex gap-6" aria-label="Footer navigation">
-                <Link href="/about" className="hover:text-slate-900">About</Link>
-                <Link href="/data-sources" className="hover:text-slate-900">Data Sources</Link>
-                <Link href="/privacy" className="hover:text-slate-900">Privacy</Link>
-                <Link href="/terms" className="hover:text-slate-900">Terms</Link>
+                    </li>
+                  ))}
+                </ul>
               </nav>
+
+              <nav aria-label="Partnership navigation">
+                <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Partners</h3>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    ["List Your Parking Lot", "/contact?subject=partnership", "list-lot"],
+                    ["API & Data Access", "/contact?subject=general", "api-access"],
+                    ["Advertise With Us", "/contact?subject=general", "advertise"],
+                  ].map(([label, href, key]) => (
+                    <li key={key ?? href}>
+                      <Link href={href} className="hover:text-white transition-colors">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <nav aria-label="Legal navigation">
+                <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Legal</h3>
+                <ul className="space-y-3 text-sm">
+                  {[
+                    ["Privacy Policy", "/privacy", "privacy"],
+                    ["Terms of Service", "/terms", "terms"],
+                    ["Contact Us", "/contact", "/contact"],
+                    ["Affiliate Disclosure", "/about#transparency-heading", "affiliate"],
+                  ].map(([label, href, key]) => (
+                    <li key={key ?? href}>
+                      <Link href={href} className="hover:text-white transition-colors">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+
+            <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+              <p>
+                &copy; <time dateTime="2026">2026</time> AirportMatrix. All rights reserved. Not affiliated with any airport authority.
+              </p>
+              <p>
+                Prices and availability subject to change. Always verify rates on the booking partner&apos;s site.
+              </p>
             </div>
           </div>
         </footer>
-      </main>
+      </div>
     </>
   );
 }

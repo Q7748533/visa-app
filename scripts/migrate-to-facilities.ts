@@ -99,7 +99,7 @@ async function createFacilityFromService(
     };
     
     // 创建 Facility
-    const facility = await prisma.facility.create({
+    const facility = await (prisma as any).facility.create({
       data: {
         airportIata,
         name: facilityName,
@@ -135,12 +135,7 @@ async function migrateToFacilities() {
   // 获取所有有服务数据的机场
   const airports = await prisma.airport.findMany({
     where: {
-      OR: [
-        { sleepData: { not: null } },
-        { showerData: { not: null } },
-        { luggageData: { not: null } },
-        { transitData: { not: null } },
-      ],
+      isActive: true,
     },
   });
   
@@ -152,26 +147,26 @@ async function migrateToFacilities() {
     console.log(`\n📍 Processing ${airport.iata} - ${airport.name}`);
     
     // 迁移睡眠数据
-    if (airport.sleepData) {
-      const facility = await createFacilityFromService(airport.iata, 'sleepData', airport.sleepData);
+    if ((airport as any).sleepData) {
+      const facility = await createFacilityFromService(airport.iata, 'sleepData', (airport as any).sleepData);
       if (facility) totalFacilities++;
     }
     
     // 迁移淋浴数据
-    if (airport.showerData) {
-      const facility = await createFacilityFromService(airport.iata, 'showerData', airport.showerData);
+    if ((airport as any).showerData) {
+      const facility = await createFacilityFromService(airport.iata, 'showerData', (airport as any).showerData);
       if (facility) totalFacilities++;
     }
     
     // 迁移行李数据
-    if (airport.luggageData) {
-      const facility = await createFacilityFromService(airport.iata, 'luggageData', airport.luggageData);
+    if ((airport as any).luggageData) {
+      const facility = await createFacilityFromService(airport.iata, 'luggageData', (airport as any).luggageData);
       if (facility) totalFacilities++;
     }
     
     // 迁移交通数据
-    if (airport.transitData) {
-      const facility = await createFacilityFromService(airport.iata, 'transitData', airport.transitData);
+    if ((airport as any).transitData) {
+      const facility = await createFacilityFromService(airport.iata, 'transitData', (airport as any).transitData);
       if (facility) totalFacilities++;
     }
   }

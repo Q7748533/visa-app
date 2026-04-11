@@ -230,7 +230,7 @@ async function seedTestFacilities() {
 
   // 创建设施
   for (const facility of showerFacilities) {
-    await prisma.facility.create({
+    await (prisma as any).facility.create({
       data: facility,
     });
     console.log(`🚿 Facility: ${facility.name} at ${facility.airportIata}`);

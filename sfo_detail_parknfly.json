@@ -1,0 +1,435 @@
+{
+    "tracking": {
+        "action_id": "0e8d01c4-7b63-4079-973b-a247b004afbb",
+        "search_id": "2c657687-6b56-4aea-a218-cf15e2ae104c"
+    },
+    "airport": {
+        "code": "SFO",
+        "full_name": "San Francisco International Airport",
+        "short_name": "SFO",
+        "latitude": 37.625420627998096,
+        "longitude": -122.37899267187498
+    },
+    "result": {
+        "distance": {
+            "linear_meters": 3460.39638511537
+        },
+        "vehicle": null,
+        "rates": [
+            {
+                "airport": {
+                    "tag": null,
+                    "comparisons": null,
+                    "redemption_type": "self",
+                    "parking_pass": {
+                        "type": "scan_in_out",
+                        "display_name": "Scan In/Out"
+                    },
+                    "amenities": [
+                        {
+                            "type": "self_park",
+                            "display_name": "Self Park",
+                            "description": "Users may park their own vehicles at this facility."
+                        },
+                        {
+                            "type": "paved",
+                            "display_name": "Lot - Uncovered",
+                            "description": "The surface of the facility is solid, such as asphalt or concrete."
+                        },
+                        {
+                            "type": "touchless",
+                            "display_name": "Touchless",
+                            "description": "Entering/exiting the facility does not require touching shared surfaces."
+                        },
+                        {
+                            "type": "attendant",
+                            "display_name": "On-Site Staff",
+                            "description": "The facility has staff on-site for assistance and questions."
+                        },
+                        {
+                            "type": "shuttle",
+                            "display_name": "Airport Shuttle",
+                            "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                        }
+                    ],
+                    "lowest_daily_rate": {
+                        "currency_code": "USD",
+                        "value": 0
+                    }
+                },
+                "quote": {
+                    "meta": {
+                        "quote_mac": "1100159751",
+                        "quote_valid_until": "2026-04-09T15:57:23Z",
+                        "partner_id": "",
+                        "quote_token": "eyJhbGciOiJFZERTQSIsImtpZCI6ImVkMjU1MTktMTc3NTE0NzMwOCIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU3NTAyNDMsImlhdCI6MTc3NTczOTQ0MywiaXNzIjoiYXZhaWxhYmlsaXR5LnNwb3RoZXJvIiwianRpIjoicXVvdGVfMDFrbnM1MzV3OWYxZWJ5cTlkZmRmeXM4ZmIiLCJwcm9kdWN0X3R5cGUiOiJhaXJwb3J0IiwicXVvdGUiOiJ7XCJmYWNpbGl0eVwiOntcImF2YWlsYWJpbGl0eVwiOjY5MSxcImJsYWNrZWRfb3V0XCI6ZmFsc2UsXCJjdXJyZW5jeVwiOntcInN5bWJvbFwiOlwiJFwiLFwidHlwZVwiOlwidXNkXCJ9LFwiZGlzdGFuY2VfbWV0ZXJzXCI6MCxcImdyYXllZF9vdXRcIjpmYWxzZSxcImlkXCI6OTI5ODEsXCJpbnRlZ3JhdGlvbl9vdXRhZ2VcIjpmYWxzZSxcImxhdGl0dWRlXCI6MzcuNjQ2Nzc4LFwibG9uZ2l0dWRlXCI6LTEyMi40MDc1NzUsXCJudW1fcmF0aW5nc1wiOjExMCxcIm9mZmljaWFsX3BhcmtpbmdfZmlsdGVyZWRcIjpmYWxzZSxcIm91dHNpZGVfaG91cnNcIjpmYWxzZSxcIm92ZXJzaXplX3ZlaGljbGVfbm90X2FsbG93ZWRcIjpmYWxzZSxcInJhdGVzXCI6e1wiYWlycG9ydFwiOlt7XCJDYWxjdWxhdGVkRmVlc1wiOntcIlBvc3RUYXhcIjpbe1wiZmVlX2lkXCI6XCI3MTg1OFwiLFwicHJpY2VcIjo1OTV9LHtcImZlZV9pZFwiOlwiODM4MzhcIixcInByaWNlXCI6NzI2fV0sXCJQcmVUYXhcIjpudWxsLFwiVGF4XCI6W3tcImZlZV9pZFwiOlwiNzkwODVcIixcInByaWNlXCI6MjEyMX1dfSxcImFtZW5pdGllc1wiOntcImFjY2Vzc2libGVfc2h1dHRsZVwiOmZhbHNlLFwiYWxsZXlfYWNjZXNzXCI6ZmFsc2UsXCJjYXJfd2FzaFwiOmZhbHNlLFwiY292ZXJlZF9wYXJraW5nXCI6ZmFsc2UsXCJldl9jaGFyZ2luZ1wiOmZhbHNlLFwiaGFuZGljYXBfYWNjZXNzaWJsZVwiOmZhbHNlLFwiaGVhdGVkXCI6ZmFsc2UsXCJpbm91dF9hbGxvd2VkXCI6ZmFsc2UsXCJvbl9zaXRlX3N0YWZmXCI6dHJ1ZSxcIm9uZV90YXBcIjpmYWxzZSxcInBhcmtpbmdfcGFzc190eXBlXCI6XCJzY2FuX2luX291dFwiLFwicGFya2luZ190eXBlXCI6XCJzZWxmXCIsXCJwYXZlZFwiOnRydWUsXCJyb29mdG9wX2V4cG9zZWRcIjpmYWxzZSxcInNodXR0bGVcIjp0cnVlLFwidW5kZXJfZWxcIjpmYWxzZX0sXCJmZWVzXCI6W3tcImZlZV9pZFwiOlwiNzkwODVcIixcInByaWNlXCI6MjEyMX0se1wiZmVlX2lkXCI6XCI3MTg1OFwiLFwicHJpY2VcIjo1OTV9LHtcImZlZV9pZFwiOlwiODM4MzhcIixcInByaWNlXCI6NzI2fV0sXCJwcmljZVwiOjEwNTAwLFwicXVvdGVcIjp7XCJhZHZlcnRpc2VkX3ByaWNlXCI6e1wiY3VycmVuY3lcIjoyLFwic2lnbmVkX3ZhbHVlXCI6MjYyNSxcInZhbHVlXCI6MjYyNX0sXCJhZHZlcnRpc2VkX3ByaWNlX2FuZF9kaXNjb3VudHNcIjp7XCJjdXJyZW5jeV9jb2RlXCI6XCJVU0RcIixcInZhbHVlXCI6MjYyNX0sXCJpdGVtc1wiOlt7XCJwcmljZVwiOntcImN1cnJlbmN5XCI6MixcInNpZ25lZF92YWx1ZVwiOjEwNTAwLFwidmFsdWVcIjoxMDUwMH0sXCJzaG9ydF9kZXNjcmlwdGlvblwiOlwiJDI2LjI1IHggNCBkYXlzXCIsXCJ0eXBlXCI6XCJyZW50YWxcIn0se1wiZnVsbF9kZXNjcmlwdGlvblwiOlwiQSBjaGFyZ2UgcHJvdmlkZWQgdG8gdGhlIGdhcmFnZSBvcGVyYXRvciB0aGF0IGluY2x1ZGVzIGFsbCBhbnRpY2lwYXRlZCBhcHBsaWNhYmxlIHRheGVzIHJlbGF0ZWQgdG8gdGhlIHByb3Zpc2lvbiBvZiB0aGUgZ2FyYWdlIG9wZXJhdG9yJ3MgcGFya2luZyBzcG90LlwiLFwicHJpY2VcIjp7XCJjdXJyZW5jeVwiOjIsXCJzaWduZWRfdmFsdWVcIjoyMTIxLFwidmFsdWVcIjoyMTIxfSxcInNob3J0X2Rlc2NyaXB0aW9uXCI6XCJUYXhcIixcInR5cGVcIjpcImFpcnBvcnRfdGF4XCJ9LHtcImZ1bGxfZGVzY3JpcHRpb25cIjpcIlRoZSBzZXJ2aWNlIGZlZSBoZWxwcyB1cyBjb3ZlciB0aGUgY29zdHMgb2YgcnVubmluZyBvdXIgcGxhdGZvcm0gYW5kIHByb3ZpZGluZyBzZXJ2aWNlcyByZWxhdGVkIHRvIHlvdXIgcmVzZXJ2YXRpb24uIEZvciBtb3JlIGluZm9ybWF0aW9uLCB2aXNpdCBvdXIgRkFRcy5cIixcInByaWNlXCI6e1wiY3VycmVuY3lcIjoyLFwic2lnbmVkX3ZhbHVlXCI6NzI2LFwidmFsdWVcIjo3MjZ9LFwic2hvcnRfZGVzY3JpcHRpb25cIjpcIlNlcnZpY2UgRmVlXCIsXCJ0eXBlXCI6XCJibGFua2V0X2ZlZVwifSx7XCJmdWxsX2Rlc2NyaXB0aW9uXCI6XCJBIGZlZSBkZXRlcm1pbmVkIGJ5IHRoZSBnYXJhZ2Ugb3BlcmF0b3IgdG8gY292ZXIgYWRkaXRpb25hbCBnYXJhZ2Ugb3BlcmF0b3IgY29zdHMuXCIsXCJwcmljZVwiOntcImN1cnJlbmN5XCI6MixcInNpZ25lZF92YWx1ZVwiOjU5NSxcInZhbHVlXCI6NTk1fSxcInNob3J0X2Rlc2NyaXB0aW9uXCI6XCJGYWNpbGl0eSBGZWVcIixcInR5cGVcIjpcInJlc2VydmF0aW9uX2ZlZVwifV0sXCJtZXRhXCI6e1wicXVvdGVfbWFjXCI6XCIxMTAwMTU5NzUxXCIsXCJxdW90ZV92YWxpZF91bnRpbFwiOlwiMjAyNi0wNC0xNFQxMjowMDowMC0wNzowMFwifSxcIm9yZGVyXCI6W3tcImVuZHNcIjpcIjIwMjYtMDQtMTRUMTI6MDA6MDAtMDc6MDBcIixcImZhY2lsaXR5X2lkXCI6XCI5Mjk4MVwiLFwiaXRlbXNcIjpbe1wicHJpY2VcIjp7XCJjdXJyZW5jeVwiOjIsXCJzaWduZWRfdmFsdWVcIjoxMDUwMCxcInZhbHVlXCI6MTA1MDB9LFwic2hvcnRfZGVzY3JpcHRpb25cIjpcIiQyNi4yNSB4IDQgZGF5c1wiLFwidHlwZVwiOlwicmVudGFsXCJ9LHtcImZ1bGxfZGVzY3JpcHRpb25cIjpcIkEgY2hhcmdlIHByb3ZpZGVkIHRvIHRoZSBnYXJhZ2Ugb3BlcmF0b3IgdGhhdCBpbmNsdWRlcyBhbGwgYW50aWNpcGF0ZWQgYXBwbGljYWJsZSB0YXhlcyByZWxhdGVkIHRvIHRoZSBwcm92aXNpb24gb2YgdGhlIGdhcmFnZSBvcGVyYXRvcidzIHBhcmtpbmcgc3BvdC5cIixcInByaWNlXCI6e1wiY3VycmVuY3lcIjoyLFwic2lnbmVkX3ZhbHVlXCI6MjEyMSxcInZhbHVlXCI6MjEyMX0sXCJzaG9ydF9kZXNjcmlwdGlvblwiOlwiVGF4XCIsXCJ0eXBlXCI6XCJhaXJwb3J0X3RheFwifSx7XCJmdWxsX2Rlc2NyaXB0aW9uXCI6XCJUaGUgc2VydmljZSBmZWUgaGVscHMgdXMgY292ZXIgdGhlIGNvc3RzIG9mIHJ1bm5pbmcgb3VyIHBsYXRmb3JtIGFuZCBwcm92aWRpbmcgc2VydmljZXMgcmVsYXRlZCB0byB5b3VyIHJlc2VydmF0aW9uLiBGb3IgbW9yZSBpbmZvcm1hdGlvbiwgdmlzaXQgb3VyIEZBUXMuXCIsXCJwcmljZVwiOntcImN1cnJlbmN5XCI6MixcInNpZ25lZF92YWx1ZVwiOjcyNixcInZhbHVlXCI6NzI2fSxcInNob3J0X2Rlc2NyaXB0aW9uXCI6XCJTZXJ2aWNlIEZlZVwiLFwidHlwZVwiOlwiYmxhbmtldF9mZWVcIn0se1wiZnVsbF9kZXNjcmlwdGlvblwiOlwiQSBmZWUgZGV0ZXJtaW5lZCBieSB0aGUgZ2FyYWdlIG9wZXJhdG9yIHRvIGNvdmVyIGFkZGl0aW9uYWwgZ2FyYWdlIG9wZXJhdG9yIGNvc3RzLlwiLFwicHJpY2VcIjp7XCJjdXJyZW5jeVwiOjIsXCJzaWduZWRfdmFsdWVcIjo1OTUsXCJ2YWx1ZVwiOjU5NX0sXCJzaG9ydF9kZXNjcmlwdGlvblwiOlwiRmFjaWxpdHkgRmVlXCIsXCJ0eXBlXCI6XCJyZXNlcnZhdGlvbl9mZWVcIn1dLFwicmF0ZV9pZFwiOlwiMTEwMDE1OTc1MVwiLFwic3RhcnRzXCI6XCIyMDI2LTA0LTEwVDEyOjAwOjAwLTA3OjAwXCIsXCJ0b3RhbF9wcmljZVwiOntcImN1cnJlbmN5XCI6MixcInNpZ25lZF92YWx1ZVwiOjEzOTQyLFwidmFsdWVcIjoxMzk0Mn19XSxcInRvdGFsX3ByaWNlXCI6e1wiY3VycmVuY3lcIjoyLFwic2lnbmVkX3ZhbHVlXCI6MTM5NDIsXCJ2YWx1ZVwiOjEzOTQyfX0sXCJyYXRlX3J1bGVfdHJhaWxcIjpbe1wiZmVlXCI6ZmFsc2UsXCJwcmljZVwiOjI2MjUsXCJyYXRlX2lkXCI6NDQ4MTQwNjQsXCJyYXRlX3BlcmlvZFwiOntcImVuZFwiOlwiMjAyNi0wNC0xMVQxMjowMDowMC0wNzowMFwiLFwic3RhcnRcIjpcIjIwMjYtMDQtMTBUMTI6MDA6MDAtMDc6MDBcIn0sXCJyYXRlX3R5cGVcIjpcIm1hdHJpeFwifSx7XCJmZWVcIjpmYWxzZSxcInByaWNlXCI6MjYyNSxcInJhdGVfaWRcIjo0NDgxNDA2NSxcInJhdGVfcGVyaW9kXCI6e1wiZW5kXCI6XCIyMDI2LTA0LTEyVDEyOjAwOjAwLTA3OjAwXCIsXCJzdGFydFwiOlwiMjAyNi0wNC0xMVQxMjowMDowMC0wNzowMFwifSxcInJhdGVfdHlwZVwiOlwibWF0cml4XCJ9LHtcImZlZVwiOmZhbHNlLFwicHJpY2VcIjoyNjI1LFwicmF0ZV9pZFwiOjQ0ODE0MDY2LFwicmF0ZV9wZXJpb2RcIjp7XCJlbmRcIjpcIjIwMjYtMDQtMTNUMTI6MDA6MDAtMDc6MDBcIixcInN0YXJ0XCI6XCIyMDI2LTA0LTEyVDEyOjAwOjAwLTA3OjAwXCJ9LFwicmF0ZV90eXBlXCI6XCJtYXRyaXhcIn0se1wiZmVlXCI6ZmFsc2UsXCJwcmljZVwiOjI2MjUsXCJyYXRlX2lkXCI6NDQ4MTQwNjAsXCJyYXRlX3BlcmlvZFwiOntcImVuZFwiOlwiMjAyNi0wNC0xNFQxMjowMDowMC0wNzowMFwiLFwic3RhcnRcIjpcIjIwMjYtMDQtMTNUMTI6MDA6MDAtMDc6MDBcIn0sXCJyYXRlX3R5cGVcIjpcIm1hdHJpeFwifV0sXCJydWxlX2dyb3VwX2lkXCI6MTEwMDE1OTc1MSxcInRpbWVfb2ZmZXJlZFwiOntcImVuZFwiOlwiMjAyNi0wNC0xNFQxMjowMDowMC0wNzowMFwiLFwic3RhcnRcIjpcIjIwMjYtMDQtMTBUMTI6MDA6MDAtMDc6MDBcIn0sXCJ0b3RhbF9wcmljZVwiOjEzOTQyfV19LFwic29sZF9vdXRcIjpmYWxzZSxcInN0YXJfcmF0aW5nXCI6NC43LFwic3RhdHVzXCI6XCJvbl9zYWxlc19hbGxvd2VkXCIsXCJ0aXRsZVwiOlwiUGFyayBOIEZseSBTRk8gLSBVbmNvdmVyZWQgU2VsZiBQYXJrXCIsXCJ0b29fZmFyX2luX2Z1dHVyZVwiOmZhbHNlLFwidG90YWxfaW52ZW50b3J5XCI6NzAwLFwidG90YWxfcmVzZXJ2YXRpb25zXCI6OSxcInZlaGljbGVcIjpudWxsLFwidmVoaWNsZV9zaXplX2V4Y2VlZFwiOmZhbHNlfX0iLCJxdW90ZV92ZXJzaW9uIjoxfQ.of77N5ZiG6LRhqZHT2-PDiLGmzH1QxevpSLjPU64PH7DHJ_NKKnF9HpD0oljOPpEiD8QgJeqhOemwkUIR9T4Ag"
+                    },
+                    "total_price": {
+                        "currency_code": "USD",
+                        "value": 13942
+                    },
+                    "order": [
+                        {
+                            "meta": {},
+                            "starts": "2026-04-10T12:00:00-07:00",
+                            "ends": "2026-04-14T12:00:00-07:00",
+                            "total_price": {
+                                "currency_code": "USD",
+                                "value": 13942
+                            },
+                            "facility_id": "92981",
+                            "rate_id": "1100159751",
+                            "items": [
+                                {
+                                    "type": "rental",
+                                    "short_description": "$26.25 x 4 days",
+                                    "full_description": "",
+                                    "price": {
+                                        "currency_code": "USD",
+                                        "value": 10500
+                                    }
+                                },
+                                {
+                                    "type": "airport_tax",
+                                    "short_description": "Tax",
+                                    "full_description": "A charge provided to the garage operator that includes all anticipated applicable taxes related to the provision of the garage operator's parking spot.",
+                                    "price": {
+                                        "currency_code": "USD",
+                                        "value": 2121
+                                    }
+                                },
+                                {
+                                    "type": "blanket_fee",
+                                    "short_description": "Service Fee",
+                                    "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                    "price": {
+                                        "currency_code": "USD",
+                                        "value": 726
+                                    }
+                                },
+                                {
+                                    "type": "reservation_fee",
+                                    "short_description": "Facility Fee",
+                                    "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                    "price": {
+                                        "currency_code": "USD",
+                                        "value": 595
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "items": [
+                        {
+                            "type": "rental",
+                            "short_description": "$26.25 x 4 days",
+                            "full_description": "",
+                            "price": {
+                                "currency_code": "USD",
+                                "value": 10500
+                            }
+                        },
+                        {
+                            "type": "airport_tax",
+                            "short_description": "Tax",
+                            "full_description": "A charge provided to the garage operator that includes all anticipated applicable taxes related to the provision of the garage operator's parking spot.",
+                            "price": {
+                                "currency_code": "USD",
+                                "value": 2121
+                            }
+                        },
+                        {
+                            "type": "blanket_fee",
+                            "short_description": "Service Fee",
+                            "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                            "price": {
+                                "currency_code": "USD",
+                                "value": 726
+                            }
+                        },
+                        {
+                            "type": "reservation_fee",
+                            "short_description": "Facility Fee",
+                            "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                            "price": {
+                                "currency_code": "USD",
+                                "value": 595
+                            }
+                        }
+                    ],
+                    "advertised_price": {
+                        "currency_code": "USD",
+                        "value": 2625
+                    }
+                }
+            }
+        ],
+        "availability": {
+            "unavailable_reasons": [],
+            "available_spaces": 691,
+            "available": true
+        },
+        "facility": {
+            "airport": {
+                "logo": {
+                    "id": "169838",
+                    "url": "https://res.cloudinary.com/spothero/image/upload/w_436,h_385,q_50,x_218,y_192,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1714753832/aqawsrm9oqzt7u7o7j16.png",
+                    "alt_text": ""
+                },
+                "redemption_instructions": {
+                    "arrival": [
+                        {
+                            "id": "97543",
+                            "illustration": {
+                                "id": "6",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                "alt_text": "Scan QR"
+                            },
+                            "text": "No need to pull a ticket! Pull up to our facility entrance and scan your Spot Hero QR code to open the gate."
+                        },
+                        {
+                            "id": "97546",
+                            "illustration": {
+                                "id": "7",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                "alt_text": "Park Where"
+                            },
+                            "text": "You will be directed where to park."
+                        },
+                        {
+                            "id": "97548",
+                            "illustration": {
+                                "id": "88",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                "alt_text": "Shuttle"
+                            },
+                            "text": "The Park N Fly shuttle will pick you up directly at your vehicle to take you to the airport."
+                        }
+                    ],
+                    "departure": [
+                        {
+                            "id": "97796",
+                            "illustration": {
+                                "id": "88",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                "alt_text": "Shuttle"
+                            },
+                            "text": "\u003cp\u003eUpon return, please claim your luggage and follow the pick up instructions on the Locator Slip provided by your shuttle driver.\u003c/p\u003e"
+                        },
+                        {
+                            "id": "97797",
+                            "illustration": {
+                                "id": "8",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                "alt_text": "See Ya (Wave)"
+                            },
+                            "text": "The shuttle will bring you to your car. From there, follow the signs to the exit."
+                        }
+                    ]
+                },
+                "transportation": {
+                    "type": "on_demand_shuttle",
+                    "contact_phone_number": "+1 650-877-8438",
+                    "schedule": {
+                        "fast_frequency": null,
+                        "slow_frequency": null,
+                        "duration": 3
+                    },
+                    "images": [
+                        {
+                            "id": "167985",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2560,h_1707,q_50,x_1280,y_853,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1713976155/vy26oq43tyiij44lcjtl.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This spot's shuttle operates 24/7."
+                        ],
+                        "always_open": true
+                    }
+                }
+            },
+            "common": {
+                "vehicle_policy": {
+                    "oversize_vehicle_policy": null,
+                    "dimension_restrictions": null
+                },
+                "clearance_inches": null,
+                "status": "on_sales_allowed",
+                "title": "Park N Fly SFO - Uncovered Self Park",
+                "slug": "160-produce-ave-2",
+                "operator_display_name": "The Parking Spot",
+                "id": "92981",
+                "parent_facility_id": "",
+                "description": "",
+                "barcode_type": "qrcode",
+                "facility_type": "lot",
+                "navigation_tip": "Enter this location at 160 Produce Ave. This is the Park N Fly lot, operated by The Parking Spot. It is located on the West side of Produce Ave. between S Airport Blvd. and Terminal Ct.",
+                "images": [
+                    {
+                        "id": "191430",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1560,h_1168,q_50,x_780,y_584,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599071/bapl4blogozpem4u9a5h.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "191431",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1556,h_1166,q_50,x_778,y_583,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599071/tmlkbv3eflsy08udnmrp.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "191432",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1558,h_1166,q_50,x_779,y_583,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599102/rseyrs3rp3jvghj3p8fi.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "191433",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1556,h_1160,q_50,x_778,y_580,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599102/et8abhn9ydimqisejesn.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "191434",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1558,h_1166,q_50,x_779,y_583,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599167/hxhvb2wijbpjypgvspzz.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "167986",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_380,h_229,q_50,x_190,y_114,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1713976165/bklqxsdbqwgger2bxw1j.jpg",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "191435",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_2034,h_1172,q_50,x_1017,y_586,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726599167/uerg8gnonrv8zptn4ntz.png",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "167983",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_2560,h_1707,q_50,x_1280,y_853,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1713976134/hzrvzs1ueqlwfunihpmc.jpg",
+                        "alt_text": ""
+                    },
+                    {
+                        "id": "167984",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_2560,h_1707,q_50,x_1280,y_853,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1713976145/wnmj2uhmm1q42zo5jus0.jpg",
+                        "alt_text": ""
+                    }
+                ],
+                "supported_fee_types": [
+                    "airport_fee",
+                    "airport_tax",
+                    "blanket_fee",
+                    "facility_fee",
+                    "monthly_fee"
+                ],
+                "parking_types": [],
+                "visual_flags": [],
+                "fees": [
+                    {
+                        "effective_start": "2024-05-02T11:00:00Z",
+                        "effective_end": "",
+                        "fee_type": "facility_fee",
+                        "rate_type": "amount",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": 595
+                        },
+                        "per_day": false
+                    },
+                    {
+                        "effective_start": "2025-04-11T09:00:00Z",
+                        "effective_end": "",
+                        "fee_type": "airport_tax",
+                        "rate_type": "percent",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": 0
+                        },
+                        "per_day": false
+                    }
+                ],
+                "addresses": [
+                    {
+                        "id": "118611",
+                        "city": "South San Francisco",
+                        "state": "CA",
+                        "street_address": "160 Produce Avenue",
+                        "time_zone": "America/Los_Angeles",
+                        "country": "US",
+                        "postal_code": "94080",
+                        "types": [
+                            "search",
+                            "walking_distance",
+                            "default_vehicle_entrance"
+                        ],
+                        "latitude": 37.64677799999999,
+                        "longitude": -122.40757499999997
+                    },
+                    {
+                        "id": "94040",
+                        "city": "South San Francisco",
+                        "state": "CA",
+                        "street_address": "160 Produce Avenue",
+                        "time_zone": "America/Los_Angeles",
+                        "country": "US",
+                        "postal_code": "94080",
+                        "types": [
+                            "physical"
+                        ],
+                        "latitude": 37.647046,
+                        "longitude": -122.40738999999998
+                    }
+                ],
+                "restrictions": [
+                    " The Parking Spot reservations are non-refundable and may not be canceled. ",
+                    "Complimentary bottled water is available at checkout.",
+                    "For shuttle tracking and timing please use The Parking Spot app. Android: \u003ca href=“https://play.google.com/store/apps/details?id=com.theparkingspot.tpscustomer\u0026hl=en_US”\u003eLINK_TITLE\u003c/a\u003e",
+                    "For shuttle tracking and timing please use The Parking Spot app. Apple: \u003ca href=“https://apps.apple.com/us/app/the-parking-spot/id965838041”\u003eLINK_TITLE\u003c/a\u003e",
+                    "If you park outside your reservation times, you will be charged for each additional day upon exit.",
+                    "Please have your QR code ready to scan when you arrive. This helps us get you parked and on your way in no time. Thank you!",
+                    "The Parking Spot reservations may be changed up to 1 hour prior to your scheduled arrival time. "
+                ],
+                "alias_facility_ids": [],
+                "hours_of_operation": {
+                    "periods": [],
+                    "text": [
+                        "This facility is open 24/7."
+                    ],
+                    "always_open": true
+                },
+                "cancellation": {
+                    "allowed_by_customer": false,
+                    "allowed_by_spothero_customer_service": false,
+                    "minutes": 0
+                },
+                "rating": {
+                    "average": 4.7,
+                    "count": 110,
+                    "one_star_count": 4,
+                    "two_star_count": 1,
+                    "three_star_count": 1,
+                    "four_star_count": 11,
+                    "five_star_count": 93
+                },
+                "inventory": {
+                    "default_quantity": 700
+                },
+                "operator_id": 18445680,
+                "company_id": 1299,
+                "requirements": {
+                    "printout": false,
+                    "license_plate": true,
+                    "phone_number": true
+                },
+                "oversize_fees_charged_onsite": false,
+                "allow_updating_reservation_after_entry": true,
+                "require_credit_card": true,
+                "is_scan_to_pay": false,
+                "is_part_of_loyalty_program": false,
+                "events": {
+                    "allow_reservations_outside_hours_of_operations": false
+                },
+                "reservation_extension_enabled": true
+            }
+        }
+    }
+}

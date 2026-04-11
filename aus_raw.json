@@ -1,0 +1,2146 @@
+{
+    "airport": {
+        "code": "AUS",
+        "full_name": "Austin–Bergstrom International Airport",
+        "short_name": "Austin Airport",
+        "latitude": 30.202148899999997,
+        "longitude": -97.666829
+    },
+    "tracking": {
+        "action_id": "0c8219f0-e72d-4cd0-b3b9-5f8327f35906",
+        "search_id": "a43d630d-3b68-4935-8031-bf47a0090c47"
+    },
+    "@next": "",
+    "results": [
+        {
+            "distance": {
+                "linear_meters": 1972.9748904960718
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": {
+                            "text": "Most Popular",
+                            "sort_order": 0
+                        },
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "scan_in_out",
+                            "display_name": "Scan In/Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "covered",
+                                "display_name": "Garage - Covered",
+                                "description": "The facility has a roof over the vehicles."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            },
+                            {
+                                "type": "ev",
+                                "display_name": "EV Charging",
+                                "description": "The facility has EV charging capabilities."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100159669",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 9499
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 9499
+                                },
+                                "facility_id": "11938",
+                                "rate_id": "1100159669",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$17.50 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 7000
+                                        }
+                                    },
+                                    {
+                                        "type": "reservation_fee",
+                                        "short_description": "Facility Fee",
+                                        "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2015
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 484
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$17.50 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 7000
+                                }
+                            },
+                            {
+                                "type": "reservation_fee",
+                                "short_description": "Facility Fee",
+                                "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2015
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 484
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 1750
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 1587,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "53162",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_180,h_180,q_50,x_90,y_90,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1554237346/gkpz2kukmd14g5jqnzkf.jpg",
+                        "alt_text": "2935 East Highway 71 Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "29440",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "No need to pull a ticket! Pull up to our facility entrance and scan your Spot Hero QR code to open the gate."
+                            },
+                            {
+                                "id": "29327",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You will be directed where to park."
+                            },
+                            {
+                                "id": "29441",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "The shuttle will pick you up directly at your vehicle and take you to the airport."
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "29328",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "<p>Upon return, please claim your luggage and follow the pick up instructions on the Locator Slip provided by your shuttle driver.&nbsp;<br /><br />Proceed to pillar #1 outside the baggage claim level after you land, and our shuttle will drive you straight back to your vehicle. Be sure to board The Parking Spot shuttle with the green \"East\" sign. If you land between 10 PM and 6 AM, please call us for pick-up at (512) 389-9933.</p>"
+                            },
+                            {
+                                "id": "29442",
+                                "illustration": {
+                                    "id": "5",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636305/yaemlosarlqngsj63tch.png",
+                                    "alt_text": "See Ya (Gate)"
+                                },
+                                "text": "The shuttle will bring you to your car. From there, follow the signs to the exit."
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "on_demand_shuttle",
+                        "contact_phone_number": "+1 512-389-9933",
+                        "schedule": {
+                            "fast_frequency": null,
+                            "slow_frequency": null,
+                            "duration": 3
+                        },
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "The Parking Spot East - Covered Self Park",
+                    "slug": "2935-e-hwy-71",
+                    "operator_display_name": "The Parking Spot",
+                    "id": "11938",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 2935 E Hwy 71. This is the The Parking Spot East location. It is located on the northeast side of E Hwy 71. You can only access this location traveling northwest on E Hwy 71.",
+                    "images": [
+                        {
+                            "id": "185573",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827827/zxvip4fz8tmroco0n60r.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185574",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827827/vladlwuguzbddpvppmwq.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185575",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827831/nhytuamvaud2tukwerww.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185576",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827832/qhroohk0ajisfmn7cym5.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185577",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827835/pecnx5jx9xxmnnvmbn42.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185578",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827837/khgiuihbndeq45gbk2im.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185579",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3024,h_4032,q_50,x_1512,y_2016,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827839/gmgtn33c6f4nvgvifnpc.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185580",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723827841/d6mp4qtqyusck0oys8vd.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "airport_tax",
+                        "blanket_fee",
+                        "facility_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [
+                        {
+                            "effective_start": "2023-01-01T00:00:00Z",
+                            "effective_end": "",
+                            "fee_type": "facility_fee",
+                            "rate_type": "amount",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": 595
+                            },
+                            "per_day": false
+                        },
+                        {
+                            "effective_start": "2025-11-01T09:00:00Z",
+                            "effective_end": "",
+                            "fee_type": "facility_fee",
+                            "rate_type": "percent",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": 0
+                            },
+                            "per_day": false
+                        }
+                    ],
+                    "addresses": [
+                        {
+                            "id": "108321",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 30.2091818,
+                            "longitude": -97.6479797
+                        },
+                        {
+                            "id": "120436",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 30.207751400000003,
+                            "longitude": -97.6483623
+                        },
+                        {
+                            "id": "12641",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 30.209182000000002,
+                            "longitude": -97.64798
+                        }
+                    ],
+                    "restrictions": [
+                        " The Parking Spot reservations are non-refundable and may not be cancelled. ",
+                        "Complimentary bottled water is available at checkout.",
+                        "If you park outside your reservation times, you will be charged for each additional day upon exit.",
+                        "Please have your QR code ready to scan when you arrive. This helps us get you parked and on your way in no time. Thank you!",
+                        "The Parking Spot reservations may be changed up to 1 hour prior to your scheduled arrival time. "
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": false,
+                        "allowed_by_spothero_customer_service": false,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.6,
+                        "count": 138,
+                        "one_star_count": 3,
+                        "two_star_count": 1,
+                        "three_star_count": 3,
+                        "four_star_count": 6,
+                        "five_star_count": 125
+                    },
+                    "inventory": {
+                        "default_quantity": 1589
+                    },
+                    "operator_id": 5062063,
+                    "company_id": 1299,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2009.7202111967101
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "scan_in_out",
+                            "display_name": "Scan In/Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "covered",
+                                "display_name": "Garage - Covered",
+                                "description": "The facility has a roof over the vehicles."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            },
+                            {
+                                "type": "ev",
+                                "display_name": "EV Charging",
+                                "description": "The facility has EV charging capabilities."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100159736",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 10324
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 10324
+                                },
+                                "facility_id": "81694",
+                                "rate_id": "1100159736",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$23.00 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 9200
+                                        }
+                                    },
+                                    {
+                                        "type": "reservation_fee",
+                                        "short_description": "Facility Fee",
+                                        "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 595
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 529
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$23.00 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 9200
+                                }
+                            },
+                            {
+                                "type": "reservation_fee",
+                                "short_description": "Facility Fee",
+                                "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 595
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 529
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2300
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 1000,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "153577",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_180,h_180,q_50,x_90,y_90,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1688748889/ndv6adej9wfuvcyzhb5v.jpg",
+                        "alt_text": "2935 East Highway 71 Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "87404",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "No need to pull a ticket! Pull up to our facility entrance and scan your Spot Hero QR code to open the gate."
+                            },
+                            {
+                                "id": "87405",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You will be directed where to park."
+                            },
+                            {
+                                "id": "87406",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "The shuttle will pick you up directly at your vehicle and take you to the airport."
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "87407",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "<p>Upon return, please claim your luggage and follow the pick up instructions on the Locator Slip provided by your shuttle driver.</p>"
+                            },
+                            {
+                                "id": "87408",
+                                "illustration": {
+                                    "id": "5",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636305/yaemlosarlqngsj63tch.png",
+                                    "alt_text": "See Ya (Gate)"
+                                },
+                                "text": "The shuttle will bring you to your car. From there, follow the signs to the exit."
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "on_demand_shuttle",
+                        "contact_phone_number": "+1 512-389-9933",
+                        "schedule": {
+                            "fast_frequency": null,
+                            "slow_frequency": null,
+                            "duration": 3
+                        },
+                        "images": [
+                            {
+                                "id": "153576",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/w_734,h_326,q_50,x_367,y_163,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1688748858/tmq4axf5o7xshnculcls.png",
+                                "alt_text": "2935 East Highway 71 Parking"
+                            }
+                        ],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "The Parking Spot East - Premium Covered Self Park",
+                    "slug": "2935-e-hwy-71-2",
+                    "operator_display_name": "The Parking Spot",
+                    "id": "81694",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 2935 E Hwy 71. This is the The Parking Spot East location. It is located on the northeast side of E Hwy 71. You can only access this location traveling northwest on E Hwy 71.",
+                    "images": [
+                        {
+                            "id": "178388",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_560,q_50,x_375,y_280,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556110/pdbotlpdvf37url1qyak.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178389",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_561,q_50,x_375,y_280,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556111/l1itmjr98nniixbghfca.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178390",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_560,q_50,x_375,y_280,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556118/xlagl3ztidmyrslkvo5o.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178391",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_563,q_50,x_375,y_281,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556119/v8gpljhzydawe1utatfh.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178392",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_561,q_50,x_375,y_280,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556124/jtrt3fwv1ohixi8hf34k.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178393",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_661,h_880,q_50,x_330,y_440,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556127/njedjhzyynhj0iqfrvhd.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178394",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_379,q_50,x_375,y_189,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556132/hquwix0xxfi1fxc0esiq.webp",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "178395",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_560,q_50,x_375,y_280,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1720556134/gzzqimo7wdppftbwbjaj.webp",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "facility_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [
+                        {
+                            "effective_start": "2023-01-01T00:00:00Z",
+                            "effective_end": "",
+                            "fee_type": "facility_fee",
+                            "rate_type": "amount",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": 595
+                            },
+                            "per_day": false
+                        }
+                    ],
+                    "addresses": [
+                        {
+                            "id": "116686",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 30.209435600000003,
+                            "longitude": -97.64769059999999
+                        },
+                        {
+                            "id": "122178",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 30.207783299999996,
+                            "longitude": -97.6484308
+                        },
+                        {
+                            "id": "82786",
+                            "city": "Del Valle",
+                            "state": "TX",
+                            "street_address": "2935 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78617",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 30.209182000000002,
+                            "longitude": -97.64798
+                        }
+                    ],
+                    "restrictions": [
+                        " Receive priority service and be dropped off first upon your return. ",
+                        " The Parking Spot reservations are non-refundable and may not be cancelled. ",
+                        "Complimentary bottled water is available at checkout.",
+                        "If you park outside your reservation times, you will be charged for each additional day upon exit.",
+                        "Please have your QR code ready to scan when you arrive. This helps us get you parked and on your way in no time. Thank you!",
+                        "The Parking Spot reservations may be changed up to 1 hour prior to your scheduled arrival time. "
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": false,
+                        "allowed_by_spothero_customer_service": false,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 5,
+                        "count": 9,
+                        "one_star_count": 0,
+                        "two_star_count": 0,
+                        "three_star_count": 1,
+                        "four_star_count": 0,
+                        "five_star_count": 8
+                    },
+                    "inventory": {
+                        "default_quantity": 1000
+                    },
+                    "operator_id": 15679675,
+                    "company_id": 1299,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2116.5060763407323
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": {
+                            "text": "Best Value",
+                            "sort_order": 0
+                        },
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "scan_in_out",
+                            "display_name": "Scan In/Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "covered",
+                                "display_name": "Garage - Covered",
+                                "description": "The facility has a roof over the vehicles."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100159670",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 9499
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 9499
+                                },
+                                "facility_id": "11935",
+                                "rate_id": "1100159670",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$17.50 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 7000
+                                        }
+                                    },
+                                    {
+                                        "type": "reservation_fee",
+                                        "short_description": "Facility Fee",
+                                        "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2015
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 484
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$17.50 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 7000
+                                }
+                            },
+                            {
+                                "type": "reservation_fee",
+                                "short_description": "Facility Fee",
+                                "full_description": "A fee determined by the garage operator to cover additional garage operator costs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2015
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 484
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 1750
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 1323,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "53159",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_180,h_180,q_50,x_90,y_90,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1554236244/brwljrwbdumtlq05ohgn.jpg",
+                        "alt_text": "1600 East Highway 71 Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "29418",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "No need to pull a ticket! Pull up to our facility entrance and scan your Spot Hero QR code to open the gate."
+                            },
+                            {
+                                "id": "29319",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You will be directed where to park."
+                            },
+                            {
+                                "id": "29421",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "The Parking Spot shuttle will pick you up directly at your vehicle to take you to the airport."
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "29322",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "<p>Upon return, please claim your luggage and follow the pick up instructions on the Locator Slip provided by your shuttle driver.&nbsp;<br /><br />Proceed to pillar #1 outside the baggage claim level after you land, and our shuttle will drive you straight back to your vehicle. Be sure to board The Parking Spot shuttle with the blue \"West\" sign. If you land between 10 PM and 6 AM, please call us for pick-up at (512) 385-9343.</p>"
+                            },
+                            {
+                                "id": "29412",
+                                "illustration": {
+                                    "id": "5",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636305/yaemlosarlqngsj63tch.png",
+                                    "alt_text": "See Ya (Gate)"
+                                },
+                                "text": "The shuttle will bring you to your car. From there, follow the signs to the exit."
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "on_demand_shuttle",
+                        "contact_phone_number": "+1 512-385-9343",
+                        "schedule": {
+                            "fast_frequency": null,
+                            "slow_frequency": null,
+                            "duration": 3
+                        },
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "The Parking Spot West - Covered Self Park",
+                    "slug": "1600-e-hwy-71",
+                    "operator_display_name": "The Parking Spot",
+                    "id": "11935",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 1600 E Hwy 71. This is the The Parking Spot West location. It is located on the southwest side of E Hwy 71.",
+                    "images": [
+                        {
+                            "id": "185581",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828064/gezlqakhb92sgst9wxrc.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185582",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828064/dorr8dfunwjjvjlz51ul.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185583",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828068/aqczsx6ov1lhfcamfyty.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185584",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828068/lcx74exkcib0nzl7qfdk.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185585",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828072/tpmqnbdwguzntiwhf4li.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185586",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828073/pdojqtxousklzmehg9te.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185587",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3024,h_4032,q_50,x_1512,y_2016,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828076/o9ljglacocwjikyf23pt.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185588",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828077/nyks6a8ewcgyoeb0cy8h.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "airport_tax",
+                        "blanket_fee",
+                        "facility_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [
+                        {
+                            "effective_start": "2023-01-01T00:00:00Z",
+                            "effective_end": "",
+                            "fee_type": "facility_fee",
+                            "rate_type": "amount",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": 595
+                            },
+                            "per_day": false
+                        },
+                        {
+                            "effective_start": "2025-11-01T09:00:00Z",
+                            "effective_end": "",
+                            "fee_type": "facility_fee",
+                            "rate_type": "percent",
+                            "amount": {
+                                "currency_code": "USD",
+                                "value": 0
+                            },
+                            "per_day": false
+                        }
+                    ],
+                    "addresses": [
+                        {
+                            "id": "108318",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "1600 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78719",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 30.219928799999998,
+                            "longitude": -97.6746922
+                        },
+                        {
+                            "id": "120445",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "1600 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78719",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 30.2208614,
+                            "longitude": -97.674288
+                        },
+                        {
+                            "id": "12638",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "1600 East Highway 71",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78719",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 30.219929000000008,
+                            "longitude": -97.674692
+                        }
+                    ],
+                    "restrictions": [
+                        " The Parking Spot reservations are non-refundable and may not be cancelled. ",
+                        "Complimentary bottled water is available at checkout.",
+                        "If you park outside your reservation times, you will be charged for each additional day upon exit.",
+                        "Please have your QR code ready to scan when you arrive. This helps us get you parked and on your way in no time. Thank you!",
+                        "The Parking Spot reservations may be changed up to 1 hour prior to your scheduled arrival time. "
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": false,
+                        "allowed_by_spothero_customer_service": false,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.9,
+                        "count": 51,
+                        "one_star_count": 1,
+                        "two_star_count": 0,
+                        "three_star_count": 0,
+                        "four_star_count": 3,
+                        "five_star_count": 47
+                    },
+                    "inventory": {
+                        "default_quantity": 1323
+                    },
+                    "operator_id": 5061713,
+                    "company_id": 1299,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": false,
+                        "phone_number": false
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2845.5177548500574
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100157213",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 3796
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 3796
+                                },
+                                "facility_id": "119544",
+                                "rate_id": "1100157213",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$7.24 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2896
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$7.24 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2896
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 724
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 53,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "237391",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_1511,h_660,q_50,x_755,y_330,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748358994/pqhl541xiptqh8aohyjt.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "120995",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "<p>Park in any non-reserved space, then visit the front desk to show them your prepaid parking pass.&nbsp;<br />After checking in at the front desk, please park in one of the designated parking spots marked with a pink &lsquo;PF&rsquo; logo.</p>"
+                            },
+                            {
+                                "id": "120996",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "<p>You&rsquo;ll be asked to provide vehicle details and contact information.</p>"
+                            },
+                            {
+                                "id": "120997",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>Once check-in is complete and your vehicle/belongings are secured, head to the front drive and call your taxi/rideshare to the airport.&nbsp;</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "120998",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>Once you&rsquo;re back at AUS, gather your belongings and reserve your taxi/rideshare back to the hotel.</p>"
+                            },
+                            {
+                                "id": "120999",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Simply leave when you're ready to go!</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "scheduled_shuttle",
+                        "contact_phone_number": "+1 512-386-6800",
+                        "schedule": {
+                            "fast_frequency": 30,
+                            "slow_frequency": 35,
+                            "duration": 5
+                        },
+                        "images": [
+                            {
+                                "id": "237820",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/w_1294,h_567,q_50,x_647,y_283,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748439028/pzzaxvqqpegwcipkpnlm.png",
+                                "alt_text": ""
+                            }
+                        ],
+                        "hours_of_operation": {
+                            "periods": [
+                                {
+                                    "day_of_week": "monday",
+                                    "hours_type": "open",
+                                    "first_day": "Mon",
+                                    "last_day": "Sun",
+                                    "start_time": "05:00:00",
+                                    "end_time": "22:40:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 81600
+                                }
+                            ],
+                            "text": [],
+                            "always_open": false
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "La Quinta Inn & Suites Austin Airport - Uncovered Self Park",
+                    "slug": "7625-e-ben-white-blvd",
+                    "operator_display_name": "La Quinta Inn & Suites Austin Airport Parking",
+                    "id": "119544",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 7621 E Ben White Blvd. This is the La Quinta Inn & Suites Austin Airport Lot - Uncovered Self Park lot. It is located on the South side of E Ben White Blvd. between Caseybridge Ct. and East Riverside Dr. You can only access this location by traveling East on E Ben White Blvd. You may also enter this location at its other entrance on Metro Center Dr.",
+                    "images": [
+                        {
+                            "id": "238930",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883018/zwexr3xyayf8jczqafqt.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238933",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883022/dcl0kf2c2sk1xqlbafxe.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238931",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883018/palypsedcbgen3tcewyp.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238932",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883023/ybmzg1xgkhzjy6q1jiar.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238935",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883029/qwa739thyoofeyzhwgwo.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238936",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883032/uvyyvpvgqtbxd0z5a6bg.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238934",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883027/d7yfd6o4wz9yoygekqiv.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "238937",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2048,h_1536,q_50,x_1024,y_768,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1748883033/wd6vst7ywd74euz51qkd.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "141393",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "7625 East Ben White Boulevard",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78741",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 30.217266999999996,
+                            "longitude": -97.690721
+                        },
+                        {
+                            "id": "141394",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "7625 East Ben White Boulevard",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78741",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 30.217266999999996,
+                            "longitude": -97.690721
+                        }
+                    ],
+                    "restrictions": [
+                        "After checking in at the front desk, please park in one of the designated parking spots marked with a pink ‘PF’ logo.",
+                        "The shuttle service runs from 5:00 AM to 10:40 PM, 365 days a year, and  runs on the hour and half hour (E.g, 5:00, 5:30, 6:00, etc.). You must call ahead to schedule the shuttle. Once the reservation is booked, shuttle instructions will be sent via email/text confirmation."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.2,
+                        "count": 46,
+                        "one_star_count": 3,
+                        "two_star_count": 4,
+                        "three_star_count": 2,
+                        "four_star_count": 6,
+                        "five_star_count": 31
+                    },
+                    "inventory": {
+                        "default_quantity": 55
+                    },
+                    "operator_id": 22577910,
+                    "company_id": 22209,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 3337.0392541391966
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100157301",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 3900
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 3900
+                                },
+                                "facility_id": "52224",
+                                "rate_id": "1100157301",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$7.50 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 3000
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$7.50 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 3000
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 750
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 55,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "146543",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_400,h_400,q_50,x_200,y_200,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1681957396/dzovzbbeaq252ozsxta6.png",
+                        "alt_text": "3201 Caseybridge Court Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "139250",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "<p>When you arrive to the facility, display your prepaid pass to the attendant either printed out or on a mobile device.</p>"
+                            },
+                            {
+                                "id": "139251",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "<p>Please check in with the front desk upon arrival and let them know you are heading to the airport to request the shuttle.&nbsp;</p>"
+                            },
+                            {
+                                "id": "139252",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "<p>You may park anywhere that doesn't say \"Reserved\".</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "69587",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "<p>Upon your return to the airport, please call the hotel at (513) 326 - 1100 to arrange your shuttle ride back to your car.</p>"
+                            },
+                            {
+                                "id": "69588",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Upon returning, simply leave when you're ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "on_demand_shuttle",
+                        "contact_phone_number": "+1 512-326-1100",
+                        "schedule": {
+                            "fast_frequency": null,
+                            "slow_frequency": null,
+                            "duration": 10
+                        },
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [
+                                {
+                                    "day_of_week": "monday",
+                                    "hours_type": "open",
+                                    "first_day": "Mon",
+                                    "last_day": "Mon",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "monday",
+                                    "hours_type": "open",
+                                    "first_day": "Mon",
+                                    "last_day": "Mon",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "tuesday",
+                                    "hours_type": "open",
+                                    "first_day": "Tue",
+                                    "last_day": "Tue",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "tuesday",
+                                    "hours_type": "open",
+                                    "first_day": "Tue",
+                                    "last_day": "Tue",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "wednesday",
+                                    "hours_type": "open",
+                                    "first_day": "Wed",
+                                    "last_day": "Wed",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "wednesday",
+                                    "hours_type": "open",
+                                    "first_day": "Wed",
+                                    "last_day": "Wed",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "thursday",
+                                    "hours_type": "open",
+                                    "first_day": "Thu",
+                                    "last_day": "Thu",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "thursday",
+                                    "hours_type": "open",
+                                    "first_day": "Thu",
+                                    "last_day": "Thu",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "friday",
+                                    "hours_type": "open",
+                                    "first_day": "Fri",
+                                    "last_day": "Fri",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "friday",
+                                    "hours_type": "open",
+                                    "first_day": "Fri",
+                                    "last_day": "Fri",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "saturday",
+                                    "hours_type": "open",
+                                    "first_day": "Sat",
+                                    "last_day": "Sat",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "saturday",
+                                    "hours_type": "open",
+                                    "first_day": "Sat",
+                                    "last_day": "Sat",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                },
+                                {
+                                    "day_of_week": "sunday",
+                                    "hours_type": "open",
+                                    "first_day": "Sun",
+                                    "last_day": "Sun",
+                                    "start_time": "05:00:00",
+                                    "end_time": "13:00:00",
+                                    "start_time_secs": 18000,
+                                    "end_time_secs": 46800
+                                },
+                                {
+                                    "day_of_week": "sunday",
+                                    "hours_type": "open",
+                                    "first_day": "Sun",
+                                    "last_day": "Sun",
+                                    "start_time": "14:00:00",
+                                    "end_time": "21:30:00",
+                                    "start_time_secs": 50400,
+                                    "end_time_secs": 77400
+                                }
+                            ],
+                            "text": [],
+                            "always_open": false
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Residence Inn Austin Airport - Uncovered Self Park",
+                    "slug": "3201-caseybridge-cts",
+                    "operator_display_name": "MCR Investors Parking",
+                    "id": "52224",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 3201 Caseybridge Ct. This is the Residence Inn Austin Airport lot, operated by MCR Investors. It is located on the Southeast side of Caseybridge Ct. between E Ben White Blvd. and the end of road cul de sac of Caseybridge Ct.",
+                    "images": [
+                        {
+                            "id": "185589",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828290/hd19qohkvvd0kx8ez4x8.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185590",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828290/vyidhgqkcksibih5vmde.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185591",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828295/wko7kuiwod8tzyta72tz.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185592",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828295/kptsnbjr9yurrk0xo9qx.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185593",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828299/ksdhxtgkjer0hlg3ahus.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185594",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828300/zdqqbwwh45krifqacqbu.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "185595",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723828303/nsfcq8hb2m1gnnx7eb6u.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [
+                        "transient"
+                    ],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "115234",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "3201 Caseybridge Court",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78744",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 30.2135575,
+                            "longitude": -97.69894819999999
+                        },
+                        {
+                            "id": "120384",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "3201 Caseybridge Court",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78744",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 30.213909,
+                            "longitude": -97.6994358
+                        },
+                        {
+                            "id": "52920",
+                            "city": "Austin",
+                            "state": "TX",
+                            "street_address": "3201 Caseybridge Court",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "78744",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 30.21387400000001,
+                            "longitude": -97.698957
+                        }
+                    ],
+                    "restrictions": [
+                        "The complimentary shuttle is available on-demand from 5:00am - 9:30pm; there is 1 hour of downtime between the hours of 1pm - 2pm where the shuttle is unavailable. Please check in with the front desk upon arrival and let them know you are heading to the airport. Upon your return to the airport, please call the hotel to arrange your shuttle ride back to your car."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.3,
+                        "count": 98,
+                        "one_star_count": 11,
+                        "two_star_count": 5,
+                        "three_star_count": 4,
+                        "four_star_count": 3,
+                        "five_star_count": 75
+                    },
+                    "inventory": {
+                        "default_quantity": 60
+                    },
+                    "operator_id": 13074195,
+                    "company_id": 8250,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        }
+    ],
+    "display": {
+        "map_radius": 3337.0392541391966,
+        "max_distance_meters": -1
+    }
+}

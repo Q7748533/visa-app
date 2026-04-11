@@ -1,0 +1,3602 @@
+{
+    "airport": {
+        "code": "ORD",
+        "full_name": "O'Hare International Airport",
+        "short_name": "O'Hare",
+        "latitude": 41.97671486983269,
+        "longitude": -87.8842329447998
+    },
+    "tracking": {
+        "action_id": "539cb76f-36a1-4a37-8030-ed98cfd7a939",
+        "search_id": "d241e9e0-74fd-4a64-8340-0fdaf86ebf22"
+    },
+    "@next": "",
+    "results": [
+        {
+            "distance": {
+                "linear_meters": 1141.6895447468337
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "scan_in_out",
+                            "display_name": "Scan In/Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166858",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 9835
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 9835
+                                },
+                                "facility_id": "12897",
+                                "rate_id": "1100166858",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$22.00 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 8800
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 535
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$22.00 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 8800
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 535
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2200
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 15,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "55845",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_275,h_236,q_50,x_137,y_118,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1561132817/iteb2prs1gfvxnbpyhuc.png",
+                        "alt_text": "5200 Pearl Street Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "44443",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "Scan your QR Code at the box with the red flashing lights. Hold the QR code about 2 inches away from the reader and the gate will open."
+                            },
+                            {
+                                "id": "46089",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn't say \"Reserved\"."
+                            },
+                            {
+                                "id": "46090",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "Gather your luggage and head to the hotel entrance to board the shuttle. The shuttle runs 24/7."
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "46091",
+                                "illustration": {
+                                    "id": "86",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772516/x6yk4p8tw2rkzqn0inzw.png",
+                                    "alt_text": "Luggage"
+                                },
+                                "text": "All hotel shuttle pickups at ORD are located on the LOWER LEVEL of Terminal 2. Once you arrive at the lower level of terminal 2, our pickup zone is at Vestibule 2E. Please give us a call once you arrive at 847-260-4770 as we pick up only upon request. It is 24/7 departing every 30 minutes. To reach the pickup spot from terminal 5, you will need to take the airport train over to terminal 2 and make your way downstairs. "
+                            },
+                            {
+                                "id": "46092",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "When exiting, scan your QR Code again at the box with the red flashing lights. The gate will open and you're free to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "scheduled_shuttle",
+                        "contact_phone_number": "+1 847-260-4770",
+                        "schedule": {
+                            "fast_frequency": 30,
+                            "slow_frequency": 60,
+                            "duration": 7
+                        },
+                        "images": [
+                            {
+                                "id": "184195",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/w_272,h_179,q_50,x_136,y_89,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1723475149/dvkteqfiixdzkyiyjnm6.png",
+                                "alt_text": ""
+                            }
+                        ],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "The Rose Hotel - Uncovered Self Park",
+                    "slug": "5200-pearl-st",
+                    "operator_display_name": "Rose Hotel Parking",
+                    "id": "12897",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 5200 Pearl St. This is The Rose Hotel lot. It is located on the south side of Berwyn Ave. between Balmoral Ave. and Farragut Ave. Make sure you are parking in the Rose Hotel parking lot and NOT the areas nearby areas labeled NO OVERNIGHT PARKING.",
+                    "images": [
+                        {
+                            "id": "112794",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2034,h_1498,q_50,x_1017,y_749,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1652385081/sl19j8wqzmf8jzoxjql4.png",
+                            "alt_text": "5200 Pearl Street Parking"
+                        },
+                        {
+                            "id": "112795",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2018,h_1502,q_50,x_1009,y_751,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1652385083/iytsgv827qksxxadpjbw.png",
+                            "alt_text": "5200 Pearl Street Parking"
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "108954",
+                            "city": "Des Plaines",
+                            "state": "IL",
+                            "street_address": "5200 Pearl Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60018",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 41.9739656,
+                            "longitude": -87.8709264
+                        },
+                        {
+                            "id": "121753",
+                            "city": "Des Plaines",
+                            "state": "IL",
+                            "street_address": "5200 Pearl Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60018",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.9749015,
+                            "longitude": -87.871432
+                        },
+                        {
+                            "id": "13626",
+                            "city": "Des Plaines",
+                            "state": "IL",
+                            "street_address": "5200 Pearl Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60018",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.97396599999999,
+                            "longitude": -87.870926
+                        }
+                    ],
+                    "restrictions": [
+                        " Please note: The shuttle runs by appointment only on the top and the bottom of every hour. To make sure that you arrive at the airport on time, please arrive at the hotel no less than 2 hours before your flight. The hotel is NOT responsible if you must wait for the next shuttle. For an easier experience, please call the hotel to reserve your shuttle drop off and pick up. They can be reached at 847-260-4770.",
+                        "Make sure you are parking in The Rose Hotel parking lot and NOT the areas nearby areas labeled. NO OVERNIGHT PARKING.",
+                        "Please call hotel to make an appointment for drop off at O’Hare airport 847-260-4770",
+                        "Please note, your QR code can only be scanned after the start time of the reservation. Please book enough time to make it to your shuttle."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.6,
+                        "count": 638,
+                        "one_star_count": 15,
+                        "two_star_count": 17,
+                        "three_star_count": 14,
+                        "four_star_count": 44,
+                        "five_star_count": 548
+                    },
+                    "inventory": {
+                        "default_quantity": 50
+                    },
+                    "operator_id": 5573110,
+                    "company_id": 1651,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": false
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2554.709548375214
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "valet",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "valet",
+                                "display_name": "Valet",
+                                "description": "A valet will park the users vehicle at this facility."
+                            },
+                            {
+                                "type": "covered",
+                                "display_name": "Garage - Covered",
+                                "description": "The facility has a roof over the vehicles."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166367",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 11421
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 11421
+                                },
+                                "facility_id": "3193",
+                                "rate_id": "1100166367",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$25.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 10300
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 621
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$25.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 10300
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 621
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2575
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 360,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "46018",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_266,h_219,q_50,x_133,y_109,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1532721389/ekfxinjq8mqhgwshrzll.png",
+                        "alt_text": "10415 United Parkway Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "22031",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "Show the attendant your SpotHero Parking Pass, either printed or on a mobile device."
+                            },
+                            {
+                                "id": "22032",
+                                "illustration": {
+                                    "id": "3",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636496/qxzzfxbzzpv9uttohajw.png",
+                                    "alt_text": "Valet Give Ticket"
+                                },
+                                "text": "The valet will hand you a ticket and will park your car. You must have this ticket in order to exit. You may then proceed to board the shuttle to O'hare International Airport (ORD). "
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "22033",
+                                "illustration": {
+                                    "id": "85",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772487/iwg9hyiffmfu3iktf7mt.png",
+                                    "alt_text": "Cell Phone"
+                                },
+                                "text": "When you return to ORD, please call 847-678-9000 to arrange return shuttle pickup."
+                            },
+                            {
+                                "id": "22034",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Upon return, simply leave when you're ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "scheduled_shuttle",
+                        "contact_phone_number": "",
+                        "schedule": {
+                            "fast_frequency": 5,
+                            "slow_frequency": 7,
+                            "duration": 6
+                        },
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "O'Hare Blue Sky Parking - Indoor Valet",
+                    "slug": "10415-united-pkwy",
+                    "operator_display_name": "O'Hare Blue Sky Parking",
+                    "id": "3193",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "garage",
+                    "navigation_tip": "Enter this location at 10415 United Pkwy. This is the O'Hare Blue Sky Parking garage. It is located on the south side of United Pkwy. between N Mannheim Rd. and Trans World Rd. Follow the O'Hare Blue Sky Parking signs to the entrance just west of the intersection of N Mannheim Rd. and Trans World Rd.",
+                    "images": [
+                        {
+                            "id": "260312",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2577,h_1933,q_50,x_1288,y_966,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755549293/z46yclhc3obbm4xmpu5z.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260314",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3752,h_2814,q_50,x_1876,y_1407,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755549317/b1hyol1ulunlfq47aaz5.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260315",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755549318/erks4a1oybofzxmecjc2.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260317",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550034/traybnrt8sq2yq3webt1.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "70964",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2880,h_1920,q_50,x_1440,y_960,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1575055670/algdb9fhkpcojmhnapty.jpg",
+                            "alt_text": "10415 United Parkway Parking"
+                        },
+                        {
+                            "id": "260316",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550032/wjynt3r6hektq15e2bdo.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "121436",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.9540273,
+                            "longitude": -87.8863143
+                        },
+                        {
+                            "id": "3559",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.953447,
+                            "longitude": -87.886496
+                        },
+                        {
+                            "id": "99862",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 41.953781799999994,
+                            "longitude": -87.8860994
+                        }
+                    ],
+                    "restrictions": [
+                        "Please note: This reservation is valid for indoor valet-parking only.",
+                        "Shuttle service to O'Hare International Airport is available 24/7 at no cost from this location. The shuttle runs every 5-7 minutes to and from the airport.",
+                        "You will call 847-678-9000 to arrange return shuttle pickup."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.9,
+                        "count": 920,
+                        "one_star_count": 14,
+                        "two_star_count": 1,
+                        "three_star_count": 9,
+                        "four_star_count": 35,
+                        "five_star_count": 861
+                    },
+                    "inventory": {
+                        "default_quantity": 400
+                    },
+                    "operator_id": 629634,
+                    "company_id": 235,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 2559.486792676041
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": {
+                            "text": "Best Value",
+                            "sort_order": 0
+                        },
+                        "comparisons": null,
+                        "redemption_type": "self_valet_assist",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "valet",
+                                "display_name": "Valet",
+                                "description": "A valet will park the users vehicle at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "shuttle",
+                                "display_name": "Airport Shuttle",
+                                "description": "The facility has a shuttle available to nearby destinations, like an airport."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166368",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 9306
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 9306
+                                },
+                                "facility_id": "3194",
+                                "rate_id": "1100166368",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$20.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 8300
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 506
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$20.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 8300
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 506
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 2075
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 354,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "46019",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_266,h_219,q_50,x_133,y_109,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1532721424/rfpuxdfh50nrqpqkbqx9.png",
+                        "alt_text": "10415 United Parkway Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "22015",
+                                "illustration": {
+                                    "id": "2",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636559/vvx8wv6aa4tcnhglhmry.png",
+                                    "alt_text": "Valet Pass Show"
+                                },
+                                "text": "Show the attendant your SpotHero Parking Pass, either printed or on a mobile device."
+                            },
+                            {
+                                "id": "22016",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "The attendant will direct you to the available self-park area. (Please note: Depending on parking occupancy, this facility may become a valet and you may be asked to leave your keys with the attendant.) You may proceed to board the shuttle to O'Hare International Airport (ORD). "
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "22017",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "When you return to ORD, please call 847-678-9000 to arrange return shuttle pickup."
+                            },
+                            {
+                                "id": "22018",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Simply leave when you're ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "scheduled_shuttle",
+                        "contact_phone_number": "+1 847-678-9000",
+                        "schedule": {
+                            "fast_frequency": 5,
+                            "slow_frequency": 7,
+                            "duration": 7
+                        },
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [
+                                "This spot's shuttle operates 24/7."
+                            ],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "O'Hare Blue Sky Parking - Uncovered Valet-Assist",
+                    "slug": "10415-united-pkwy-uncvrd",
+                    "operator_display_name": "O'Hare Blue Sky Parking",
+                    "id": "3194",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 10415 United Pkwy. This is the O'Hare Blue Sky Parking Garage. It is located on the south side of United Pkwy between N Mannheim Rd. and Trans World Rd. Follow the O'Hare Blue Sky Parking signs to the entrance just west of the intersection of N Mannheim Rd. and Trans World Rd.",
+                    "images": [
+                        {
+                            "id": "260318",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2577,h_1933,q_50,x_1288,y_966,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550648/ew5bxh6k18oiuiu20tvl.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260319",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3752,h_2814,q_50,x_1876,y_1407,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550649/ihiagy1j3uwxkxwhlaw3.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260320",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550752/v8lrfcprk9d9ypw70ltt.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260321",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550753/joruj7jzydw6pajolewl.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260322",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755550756/qhxqxoezfdpvjcnrxbiz.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260328",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_750,h_500,q_50,x_375,y_250,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755552418/w5iobxq2wjwxxe6swgrz.webp",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "121511",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.9540273,
+                            "longitude": -87.8863143
+                        },
+                        {
+                            "id": "3560",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.953447,
+                            "longitude": -87.886496
+                        },
+                        {
+                            "id": "99863",
+                            "city": "Schiller Park",
+                            "state": "IL",
+                            "street_address": "10415 United Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60176",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 41.9537897789,
+                            "longitude": -87.8870113511
+                        }
+                    ],
+                    "restrictions": [
+                        "Depending on parking occupancy, this facility may become a valet and you may be asked to leave your keys with the attendant.",
+                        "Please note: This reservation is valid for uncovered, self-parking only.",
+                        "Shuttle service to O'Hare International Airport is available at no cost from this location 24/7. The shuttle runs every 5-7 minutes to and from O'Hare."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.9,
+                        "count": 1267,
+                        "one_star_count": 20,
+                        "two_star_count": 7,
+                        "three_star_count": 12,
+                        "four_star_count": 46,
+                        "five_star_count": 1182
+                    },
+                    "inventory": {
+                        "default_quantity": 400
+                    },
+                    "operator_id": 629640,
+                    "company_id": 235,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 3901.8708303325634
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "scan_in_out",
+                            "display_name": "Scan In/Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "in_out",
+                                "display_name": "In & Out Allowed",
+                                "description": "Users may enter and exit the facility more than one time."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166411",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 5600
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 5600
+                                },
+                                "facility_id": "8589",
+                                "rate_id": "1100166411",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$11.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 4700
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$11.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 4700
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 1175
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 239,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "105761",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_450,h_383,q_50,x_225,y_191,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1646265878/nllqkiojtgxiqrmpq7z2.png",
+                        "alt_text": "8501 West Higgins Road Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "59120",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "Please note: This location's back gate will be closed from 6AM-6PM daily. The only way in-and-out of the facility for SpotHero customers during these hours will be through the front gate. "
+                            },
+                            {
+                                "id": "22060",
+                                "illustration": {
+                                    "id": "12",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636881/pp3uajdxl5u9lrnak1as.png",
+                                    "alt_text": "License Plate"
+                                },
+                                "text": "Make sure your license plate matches the plate on your Parking Pass. Failure to do so will result in a ticket or tow."
+                            },
+                            {
+                                "id": "22061",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "From Higgins Rd, please make sure to stay right at entry, and take the driveway to the back lot (bordering Kennedy Expressway). Scan your QR code, located on your SpotHero parking pass, and the gate will open."
+                            },
+                            {
+                                "id": "22062",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You MUST park in one of the spaces outlined in blue paint. Please reference the attached photos to ensure you are parked in the correct area. \nNote: If the spaces are occupied, you are permitted to park in the spots directly north of the blue SpotHero stalls. "
+                            },
+                            {
+                                "id": "22063",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "If you are traveling to O'Hare International Airport (ORD), you can access the Cumberland Blue Line walkway on the south side of the lot. "
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "59121",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "This location's back gate will be closed from 6AM-6PM daily. The only way in-and-out of the facility for SpotHero customers during these hours will be through the front gate. "
+                            },
+                            {
+                                "id": "22064",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Simply leave when you are ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "public_transit",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Park & Ride Lot - Uncovered Self Park",
+                    "slug": "8501-w-higgins-rd",
+                    "operator_display_name": "8501 W. Higgins Parking",
+                    "id": "8589",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 8501 W Higgins Rd. This is the Park &amp; Ride lot. It is located on the south side of W Higgins Rd. between S Cumberland Ave. and N East River Rd. The entrance is marked by a white '8501' sign with silver lettering. After turning off Higgins Rd., please make sure to stay right at the entry, entering the main parking lot after scanning your bar code at the kiosk entry. Drive straight through the main parking lot to the back parking area (bordering the Kennedy Expressway.) Do not park in the visitor parking lot to the main building designated parking. Please only use the blue spots in the south portion of the lot.",
+                    "images": [
+                        {
+                            "id": "70910",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2880,h_1920,q_50,x_1440,y_960,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1574882735/lia8bala9wnrxisjbr46.jpg",
+                            "alt_text": "8501 West Higgins Road Parking"
+                        },
+                        {
+                            "id": "88465",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1601563502/vpwfqibsceyfss7kf5xy.jpg",
+                            "alt_text": "8501 West Higgins Road Parking"
+                        },
+                        {
+                            "id": "161934",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1330,h_1167,q_50,x_665,y_583,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1705962848/h5x9gepcvpwatxqyiea7.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "88418",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3024,h_2583,q_50,x_1512,y_1291,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1601411214/tvdvacpcctf7w5zycykn.jpg",
+                            "alt_text": "8501 West Higgins Road Parking"
+                        },
+                        {
+                            "id": "88419",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3024,h_2548,q_50,x_1512,y_1274,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1601411235/qz3e6bi0yrb9uix9op21.jpg",
+                            "alt_text": "8501 West Higgins Road Parking"
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [
+                        "monthly"
+                    ],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "105100",
+                            "city": "Chicago",
+                            "state": "IL",
+                            "street_address": "8501 West Higgins Road",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60631",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.98608999999999,
+                            "longitude": -87.838744
+                        },
+                        {
+                            "id": "9252",
+                            "city": "Chicago",
+                            "state": "IL",
+                            "street_address": "8501 West Higgins Road",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60631",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.9861,
+                            "longitude": -87.838709
+                        }
+                    ],
+                    "restrictions": [
+                        "Due to liability issues, The Marriott is not able to transport guests to-and-from O'hare that are not either staying at the Marriott or parking directly through the Marriott's Spot Hero parking reservations.",
+                        "During high-demand periods, the SpotHero spaces outlined in blue may be occupied. ONLY in those cases, customers are permitted to park just north of designated SpotHero spots. This is the direction AWAY from the Blue Line stop. There should always be a stall available.",
+                        "SpotHero and local parking provider are not responsible for theft, damage to your vehicle, or personal property. Please keep vehicle locked and do not leave valuables in your car.",
+                        "This facility does NOT provide a shuttle. The Blue Line train station is on the same property as this parking garage. The Blue Line runs 24/7 with elevator access. Access to the Cumberland Blue Line station walkway can be found at the south end of the lot, next to the Kennedy Expressway.",
+                        "To access O'Hare International Airport, take the Blue Line two stops north towards O'Hare. More information on the train station and schedule is available here: http://www.transitchicago.com/travel_information/station.aspx?StopId=48."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.8,
+                        "count": 1062,
+                        "one_star_count": 46,
+                        "two_star_count": 14,
+                        "three_star_count": 14,
+                        "four_star_count": 52,
+                        "five_star_count": 936
+                    },
+                    "inventory": {
+                        "default_quantity": 110
+                    },
+                    "operator_id": 2685065,
+                    "company_id": 784,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 3975.123484887491
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "pull_ticket_scan_out",
+                            "display_name": "Pull Ticket / Scan Out"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "covered",
+                                "display_name": "Garage - Covered",
+                                "description": "The facility has a roof over the vehicles."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100161204",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 5216
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 5216
+                                },
+                                "facility_id": "586",
+                                "rate_id": "1100161204",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$10.79 x 4 days",
+                                        "full_description": "",
+                                        "price_breakdown": {
+                                            "items": [
+                                                {
+                                                    "type": "rental",
+                                                    "short_description": "Subtotal",
+                                                    "full_description": "$12.75 x 4 days",
+                                                    "price": {
+                                                        "currency_code": "USD",
+                                                        "value": 5100
+                                                    }
+                                                },
+                                                {
+                                                    "type": "multiday_discount",
+                                                    "short_description": "Multi-Day Discount",
+                                                    "full_description": "This location offers discounted rates for reservations spanning multiple days",
+                                                    "price": {
+                                                        "currency_code": "USD",
+                                                        "value": -784
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 4316
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$10.79 x 4 days",
+                                "full_description": "",
+                                "price_breakdown": {
+                                    "items": [
+                                        {
+                                            "type": "rental",
+                                            "short_description": "Subtotal",
+                                            "full_description": "$12.75 x 4 days",
+                                            "price": {
+                                                "currency_code": "USD",
+                                                "value": 5100
+                                            }
+                                        },
+                                        {
+                                            "type": "multiday_discount",
+                                            "short_description": "Multi-Day Discount",
+                                            "full_description": "This location offers discounted rates for reservations spanning multiple days",
+                                            "price": {
+                                                "currency_code": "USD",
+                                                "value": -784
+                                            }
+                                        }
+                                    ]
+                                },
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 4316
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 1079,
+                            "discounts_value": -196
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 759,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "71167",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_255,h_217,q_50,x_127,y_108,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1575327396/dwcpfs8bonduet36odwb.png",
+                        "alt_text": "5800 N Cumberland Ave Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "18997",
+                                "illustration": {
+                                    "id": "4",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636373/fosxlhppgwqxkrs1ijbx.png",
+                                    "alt_text": "Pull Ticket"
+                                },
+                                "text": "Pull a ticket when you enter."
+                            },
+                            {
+                                "id": "31451",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn't say \"Reserved\"."
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "22052",
+                                "illustration": {
+                                    "id": "6",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636215/egujzas3s3lavcix5mit.png",
+                                    "alt_text": "Scan QR"
+                                },
+                                "text": "When exiting, scan the ticket where it says \"scan ticket below\", then scan your SpotHero QR code at the same spot."
+                            },
+                            {
+                                "id": "22053",
+                                "illustration": {
+                                    "id": "5",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636305/yaemlosarlqngsj63tch.png",
+                                    "alt_text": "See Ya (Gate)"
+                                },
+                                "text": "The gate will lift and you are free to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "public_transit",
+                        "contact_phone_number": "+1 773-714-9262",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": {
+                            "max_height": 82,
+                            "max_length": 0,
+                            "max_width": 0
+                        }
+                    },
+                    "clearance_inches": 82,
+                    "status": "on_sales_allowed",
+                    "title": "Cumberland Blue Line - Covered Self Park",
+                    "slug": "5800-n-cumberland-ave",
+                    "operator_display_name": "SP+ Parking",
+                    "id": "586",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "garage",
+                    "navigation_tip": "Enter this location at 5800 N Cumberland Ave. This is the Cumberland Blue Line Park &amp; Ride garage, operated by SP+. It is located on the west side of N Cumberland Ave. between Kennedy Expressway and W Bryn Mawr Ave. When driving southbound on S Cumberland Ave, turn right onto CTA Cumberland Stop, and then turn right again; keep going straight until you see the entrance on your right-hand side.",
+                    "images": [
+                        {
+                            "id": "260345",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3161,h_2371,q_50,x_1580,y_1185,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755554238/bylkknl0vxdzkehoyavf.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "70860",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2880,h_1920,q_50,x_1440,y_960,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1574879380/mqqyrc3dexb3idco3e7t.jpg",
+                            "alt_text": "5800 N Cumberland Ave Parking"
+                        },
+                        {
+                            "id": "260347",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3281,h_2461,q_50,x_1640,y_1230,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755554241/fqij9qgwfkchsure8f1q.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "260348",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_3859,h_2894,q_50,x_1929,y_1447,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755554242/siyzavgtnohu3o6x82dd.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "70863",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2880,h_1920,q_50,x_1440,y_960,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1574879400/yzlbunajvnfrsdngyn8p.jpg",
+                            "alt_text": "5800 N Cumberland Ave Parking"
+                        },
+                        {
+                            "id": "260349",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1755554246/ti5fweqsnhj8dyzjiol5.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [
+                        "transient",
+                        "monthly"
+                    ],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "121521",
+                            "city": "Chicago",
+                            "state": "IL",
+                            "street_address": "5800 N Cumberland Ave",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60631",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.983005,
+                            "longitude": -87.838225
+                        },
+                        {
+                            "id": "3298",
+                            "city": "Chicago",
+                            "state": "IL",
+                            "street_address": "5800 North Cumberland Avenue",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60631",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.983358,
+                            "longitude": -87.838485
+                        },
+                        {
+                            "id": "99647",
+                            "city": "Chicago",
+                            "state": "IL",
+                            "street_address": "5800 N Cumberland Ave",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60631",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 41.9825328,
+                            "longitude": -87.8367843
+                        }
+                    ],
+                    "restrictions": [
+                        "<b>Do NOT throw your ticket away. You will need it to EXIT.<b>",
+                        "Book a ride to the airport using a rideshare service!",
+                        "Height restriction: 6' 10\"",
+                        "More information on the train station and schedule is available here: http://www.transitchicago.com/travel_information/station.aspx?StopId=48",
+                        "SpotHero users may park longer than the \"2 Week Restriction\" listed on the on-site signage"
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.5,
+                        "count": 2309,
+                        "one_star_count": 158,
+                        "two_star_count": 45,
+                        "three_star_count": 96,
+                        "four_star_count": 202,
+                        "five_star_count": 1808
+                    },
+                    "inventory": {
+                        "default_quantity": 1000
+                    },
+                    "operator_id": 56361,
+                    "company_id": 79,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": false
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 5464.701429177756
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "in_out",
+                                "display_name": "In & Out Allowed",
+                                "description": "Users may enter and exit the facility more than one time."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "ev",
+                                "display_name": "EV Charging",
+                                "description": "The facility has EV charging capabilities."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166530",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 6400
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 6400
+                                },
+                                "facility_id": "88030",
+                                "rate_id": "1100166530",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$13.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 5500
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$13.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 5500
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 1375
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 19,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "186429",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_248,h_175,q_50,x_124,y_87,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724167640/ycsvp5re8ir5ouwi6ehy.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "92913",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "Upon arrival, guests must park their vehicle and check in with the front desk. You may park in the back of the property. Do not park in the adjacent property as your car will get towed. "
+                            },
+                            {
+                                "id": "92914",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>There is no shuttle service to the airport. You may book a ride to the airport using Rideshare or Taxi!</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "92916",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>When you return to the airport, please arrange transportation back to the facility using Rideshare or a Taxi. There is no shuttle service from the airport.</p>"
+                            },
+                            {
+                                "id": "127721",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Simply leave when you're ready to go!</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [
+                            {
+                                "id": "186105",
+                                "url": "https://res.cloudinary.com/spothero/image/upload/w_4000,h_1868,q_50,x_2000,y_934,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724094296/dmfntvw77jvu6dkwmsl8.jpg",
+                                "alt_text": ""
+                            }
+                        ],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Super 8 by Wyndham O'Hare Airport - Uncovered Self Park",
+                    "slug": "2951-w-touhy-ave",
+                    "operator_display_name": "Super 8 by Wyndham O'Hare Parking",
+                    "id": "88030",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 2951 Touhy Ave., Elk Grove Village, IL. This is the Super 8 by Wyndham O'Hare Airport - Uncovered Self Park, operated by Super 8 by Wyndham O'Hare. It is located on the South side of the street. between S Elmhurst Rd. and N Mount Prospect Rd.\r\n\r\nEnter the hotel's parking lot at 2951 Touhy Avenue, drive straight past the indoor pool and spa board, and park in the back of the property. Do not park in the adjacent property as your car will get towed.",
+                    "images": [
+                        {
+                            "id": "186101",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4000,h_1868,q_50,x_2000,y_934,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724094283/uubw88rnwg6ybkltc65w.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "186102",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4000,h_1868,q_50,x_2000,y_934,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724094283/hgstmo6ykuqvrgxkli9l.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "186103",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4000,h_1868,q_50,x_2000,y_934,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724094290/uaeoqfgzwjw6ydh9ewoc.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "186104",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4000,h_1868,q_50,x_2000,y_934,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1724094290/zehntvtgqtf4ph1pjsbd.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "117723",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "2951 Touhy Avenue",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 42.00745499999999,
+                            "longitude": -87.935824
+                        },
+                        {
+                            "id": "121399",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "2951 W Touhy Ave",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 42.00807040000001,
+                            "longitude": -87.9367579
+                        },
+                        {
+                            "id": "89155",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "2951 West Touhy Avenue",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 42.00731999999999,
+                            "longitude": -87.935756
+                        }
+                    ],
+                    "restrictions": [
+                        "SpotHero reservations at this facility are for O'Hare airport parking only and will not be accepted for overnight hotel guests and conference guests."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.3,
+                        "count": 37,
+                        "one_star_count": 5,
+                        "two_star_count": 2,
+                        "three_star_count": 0,
+                        "four_star_count": 3,
+                        "five_star_count": 27
+                    },
+                    "inventory": {
+                        "default_quantity": 25
+                    },
+                    "operator_id": 17485010,
+                    "company_id": 14256,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 8279.129937780594
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166613",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 3200
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 3200
+                                },
+                                "facility_id": "107533",
+                                "rate_id": "1100166613",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$5.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2300
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$5.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2300
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 575
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 8,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "206655",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_380,h_370,q_50,x_190,y_185,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737752020/zdhqjyapdoaqpo7ytesx.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "110963",
+                                "illustration": {
+                                    "id": "12",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636881/pp3uajdxl5u9lrnak1as.png",
+                                    "alt_text": "License Plate"
+                                },
+                                "text": "<p>Make sure your license plate matches the plate on your Parking Pass. Failure to do so will result in a ticket or tow.</p>"
+                            },
+                            {
+                                "id": "28083",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn't say \"Reserved\"."
+                            },
+                            {
+                                "id": "110964",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>There is no shuttle to the airport. You must take an Uber/Lyft/Taxi or arrange for your own transportation.</p>"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "110965",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "<p>When you return, there is no shuttle from the airport. You must take an Uber/Lyft/Taxi or arrange for your own transportation.</p>"
+                            },
+                            {
+                                "id": "110966",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "<p>Return parking pass to hotel front desk and be on your way!</p>"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Des Plaines Motel - Uncovered Self Park",
+                    "slug": "1322-rand-rd-2",
+                    "operator_display_name": "PMC Parking",
+                    "id": "107533",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 1322 Rand Rd. This is the Des Plaines Motel - Uncovered Self Park lot, operated by PMC. It is located on the Northeast side of Rand Rd. between Graceland Ave. and Camp Ground Rd.",
+                    "images": [
+                        {
+                            "id": "206650",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737751970/ndfolepk5n49adqhowiu.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "206656",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_2955,h_4009,q_50,x_1477,y_2004,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737752229/bif0bu9xu2styntb4iec.png",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "206652",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737751977/ewzon9g9puwt2ead7jcq.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "206653",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737751979/jk2w3dxkl2myfdwncx7q.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "206657",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_575,h_768,q_50,x_287,y_384,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1737752443/pxg1jlxrliorbdgi9txd.png",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "130066",
+                            "city": "Des Plaines",
+                            "state": "IL",
+                            "street_address": "1322 Rand Road",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60016",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 42.0510232,
+                            "longitude": -87.8905392
+                        },
+                        {
+                            "id": "130067",
+                            "city": "Des Plaines",
+                            "state": "IL",
+                            "street_address": "1322 Rand Road",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60016",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 42.0510232,
+                            "longitude": -87.8905392
+                        }
+                    ],
+                    "restrictions": [
+                        "There is no shuttle to the airport. You must take an Uber/Lyft/Taxi or arrange for your own transportation."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.6,
+                        "count": 44,
+                        "one_star_count": 2,
+                        "two_star_count": 0,
+                        "three_star_count": 0,
+                        "four_star_count": 5,
+                        "five_star_count": 37
+                    },
+                    "inventory": {
+                        "default_quantity": 20
+                    },
+                    "operator_id": 21289633,
+                    "company_id": 596,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 9106.338021574451
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166845",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 2600
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 2600
+                                },
+                                "facility_id": "32523",
+                                "rate_id": "1100166845",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$4.25 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 1700
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$4.25 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 1700
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 425
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 32,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "105646",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_400,h_400,q_50,x_200,y_200,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1646243871/awckjwvvdx2cbrtbvf7p.jpg",
+                        "alt_text": "600 East Lake Street Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "55820",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "Once you arrive, you will go to the front desk. You will need to show them your email confirmation and parking pass/tag."
+                            },
+                            {
+                                "id": "55821",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": " The staff will assist and guide you as to where to park your car for airport parking."
+                            },
+                            {
+                                "id": "55822",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "PLEASE NOTE: There are no shuttles. you will need to take a rideshare service or a taxi to the airport"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "55823",
+                                "illustration": {
+                                    "id": "89",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772566/tlevwynpg0i0la2kuwqg.png",
+                                    "alt_text": "Taxi"
+                                },
+                                "text": "When you return to pick up your vehicle, you will need to take a taxi or rideshare service."
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "+1 630-834-8800",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": {
+                            "max_height": 78,
+                            "max_length": 0,
+                            "max_width": 0
+                        }
+                    },
+                    "clearance_inches": 78,
+                    "status": "on_sales_allowed",
+                    "title": "Baymont by Wyndham ORD - Uncovered Self Park",
+                    "slug": "600-e-lake-st",
+                    "operator_display_name": "Baymont By Wyndham Addison - O' Hare Parking",
+                    "id": "32523",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at  600 East Lake St., Addison, IL. This is operated by Baymont By Wyndham Addison - O' Hare. It is located on the right-side of Lake St. between Greenbrook Blvd. and Villa Ave. You can only access this location traveling Northwest on Lake St.",
+                    "images": [
+                        {
+                            "id": "109131",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1044,h_1400,q_50,x_522,y_700,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268742/vkaeaqhwzr7biennihwp.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "109133",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1868,h_1384,q_50,x_934,y_692,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268782/fyc1ecmq8v6uvfulwr0z.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "109135",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1872,h_1392,q_50,x_936,y_696,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268893/svgyfwsveyudoovjtuhx.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "109134",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1874,h_1400,q_50,x_937,y_700,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268876/bq23jixogmuipsrk4mfi.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "109132",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1870,h_1396,q_50,x_935,y_698,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268755/livuhbk5mccrq4uhnmci.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "109130",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1040,h_1388,q_50,x_520,y_694,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1649268727/po5xwxerzo4vk7epsqmd.png",
+                            "alt_text": "600 East Lake Street Parking"
+                        },
+                        {
+                            "id": "105548",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1913,h_1194,q_50,x_956,y_597,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1646161092/uvsq1ivfiy7sqlaxady8.jpg",
+                            "alt_text": "600 East Lake Street Parking"
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "113970",
+                            "city": "Addison",
+                            "state": "IL",
+                            "street_address": "600 East Lake Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60101",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 41.9278918,
+                            "longitude": -87.9726427
+                        },
+                        {
+                            "id": "121947",
+                            "city": "Addison",
+                            "state": "IL",
+                            "street_address": "600 East Lake Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60101",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 41.9274866,
+                            "longitude": -87.9738392
+                        },
+                        {
+                            "id": "33120",
+                            "city": "Addison",
+                            "state": "IL",
+                            "street_address": "600 East Lake Street",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60101",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 41.927912000000006,
+                            "longitude": -87.972657
+                        }
+                    ],
+                    "restrictions": [
+                        "Height restriction: 6' 6\""
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.7,
+                        "count": 250,
+                        "one_star_count": 9,
+                        "two_star_count": 3,
+                        "three_star_count": 7,
+                        "four_star_count": 26,
+                        "five_star_count": 205
+                    },
+                    "inventory": {
+                        "default_quantity": 75
+                    },
+                    "operator_id": 10183596,
+                    "company_id": 6831,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": false
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 10511.37573442142
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "self_park_see_attendant",
+                            "display_name": "Self Park / See Attendant"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "attendant",
+                                "display_name": "On-Site Staff",
+                                "description": "The facility has staff on-site for assistance and questions."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166473",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 4400
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 4400
+                                },
+                                "facility_id": "14815",
+                                "rate_id": "1100166473",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$8.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 3500
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$8.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 3500
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 875
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 20,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "110703",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_550,h_502,q_50,x_275,y_251,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650651146/dtgsxcq7aqcarwhd3fcp.png",
+                        "alt_text": "121 Northwest Point Boulevard Parking"
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "37160",
+                                "illustration": {
+                                    "id": "9",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636043/rc6uuzecbw3nfth0hlky.png",
+                                    "alt_text": "Pass Check Attendant"
+                                },
+                                "text": "After arriving, proceed to hotel lobby and show your SH reservation either printed or on mobile device. The Front Desk will provide a parking ticket and direct you where to park. Place this parking ticket is placed on the dashboard of vehicle."
+                            },
+                            {
+                                "id": "28083",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn't say \"Reserved\"."
+                            },
+                            {
+                                "id": "37163",
+                                "illustration": {
+                                    "id": "85",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772487/iwg9hyiffmfu3iktf7mt.png",
+                                    "alt_text": "Cell Phone"
+                                },
+                                "text": "Gather your belongings and request rideshare service to the airport. "
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "37164",
+                                "illustration": {
+                                    "id": "86",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772516/x6yk4p8tw2rkzqn0inzw.png",
+                                    "alt_text": "Luggage"
+                                },
+                                "text": "Once you return to the airport, gather your luggage and request a rideshare service back to the hotel. "
+                            },
+                            {
+                                "id": "37166",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Once back at the hotel, simply return to your vehicle and leave when you're read to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "+1 847-875-5341",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": null
+                    },
+                    "clearance_inches": null,
+                    "status": "on_sales_allowed",
+                    "title": "Sheraton Suites Elk Grove - Uncovered Self Park",
+                    "slug": "121-nw-pt-blvd",
+                    "operator_display_name": "Sheraton Suites Elk Grove Parking",
+                    "id": "14815",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 121 NW Point Blvd. This is the Sheraton Suites Elk Grove. From here, continue down the access road to the hotel.  The lot will be on your right as you approach the building.",
+                    "images": [
+                        {
+                            "id": "110393",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507011/p2t3kgcztrnkobzjid2j.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110390",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650506980/gequtl6kapg1pgk9vq9a.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110392",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507004/vwpdjobxyy0vwdeqnvzw.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110399",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507027/ay9x1ck3mpohk6tqedmg.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110396",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507020/s989aant0sclpjohbe3i.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110394",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507015/xs4n054lt0e6bjf0obst.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110398",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507024/sc8pfcibwekttza0hqjy.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110395",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507017/fg03bdzwq9qlrguywxvm.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        },
+                        {
+                            "id": "110397",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_1800,h_1200,q_50,x_900,y_600,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1650507024/eod8ybxd4i5w4faxnys6.jpg",
+                            "alt_text": "121 Northwest Point Boulevard Parking"
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "110756",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "121 Northwest Point Boulevard",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "vehicle_entrance"
+                            ],
+                            "latitude": 42.0374578,
+                            "longitude": -87.9817107
+                        },
+                        {
+                            "id": "121411",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "121 Northwest Point Boulevard",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 42.0374565,
+                            "longitude": -87.9805785
+                        },
+                        {
+                            "id": "15577",
+                            "city": "Elk Grove Village",
+                            "state": "IL",
+                            "street_address": "121 Northwest Point Boulevard",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60007",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 42.0373,
+                            "longitude": -87.98145
+                        }
+                    ],
+                    "restrictions": [
+                        " Note: Shuttle Service has temporarily been discontinued at this hotel. Transportation to and from the airport must be secured by the customer. "
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.8,
+                        "count": 19,
+                        "one_star_count": 1,
+                        "two_star_count": 0,
+                        "three_star_count": 0,
+                        "four_star_count": 0,
+                        "five_star_count": 18
+                    },
+                    "inventory": {
+                        "default_quantity": 30
+                    },
+                    "operator_id": 7181066,
+                    "company_id": 2282,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": false,
+                        "phone_number": false
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        },
+        {
+            "distance": {
+                "linear_meters": 15679.578684774186
+            },
+            "vehicle": null,
+            "rates": [
+                {
+                    "airport": {
+                        "tag": null,
+                        "comparisons": null,
+                        "redemption_type": "self",
+                        "parking_pass": {
+                            "type": "license_plate",
+                            "display_name": "Monitored by License Plate"
+                        },
+                        "amenities": [
+                            {
+                                "type": "self_park",
+                                "display_name": "Self Park",
+                                "description": "Users may park their own vehicles at this facility."
+                            },
+                            {
+                                "type": "paved",
+                                "display_name": "Lot - Uncovered",
+                                "description": "The surface of the facility is solid, such as asphalt or concrete."
+                            },
+                            {
+                                "type": "touchless",
+                                "display_name": "Touchless",
+                                "description": "Entering/exiting the facility does not require touching shared surfaces."
+                            },
+                            {
+                                "type": "in_out",
+                                "display_name": "In & Out Allowed",
+                                "description": "Users may enter and exit the facility more than one time."
+                            },
+                            {
+                                "type": "wheelchair_accessible",
+                                "display_name": "Wheelchair Accessible",
+                                "description": "The facility is wheelchair accessible."
+                            }
+                        ],
+                        "lowest_daily_rate": {
+                            "currency_code": "USD",
+                            "value": 0
+                        }
+                    },
+                    "quote": {
+                        "meta": {
+                            "quote_mac": "1100166590",
+                            "quote_valid_until": "2026-04-13T12:00:00-05:00",
+                            "partner_id": "",
+                            "quote_token": ""
+                        },
+                        "total_price": {
+                            "currency_code": "USD",
+                            "value": 3600
+                        },
+                        "order": [
+                            {
+                                "meta": {},
+                                "starts": "2026-04-09T12:00:00-05:00",
+                                "ends": "2026-04-13T12:00:00-05:00",
+                                "total_price": {
+                                    "currency_code": "USD",
+                                    "value": 3600
+                                },
+                                "facility_id": "100876",
+                                "rate_id": "1100166590",
+                                "items": [
+                                    {
+                                        "type": "rental",
+                                        "short_description": "$6.75 x 4 days",
+                                        "full_description": "",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 2700
+                                        }
+                                    },
+                                    {
+                                        "type": "optimization_fee",
+                                        "short_description": "Additional Fees",
+                                        "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 500
+                                        }
+                                    },
+                                    {
+                                        "type": "blanket_fee",
+                                        "short_description": "Service Fee",
+                                        "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                        "price": {
+                                            "currency_code": "USD",
+                                            "value": 400
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "items": [
+                            {
+                                "type": "rental",
+                                "short_description": "$6.75 x 4 days",
+                                "full_description": "",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 2700
+                                }
+                            },
+                            {
+                                "type": "optimization_fee",
+                                "short_description": "Additional Fees",
+                                "full_description": "This amount covers fees charged by the facility operator for costs such as airport charges, facility fees, and additional operator expenses, as estimated by SpotHero.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 500
+                                }
+                            },
+                            {
+                                "type": "blanket_fee",
+                                "short_description": "Service Fee",
+                                "full_description": "The service fee helps us cover the costs of running our platform and providing services related to your reservation. For more information, visit our FAQs.",
+                                "price": {
+                                    "currency_code": "USD",
+                                    "value": 400
+                                }
+                            }
+                        ],
+                        "advertised_price": {
+                            "currency_code": "USD",
+                            "value": 675
+                        }
+                    }
+                }
+            ],
+            "availability": {
+                "unavailable_reasons": [],
+                "available_spaces": 44,
+                "available": true
+            },
+            "facility": {
+                "airport": {
+                    "logo": {
+                        "id": "191877",
+                        "url": "https://res.cloudinary.com/spothero/image/upload/w_978,h_828,q_50,x_489,y_414,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1726858137/pxmqsozklhjbmijthhfk.png",
+                        "alt_text": ""
+                    },
+                    "redemption_instructions": {
+                        "arrival": [
+                            {
+                                "id": "104838",
+                                "illustration": {
+                                    "id": "12",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636881/pp3uajdxl5u9lrnak1as.png",
+                                    "alt_text": "License Plate"
+                                },
+                                "text": "Make sure your license plate matches the plate on your Parking Pass. Failure to do so will result in a ticket or tow."
+                            },
+                            {
+                                "id": "104839",
+                                "illustration": {
+                                    "id": "7",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636122/b2omz3upgcpjn44cyhjb.png",
+                                    "alt_text": "Park Where"
+                                },
+                                "text": "You may park anywhere that doesn't say \"Reserved\"."
+                            },
+                            {
+                                "id": "104840",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "There is no shuttle service to the airport. You may book a ride to the airport using Rideshare or Taxi!"
+                            }
+                        ],
+                        "departure": [
+                            {
+                                "id": "104841",
+                                "illustration": {
+                                    "id": "88",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1522772553/oyiwh1r0jt9tr8hugzc1.png",
+                                    "alt_text": "Shuttle"
+                                },
+                                "text": "When you return to the airport you will need to arrange transportation back to the facility using Rideshare or a Taxi! There is no shuttle service from the airport."
+                            },
+                            {
+                                "id": "104842",
+                                "illustration": {
+                                    "id": "8",
+                                    "url": "https://res.cloudinary.com/spothero/image/upload/v1408636065/hodnezajkpxuiisu0i4e.png",
+                                    "alt_text": "See Ya (Wave)"
+                                },
+                                "text": "Simply leave when you're ready to go!"
+                            }
+                        ]
+                    },
+                    "transportation": {
+                        "type": "taxi",
+                        "contact_phone_number": "",
+                        "schedule": null,
+                        "images": [],
+                        "hours_of_operation": {
+                            "periods": [],
+                            "text": [],
+                            "always_open": true
+                        }
+                    }
+                },
+                "common": {
+                    "vehicle_policy": {
+                        "oversize_vehicle_policy": null,
+                        "dimension_restrictions": {
+                            "max_height": 76,
+                            "max_length": 230,
+                            "max_width": 84
+                        }
+                    },
+                    "clearance_inches": 76,
+                    "status": "on_sales_allowed",
+                    "title": "DoubleTree by Hilton O'Hare (Schaumburg) - Uncovered Self Parking",
+                    "slug": "800-national-pkwy",
+                    "operator_display_name": "Avasa Hospitality Parking",
+                    "id": "100876",
+                    "parent_facility_id": "",
+                    "description": "",
+                    "barcode_type": "qrcode",
+                    "facility_type": "lot",
+                    "navigation_tip": "Enter this location at 800 National Pkwy. This is the DoubleTree by Hilton O'Hare Airport, operated by Avasa Hospitality. It is located on the West side of National Pkwy. between Woodfield Rd. and American Ln.",
+                    "images": [
+                        {
+                            "id": "195541",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1728681819/wldxo6fun9l1qliob0tc.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "195542",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1728681820/mwjtehm8lpdoh3e9ueel.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "195543",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1728681823/xs6ffqa9ienli0hyziw8.jpg",
+                            "alt_text": ""
+                        },
+                        {
+                            "id": "195544",
+                            "url": "https://res.cloudinary.com/spothero/image/upload/w_4032,h_3024,q_50,x_2016,y_1512,c_fill,g_xy_center,f_auto/c_scale,fl_relative,g_south_east,l_logos:spothero,o_27,w_0.25,x_0.05,y_0.05/v1728681825/lmcs4orvzplc3duul1ih.jpg",
+                            "alt_text": ""
+                        }
+                    ],
+                    "supported_fee_types": [
+                        "blanket_fee",
+                        "monthly_fee"
+                    ],
+                    "parking_types": [],
+                    "visual_flags": [],
+                    "fees": [],
+                    "addresses": [
+                        {
+                            "id": "125279",
+                            "city": "Schaumburg",
+                            "state": "IL",
+                            "street_address": "800 National Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60173",
+                            "types": [
+                                "physical"
+                            ],
+                            "latitude": 42.044289,
+                            "longitude": -88.050801
+                        },
+                        {
+                            "id": "125280",
+                            "city": "Schaumburg",
+                            "state": "IL",
+                            "street_address": "800 National Parkway",
+                            "time_zone": "America/Chicago",
+                            "country": "US",
+                            "postal_code": "60173",
+                            "types": [
+                                "search",
+                                "walking_distance",
+                                "default_vehicle_entrance"
+                            ],
+                            "latitude": 42.044289,
+                            "longitude": -88.050801
+                        }
+                    ],
+                    "restrictions": [
+                        "Height restriction: 6' 4\"",
+                        "Standard sized vehicles only. Due to size constraints, this location is unable to accommodate minivans, midsize and large SUVs, pickup trucks, and passenger vans."
+                    ],
+                    "alias_facility_ids": [],
+                    "hours_of_operation": {
+                        "periods": [],
+                        "text": [
+                            "This facility is open 24/7."
+                        ],
+                        "always_open": true
+                    },
+                    "cancellation": {
+                        "allowed_by_customer": true,
+                        "allowed_by_spothero_customer_service": true,
+                        "minutes": 0
+                    },
+                    "rating": {
+                        "average": 4.5,
+                        "count": 23,
+                        "one_star_count": 2,
+                        "two_star_count": 0,
+                        "three_star_count": 1,
+                        "four_star_count": 0,
+                        "five_star_count": 20
+                    },
+                    "inventory": {
+                        "default_quantity": 50
+                    },
+                    "operator_id": 19905742,
+                    "company_id": 17622,
+                    "requirements": {
+                        "printout": false,
+                        "license_plate": true,
+                        "phone_number": true
+                    },
+                    "oversize_fees_charged_onsite": false,
+                    "allow_updating_reservation_after_entry": true,
+                    "require_credit_card": true,
+                    "is_scan_to_pay": false,
+                    "is_part_of_loyalty_program": false,
+                    "events": {
+                        "allow_reservations_outside_hours_of_operations": false
+                    },
+                    "reservation_extension_enabled": true
+                }
+            }
+        }
+    ],
+    "display": {
+        "map_radius": 15679.578684774186,
+        "max_distance_meters": -1
+    }
+}

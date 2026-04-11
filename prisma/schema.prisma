@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -7,95 +8,91 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 服务类型常量（SQLite 不支持枚举，使用字符串）
-// SLEEPING: 睡眠/酒店, SHOWERS: 淋浴, STORAGE: 行李存储
-// TRANSPORT: 交通, LOUNGE: 休息室, FOOD: 餐饮, SPA: SPA/按摩, WIFI: 无线网络
-
-// 机场基础信息
+// ==========================================
+// 1. 机场核心枢纽
+// ==========================================
 model Airport {
-  id           String   @id @default(cuid())
-  iata         String   @unique // 例如: HND, LHR, PEK
+  id           String       @id @default(cuid())
+  iata         String       @unique // 三字码，全大写，全局唯一，例如: JFK
+  iataCode     String?       @unique // 全小写，用于 URL 路由和大小写不敏感查询，例如: jfk
   name         String
   city         String
-  country      String
-  continent    String?  // 大洲: Asia, Europe, North America, South America, Africa, Oceania
-  slug         String   @unique // 例如: haneda-airport-hnd
+  country      String       @default("USA")
+  slug         String       @unique // 人可读 slug，例如: jfk-new-york
 
-  // SEO & 流量相关
-  isPopular    Boolean  @default(false) // 是否热门机场 (Top 12 展示)
-  searchVolume Int?     // 搜索量 (用于排序)
+  // SEO & 流量分配
+  isPopular    Boolean      @default(false) // 是否为顶级枢纽（展示在首页/目录页头部）
+  isActive     Boolean      @default(true)  // 软删除：设为 false 隐藏但不物理删除
+  searchVolume Int?         // 月搜索量（用于 A-Z 目录的自动排序）
 
-  // 关联设施（新模型）
-  facilities   Facility[]
+  // 关联的停车场矩阵
+  parkings     ParkingLot[]
 
-  // 保留旧字段用于数据迁移（迁移完成后可删除）
-  // 1. 行李寄存数据 (JSON 格式存储: 位置、价格、营业时间)
-  luggageData  String?
-  // 2. 淋浴/休息数据 (JSON: 位置、是否免费、淋浴间数量)
-  showerData   String?
-  // 3. 睡眠/酒店数据 (JSON: 睡眠仓、24h休息区位置)
-  sleepData    String?
-  // 4. 交通数据 (JSON: 目的地、票价、末班车)
-  transitData  String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 
-  updatedAt    DateTime @updatedAt
+  @@index([isActive])
+  @@index([isPopular])
+  @@index([searchVolume])
 }
 
-// 机场服务设施（统一设施模型）
-model Facility {
-  id              String        @id @default(cuid())
-  airport         Airport       @relation(fields: [airportIata], references: [iata], onDelete: Cascade)
-  airportIata     String
-  
-  // 基本信息
-  name            String        // 设施名称（如：遨途机场中转酒店）
-  nameEn          String?       // 英文名称
-  terminal        String        // 航站楼（如：T1, T2, T3）
-  location        String?       // 详细位置描述
-  locationEn      String?       // 英文位置
-  
-  // 联系信息
-  phone           String?
-  email           String?
-  website         String?
-  
-  // 营业时间
-  hours           String?       // 营业时间描述
-  is24Hours       Boolean       @default(false)
-  
-  // 服务类型（一个设施可提供多种服务，JSON 数组格式: ["SLEEPING", "SHOWERS"])
-  services        String
-  
-  // 各服务的详细信息（JSON 格式，灵活存储）
-  // 例如：{"sleeping": {"type": "hotel", "price": 25}, "showers": {"type": "in_room"}}
-  serviceDetails  String?
-  
-  // 区域类型（字符串: AIRSIDE=禁区, LANDSIDE=公共区域, BOTH=两者皆有, PRIVATE=私人区域）
-  areaType        String        @default("AIRSIDE")
-  immigrationRequired Boolean   @default(false)    // 是否需要入境
-  
-  // 设施特色/标签
-  features        String?       // JSON 数组，如：["淋浴", "按摩池", "叫醒服务"]
-  
-  // 容量信息
-  capacity        String?       // 容量描述
-  
-  // 重要提示
-  notices         String?       // JSON 数组，如：["需提前预订", "两岁以下免费"]
-  
-  // 数据来源
-  dataSource      String?       // 数据来源（如：official, user_submitted）
-  rawContent      String?       // 原始文本内容（用于参考）
-  
-  // 时间戳
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  
-  @@index([airportIata])
-}
+// ==========================================
+// 2. 停车场比价矩阵（The Money Maker）
+// ==========================================
+model ParkingLot {
+  id              String   @id @default(cuid())
+  airport         Airport  @relation(fields: [airportIataCode], references: [iataCode], onDelete: Cascade)
+  airportIataCode String        // 关联到 Airport.iataCode（小写），避免大小写问题
 
-// 区域类型常量说明
-// AIRSIDE: 禁区/中转区（无需入境）
-// LANDSIDE: 公共区域（需入境）
-// BOTH: 两者皆有
-// PRIVATE: 私人区域（如 CIP 航站楼）
+  // 基础信息
+  name            String   // 停车场名称（如：The Parking Spot）
+  slug            String   @unique // 唯一路由 slug（如：the-parking-spot-lax）
+  type            String   // 极其重要: 'OFFICIAL'（官方高价）或 'OFF_SITE'（私人低价）
+  featured        Boolean  @default(false) // 是否在首页/详情页置顶推荐
+  isActive        Boolean  @default(true)  // 软删除：设为 false 隐藏但不物理删除
+
+  // 核心比价数据（Decimal 精度，用于前端极速渲染和排序）
+  dailyRate       Decimal  // 日均最低价，例如: 12.50，Decimal 确保货币计算零舍入误差
+  distanceMiles   Float?   // 距离航站楼英里数
+  shuttleMins     Int?     // 班车时间（分钟），例如: 5
+
+  // 设施与服务标签（存储 JSON 字符串，SQLite 本身不支持数组类型）
+  tags            String?  // 特色标签，存 JSON 字符串，如: '["Best Value", "Covered"]'
+
+  // 设施与服务布尔标识
+  isIndoor        Boolean  @default(false) // 是否室内/有顶棚
+  hasValet        Boolean  @default(false)  // 是否代客泊车
+  is24Hours       Boolean  @default(true)  // 是否 24 小时营业
+
+  // 详情页扩展字段
+  address         String?  // 详细地址
+  shuttleFrequency String? // 班车频率，如 "Every 20-35 mins"
+  shuttleHours    String?  // 班车运营时间，如 "4:00 AM - 12:00 AM"
+  arrivalDirections String? // 到达路线指引（JSON格式，分方向）
+  thingsToKnow    String?  // 注意事项列表（JSON格式）
+
+  // 信任背书（前端 UI 需要的星级评分）
+  rating          Float?   // 评分，例如: 4.8
+  reviewCount     Int?     // 评论数，例如: 1240
+
+  // 💰 联盟分佣通道
+  affiliateUrl    String?  // 跳转到 Way.com / SpotHero 的联盟分佣链接
+
+  // 爬虫溯源标记
+  dataSource      String?  // 数据来源（如：spothero, way.com, official）
+  rawContent      String?  // AI 提取前的原始抓取文本（备查）
+  lastCheckedAt   DateTime? // 价格最后爬取时间，SEO 页面可显示"数据更新时间: 2026-04-07"
+
+  // 软删除
+  deletedAt       DateTime? // 设为时间戳即软删除，保留历史关联数据
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([airportIataCode])
+  @@index([type])
+  @@index([dailyRate])
+  @@index([featured])
+  @@index([isActive])
+  @@index([deletedAt])
+}

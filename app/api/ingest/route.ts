@@ -1,9 +1,10 @@
-export const runtime = 'edge';
-
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import OpenAI from 'openai';
 import { z } from 'zod';
+
+// Node.js runtime - Edge 限制 1MB，此路由依赖较大
+export const maxDuration = 30; // 30秒超时
 
 // 延迟初始化 OpenAI 客户端，避免构建时出错
 let ai: OpenAI | null = null;

@@ -4,32 +4,9 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
 import { MapPin, Car, Star, ArrowRight, Search } from "lucide-react";
 
-// Static generation with ISR
+// Dynamic generation - no static params, generate on first visit with ISR
 export const revalidate = 3600;
-
-// Pre-generate popular search queries - limit to top airports to avoid build timeout
-export async function generateStaticParams() {
-  // Only generate for most popular airports to speed up build
-  const popularAirports = ['atl', 'lax', 'ord', 'dfw', 'den', 'jfk', 'sfo', 'sea', 'las', 'mia', 'phx', 'iah', 'bos', 'msp', 'dtw'];
-
-  const queries: string[] = [];
-
-  // Airport-based queries for popular airports only
-  popularAirports.forEach((iata) => {
-    queries.push(`${iata}-parking`);
-    queries.push(`${iata}-airport-parking`);
-    queries.push(`cheap-${iata}-parking`);
-  });
-
-  // Feature-based queries
-  queries.push("valet-parking");
-  queries.push("indoor-parking");
-  queries.push("24-hour-parking");
-  queries.push("cheap-airport-parking");
-  queries.push("off-site-parking");
-
-  return queries.map((query) => ({ query }));
-}
+export const dynamicParams = true;
 
 interface SearchResult {
   airports: any[];
@@ -43,27 +20,42 @@ async function getSearchResults(query: string): Promise<SearchResult> {
   const iataMatch = normalizedQuery.match(/\b([a-z]{3})\b/);
   const searchIata = iataMatch ? iataMatch[1].toUpperCase() : null;
 
-  // Optimized: Search airports with direct query
-  const airports = await prisma.airport.findMany({
-    where: {
-      isActive: true,
-      OR: searchIata ? [
-        { iata: { equals: searchIata, mode: 'insensitive' } },
-        { iataCode: { equals: searchIata, mode: 'insensitive' } },
-      ] : [
-        { name: { contains: normalizedQuery, mode: 'insensitive' } },
-        { city: { contains: normalizedQuery, mode: 'insensitive' } },
-      ],
-    },
-    take: 5,
-    include: {
-      parkings: {
-        where: { isActive: true },
-        orderBy: { dailyRate: "asc" },
-        take: 10,
-      },
-    },
-  });
+  // Optimized: Search airports with direct query (SQLite case-insensitive by default)
+  const airports = searchIata 
+    ? await prisma.airport.findMany({
+        where: {
+          isActive: true,
+          OR: [
+            { iata: { equals: searchIata } },
+            { iataCode: { equals: searchIata } },
+          ],
+        },
+        take: 5,
+        include: {
+          parkings: {
+            where: { isActive: true },
+            orderBy: { dailyRate: "asc" },
+            take: 10,
+          },
+        },
+      })
+    : await prisma.airport.findMany({
+        where: {
+          isActive: true,
+          OR: [
+            { name: { contains: normalizedQuery } },
+            { city: { contains: normalizedQuery } },
+          ],
+        },
+        take: 5,
+        include: {
+          parkings: {
+            where: { isActive: true },
+            orderBy: { dailyRate: "asc" },
+            take: 10,
+          },
+        },
+      });
 
   // Get matching airport IATAs for parking search
   const matchingAirportIatas = airports.map(a => a.iata);
@@ -74,7 +66,7 @@ async function getSearchResults(query: string): Promise<SearchResult> {
       isActive: true,
       OR: [
         ...(matchingAirportIatas.length > 0 ? [{ airport: { iata: { in: matchingAirportIatas } } }] : []),
-        { name: { contains: normalizedQuery, mode: 'insensitive' } },
+        { name: { contains: normalizedQuery } },
         ...(normalizedQuery.includes("valet") ? [{ hasValet: true }] : []),
         ...(normalizedQuery.includes("indoor") ? [{ isIndoor: true }] : []),
         ...((normalizedQuery.includes("24") || normalizedQuery.includes("hour")) ? [{ is24Hours: true }] : []),

@@ -73,38 +73,39 @@ export async function POST(request: NextRequest) {
 }
 
 function buildPrompt(rawData: string): string {
-  return `你是一个专业的停车场数据解析助手。请从以下原始数据中提取停车场信息，并以 JSON 格式返回。
+  return `You are a professional parking lot data extraction assistant. Please extract parking lot information from the following raw data and return it in JSON format.
 
-原始数据：
+Raw Data:
 ${rawData}
 
-请提取以下字段（如果数据中没有，请设为 null 或空数组）：
-- name: 停车场名称
-- address: 完整地址
-- dailyRate: 每日价格（数字，单位美元）
-- distanceMiles: 距离机场英里数（数字）
-- shuttleMins: 班车时间（分钟，数字）
-- rating: 评分（1-5 之间的数字）
-- reviewCount: 评论数量（数字）
-- tags: 标签数组（如 ["Self Park", "Covered", "Valet"]）
-- shuttleFrequency: 班车频率描述（如 "Every 10-15 mins"）
-- shuttleHours: 班车营业时间
-- arrivalDirections: 到达指引。优先使用 navigation_tip 字段的内容（如何到达停车场），如果没有则使用 redemption_instructions.arrival 数组（停车后的步骤）
-- thingsToKnow: 注意事项数组，格式为 [{"title": "标题", "content": "内容"}]。从 restrictions 字段提取信息并智能分类整理，优化SEO：
-   * 分类建议：取消政策(Cancellation Policy)、到达须知(Arrival Instructions)、离开须知(Departure Instructions)、超时政策(Overstay Policy)、修改政策(Modification Policy)、便利设施(Amenities)、其他限制(Other Restrictions)
-   * 清理HTML标签和链接，使用简洁文字
-   * 合并相似内容（如Android/Apple app链接合并为一条）
-   * 每个分类只保留最关键信息，利于SEO
-- isIndoor: 是否室内停车场（布尔值，true/false）
-- hasValet: 是否提供代客泊车（布尔值，true/false）
-- is24Hours: 是否24小时营业（布尔值，true/false）
+Please extract the following fields (set to null or empty array if not present in data):
+- name: Parking lot name
+- address: Full address
+- dailyRate: Daily price (number, in USD)
+- distanceMiles: Distance from airport in miles (number)
+- shuttleMins: Shuttle time in minutes (number)
+- rating: Rating (number between 1-5)
+- reviewCount: Number of reviews (number)
+- tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
+- shuttleFrequency: Shuttle frequency description (e.g., "Every 10-15 mins")
+- shuttleHours: Shuttle operating hours
+- arrivalDirections: Arrival instructions. Prioritize navigation_tip field content (how to reach the parking lot), otherwise use redemption_instructions.arrival array (steps after parking)
+- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from restrictions field, categorize intelligently for SEO:
+   * Suggested categories: Cancellation Policy, Arrival Instructions, Departure Instructions, Overstay Policy, Modification Policy, Amenities, Other Restrictions
+   * Clean HTML tags and links, use concise text
+   * Merge similar content (e.g., combine Android/Apple app links into one)
+   * Keep only the most critical information for each category for SEO
+- isIndoor: Whether indoor parking (boolean, true/false)
+- hasValet: Whether valet service available (boolean, true/false)
+- is24Hours: Whether open 24 hours (boolean, true/false)
 
-重要提示：
-1. thingsToKnow 必须是数组格式，每个元素包含 title 和 content
-2. 布尔值必须是 true 或 false，不要用字符串
-3. 只返回 JSON 对象，不要包含任何其他文字
+IMPORTANT INSTRUCTIONS:
+1. ALL text content MUST be in English ONLY. Do not use any Chinese or other languages.
+2. thingsToKnow must be an array format, each element contains title and content
+3. Boolean values must be true or false, not strings
+4. Only return JSON object, do not include any other text
 
-格式如下：
+Format:
 {
   "name": "...",
   "address": "...",
@@ -116,10 +117,10 @@ ${rawData}
   "tags": ["Self Park", "Covered"],
   "shuttleFrequency": "Every 10-15 mins",
   "shuttleHours": "24/7",
-  "arrivalDirections": "到达指引文本或JSON",
+  "arrivalDirections": "Arrival directions text or JSON",
   "thingsToKnow": [
-    {"title": "取消政策", "content": "预订不可退款"},
-    {"title": "营业时间", "content": "24小时营业"}
+    {"title": "Cancellation Policy", "content": "Reservations are non-refundable"},
+    {"title": "Operating Hours", "content": "Open 24 hours"}
   ],
   "isIndoor": false,
   "hasValet": false,

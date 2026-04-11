@@ -2,6 +2,21 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { cookies } from 'next/headers';
 
+// 生成 SEO 友好的 slug
+function generateSlug(airportIataCode: string, name: string): string {
+  // 移除括号及其内容，替换特殊字符，转换为小写
+  const cleanName = name
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, '') // 移除括号及其内容
+    .replace(/[^a-z0-9\s-]/g, '') // 移除非字母数字和空格、连字符
+    .replace(/\s+/g, '-') // 空格替换为连字符
+    .replace(/-+/g, '-') // 多个连字符替换为单个
+    .trim();
+  
+  const slug = `${airportIataCode.toLowerCase()}-${cleanName}`;
+  return slug.substring(0, 80); // 限制长度
+}
+
 // 验证管理员身份
 async function verifyAdmin() {
   const cookieStore = await cookies();
@@ -118,7 +133,7 @@ export async function POST(req: Request) {
     const parking = await prisma.parkingLot.create({
       data: {
         name: data.name,
-        slug: data.slug || `${data.airportIataCode.toLowerCase()}-${data.name.toLowerCase().replace(/\s+/g, '-')}`.substring(0, 50),
+        slug: data.slug || generateSlug(data.airportIataCode, data.name),
         airportIataCode: data.airportIataCode.toLowerCase(),
         type: data.type || 'OFF_SITE',
         dailyRate: parseFloat(data.dailyRate),

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 
 // 验证管理员身份
 async function verifyAdmin() {
@@ -131,6 +132,11 @@ export async function PUT(
       },
     });
 
+    // 重新验证相关页面缓存
+    const iataLower = data.airportIataCode.toLowerCase();
+    revalidatePath(`/airport/${iataLower}/parking`);
+    revalidatePath(`/parking/${parking.slug}`);
+
     return NextResponse.json({
       success: true,
       parking,
@@ -139,6 +145,61 @@ export async function PUT(
     console.error('Update parking error:', error);
     return NextResponse.json(
       { error: '更新停车场失败', details: error instanceof Error ? error.message : '未知错误' },
+      { status: 500 }
+    );
+  }
+}
+
+// 删除停车场
+export async function DELETE(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const isAdmin = await verifyAdmin();
+    if (!isAdmin) {
+      return NextResponse.json(
+        { error: '未授权访问' },
+        { status: 401 }
+      );
+    }
+
+    const { id } = await params;
+
+    // 获取停车场信息（用于重新验证）
+    const parking = await prisma.parkingLot.findUnique({
+      where: { id },
+      include: { airport: { select: { iataCode: true } } },
+    });
+
+    if (!parking) {
+      return NextResponse.json(
+        { error: '停车场不存在' },
+        { status: 404 }
+      );
+    }
+
+    // 软删除：设置 isActive 为 false
+    await prisma.parkingLot.update({
+      where: { id },
+      data: { isActive: false, deletedAt: new Date() },
+    });
+
+    // 重新验证相关页面缓存
+    const iataLower = parking.airport.iataCode?.toLowerCase() || '';
+    if (iataLower) {
+      revalidatePath(`/airport/${iataLower}/parking`);
+    }
+    revalidatePath(`/parking/${parking.slug}`);
+
+    return NextResponse.json({
+      success: true,
+      message: '停车场已删除',
+    });
+  } catch (error) {
+    console.error('Delete parking error:', error);
+    return NextResponse.json(
+      { error: '删除停车场失败', details: error instanceof Error ? error.message : '未知错误' },
       { status: 500 }
     );
   }

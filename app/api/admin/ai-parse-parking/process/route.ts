@@ -98,9 +98,18 @@ Please extract the following fields (set to null or empty array if not present i
 - rating: Rating (number between 1-5)
 - reviewCount: Number of reviews (number)
 - tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
-- shuttleFrequency: Shuttle frequency description (e.g., "Every 10-15 mins")
-- shuttleHours: Shuttle operating hours
-- arrivalDirections: Arrival instructions. Prioritize navigation_tip field content (how to reach the parking lot), otherwise use redemption_instructions.arrival array (steps after parking)
+- shuttleFrequency: Shuttle frequency description (e.g. "Every 10-15 mins"). Extract from multiple sources in priority order:
+   1. redemption_instructions.arrival/departure text (e.g., "shuttle runs every 15 minutes")
+   2. transportation.schedule.fast_frequency + slow_frequency (e.g., "Every 15-16 mins")
+   3. shuttle.fastFrequency + slowFrequency (e.g., "Every 35-45 mins")
+   4. Convert numeric minutes to readable text like "Every X-Y mins"
+- shuttleHours: Shuttle operating hours. Extract from:
+   1. transportation.hours_of_operation.text (e.g., "24/7" or "5:00 AM - 12:00 AM")
+   2. redemption_instructions text mentioning hours (e.g., "between the hours of 5 am and 1 pm")
+   3. shuttle.hours field
+- arrivalDirections: Arrival instructions. Prioritize:
+   1. navigation_tip field content (how to reach the parking lot)
+   2. redemption_instructions.arrival array (steps after parking, clean HTML tags)
 - thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from restrictions field, categorize intelligently for SEO:
    * Suggested categories: Cancellation Policy, Arrival Instructions, Departure Instructions, Overstay Policy, Modification Policy, Amenities, Other Restrictions
    * Clean HTML tags and links, use concise text

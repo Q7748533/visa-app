@@ -98,11 +98,16 @@ Please extract the following fields (set to null or empty array if not present i
 - rating: Rating (number between 1-5)
 - reviewCount: Number of reviews (number)
 - tags: Array of tags (e.g., ["Self Park", "Covered", "Valet"])
-- shuttleFrequency: Shuttle frequency description (e.g. "Every 10-15 mins"). Extract from multiple sources in priority order:
-   1. redemption_instructions.arrival/departure text (e.g., "shuttle runs every 15 minutes")
-   2. transportation.schedule.fast_frequency + slow_frequency (e.g., "Every 15-16 mins")
-   3. shuttle.fastFrequency + slowFrequency (e.g., "Every 35-45 mins")
-   4. Convert numeric minutes to readable text like "Every X-Y mins"
+- shuttleFrequency: Shuttle frequency description. Extract using these rules:
+   1. Check transportation.type field:
+      - If "on_demand_shuttle" → output "On Demand"
+      - If "scheduled_shuttle" → continue to extract frequency
+   2. For scheduled shuttles, extract from (in priority order):
+      a. redemption_instructions.arrival/departure text (e.g., "shuttle runs every 15 minutes")
+      b. transportation.schedule.fast_frequency + slow_frequency (e.g., "Every 15-16 mins")
+      c. shuttle.fastFrequency + slowFrequency (e.g., "Every 35-45 mins")
+   3. Convert numeric minutes to readable text like "Every X-Y mins"
+   4. If no frequency data found but type is scheduled_shuttle → output "Contact for schedule"
 - shuttleHours: Shuttle operating hours. Extract from:
    1. transportation.hours_of_operation.text (e.g., "24/7" or "5:00 AM - 12:00 AM")
    2. redemption_instructions text mentioning hours (e.g., "between the hours of 5 am and 1 pm")

@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// 使用 Edge Runtime 以获得更长的超时时间（30秒）
+export const runtime = 'edge';
+
 // AI 配置 - 使用环境变量
 // 注意：在 Next.js API Route 中，环境变量可以直接通过 process.env 访问
 const AI_CONFIG = {

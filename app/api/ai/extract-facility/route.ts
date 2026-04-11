@@ -6,6 +6,8 @@
  * 响应: { success: boolean, data: ExtractedFacility, error?: string }
  */
 
+export const runtime = 'edge';
+
 import { NextRequest, NextResponse } from 'next/server';
 
 // 提取的设施数据结构

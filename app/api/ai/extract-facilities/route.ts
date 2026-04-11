@@ -4,6 +4,8 @@
  * 使用多次 AI 调用来逐个提取每个设施
  */
 
+export const runtime = 'edge';
+
 import { NextRequest, NextResponse } from 'next/server';
 
 interface ExtractedFacility {

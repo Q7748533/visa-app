@@ -251,6 +251,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
-// 配置路由 - Edge Runtime 已在文件顶部定义
-export const maxDuration = 30; // 30秒超时

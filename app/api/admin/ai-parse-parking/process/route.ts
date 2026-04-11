@@ -101,11 +101,25 @@ Please extract the following fields (set to null or empty array if not present i
 - shuttleFrequency: Shuttle frequency description (e.g., "Every 10-15 mins")
 - shuttleHours: Shuttle operating hours
 - arrivalDirections: Arrival instructions. Prioritize navigation_tip field content (how to reach the parking lot), otherwise use redemption_instructions.arrival array (steps after parking)
-- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. Extract from restrictions field, categorize intelligently for SEO:
-   * Suggested categories: Cancellation Policy, Arrival Instructions, Departure Instructions, Overstay Policy, Modification Policy, Amenities, Other Restrictions
-   * Clean HTML tags and links, use concise text
-   * Merge similar content (e.g., combine Android/Apple app links into one)
-   * Keep only the most critical information for each category for SEO
+- thingsToKnow: Array of important notes in format [{"title": "Title", "content": "Content"}]. 
+   EXTRACT FROM THESE FIELDS IN ORDER OF PRIORITY:
+   1. arrivalInstructions - Convert each step to a note with title "Arrival Instructions"
+   2. departureInstructions - Convert each step to a note with title "Departure Instructions"  
+   3. restrictions - Extract policies like cancellation, shuttle hours, etc.
+   4. cancellation - Extract cancellation policy details
+   
+   CATEGORIZATION RULES:
+   * "Arrival Instructions" - Steps from arrivalInstructions (check-in, parking, shuttle)
+   * "Departure Instructions" - Steps from departureInstructions (call shuttle, find shuttle, leave)
+   * "Shuttle Information" - From restrictions or shuttle.hours
+   * "Cancellation Policy" - From cancellation field
+   * "Operating Hours" - From hoursOfOperation or is24Hours
+   * "Amenities" - Key features from amenities array
+   
+   FORMAT EACH NOTE:
+   * Clean HTML tags, use plain text
+   * Combine related steps into logical groups
+   * Keep instructions clear and actionable
 - isIndoor: Whether indoor parking (boolean, true/false)
 - hasValet: Whether valet service available (boolean, true/false)
 - is24Hours: Whether open 24 hours (boolean, true/false)

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Save, Car } from 'lucide-react';
+import { ArrowLeft, Save, Car, Sparkles, Loader2 } from 'lucide-react';
 
 interface Airport {
   id: string;
@@ -41,6 +41,11 @@ export default function NewParkingPage() {
   const [message, setMessage] = useState('');
   const router = useRouter();
 
+  // AI 智能填充相关状态
+  const [aiRawData, setAiRawData] = useState('');
+  const [aiParsing, setAiParsing] = useState(false);
+  const [showAiPanel, setShowAiPanel] = useState(false);
+
   useEffect(() => {
     loadAirports();
   }, []);
@@ -54,6 +59,74 @@ export default function NewParkingPage() {
       }
     } catch (error) {
       console.error('Failed to load airports:', error);
+    }
+  };
+
+  // AI 智能填充处理函数
+  const handleAIParse = async () => {
+    if (!aiRawData.trim()) {
+      setMessage('请先粘贴原始数据');
+      return;
+    }
+
+    setAiParsing(true);
+    setMessage('');
+
+    try {
+      const res = await fetch('/api/admin/ai-parse-parking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rawData: aiRawData }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.data) {
+        const parsed = data.data;
+        
+        // 更新表单数据
+        setFormData(prev => {
+          // 处理 thingsToKnow - 确保是数组格式
+          let thingsToKnowString = prev.thingsToKnow;
+          if (parsed.thingsToKnow) {
+            if (Array.isArray(parsed.thingsToKnow)) {
+              thingsToKnowString = JSON.stringify(parsed.thingsToKnow, null, 2);
+            } else if (typeof parsed.thingsToKnow === 'string') {
+              thingsToKnowString = parsed.thingsToKnow;
+            }
+          }
+          
+          return {
+            ...prev,
+            name: parsed.name || prev.name,
+            address: parsed.address || prev.address,
+            dailyRate: parsed.dailyRate !== undefined ? String(parsed.dailyRate) : prev.dailyRate,
+            distanceMiles: parsed.distanceMiles !== undefined ? String(parsed.distanceMiles) : prev.distanceMiles,
+            shuttleMins: parsed.shuttleMins !== undefined ? String(parsed.shuttleMins) : prev.shuttleMins,
+            rating: parsed.rating !== undefined ? String(parsed.rating) : prev.rating,
+            reviewCount: parsed.reviewCount !== undefined ? String(parsed.reviewCount) : prev.reviewCount,
+            tags: parsed.tags && parsed.tags.length > 0 ? parsed.tags.join(', ') : prev.tags,
+            shuttleFrequency: parsed.shuttleFrequency || prev.shuttleFrequency,
+            shuttleHours: parsed.shuttleHours || prev.shuttleHours,
+            arrivalDirections: parsed.arrivalDirections || prev.arrivalDirections,
+            thingsToKnow: thingsToKnowString,
+            isIndoor: parsed.isIndoor !== undefined ? parsed.isIndoor : prev.isIndoor,
+            hasValet: parsed.hasValet !== undefined ? parsed.hasValet : prev.hasValet,
+            is24Hours: parsed.is24Hours !== undefined ? parsed.is24Hours : prev.is24Hours,
+          };
+        });
+
+        setMessage('AI 解析成功！已自动填充表单');
+        setShowAiPanel(false);
+        setAiRawData('');
+      } else {
+        setMessage(data.error || 'AI 解析失败');
+      }
+    } catch (error) {
+      console.error('AI parse error:', error);
+      setMessage('AI 解析请求失败');
+    } finally {
+      setAiParsing(false);
     }
   };
 
@@ -137,6 +210,65 @@ export default function NewParkingPage() {
           {message}
         </div>
       )}
+
+      {/* AI 智能填充面板 */}
+      <div className="bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border border-violet-200 p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-violet-600" />
+            <h2 className="text-lg font-bold text-violet-900">AI 智能填充</h2>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowAiPanel(!showAiPanel)}
+            className="text-sm text-violet-600 hover:text-violet-800 font-medium"
+          >
+            {showAiPanel ? '收起' : '展开'}
+          </button>
+        </div>
+        
+        {showAiPanel && (
+          <div className="space-y-4">
+            <p className="text-sm text-violet-700">
+              粘贴停车场的原始数据（JSON 格式），AI 将自动解析并填充表单字段。
+            </p>
+            <textarea
+              value={aiRawData}
+              onChange={(e) => setAiRawData(e.target.value)}
+              placeholder="在此粘贴原始数据..."
+              rows={6}
+              className="w-full px-4 py-3 border border-violet-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 font-mono text-xs bg-white"
+            />
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={handleAIParse}
+                disabled={aiParsing || !aiRawData.trim()}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 text-white font-medium rounded-lg hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                {aiParsing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    解析中...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-4 h-4" />
+                    智能填充
+                  </>
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setAiRawData(''); setShowAiPanel(false); }}
+                className="text-sm text-violet-600 hover:text-violet-800"
+              >
+                取消
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* 表单 */}
       <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-slate-200 p-6 space-y-6">

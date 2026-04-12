@@ -279,6 +279,85 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
           )}
         </main>
 
+        {/* FAQ Section */}
+        {parkings.length > 0 && (
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
+            <h2 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
+              Frequently Asked Questions
+            </h2>
+            <div className="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-100">
+              <details className="p-4 md:p-6 group">
+                <summary className="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base text-slate-900 list-none gap-2">
+                  <span className="flex-1">How much does it cost to park at {airport.iata} Airport?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">↓</span>
+                </summary>
+                <p className="mt-3 md:mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+                  Off-site parking near {airport.iata} Airport typically ranges from ${lowestRate?.toFixed(2) || '15.00'} to ${parkings.length > 0 ? Math.max(...parkings.map(p => p.dailyRate)).toFixed(2) : '35.00'} per day.
+                  {parkings.length > 1 ? ` The cheapest option is ${parkings.sort((a, b) => a.dailyRate - b.dailyRate)[0].name} at $${parkings.sort((a, b) => a.dailyRate - b.dailyRate)[0].dailyRate.toFixed(2)}/day.` : ''}
+                  All facilities include complimentary shuttle service to the terminal.
+                </p>
+              </details>
+              {parkings.some(p => p.shuttleMins) && (
+                <details className="p-4 md:p-6 group">
+                  <summary className="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base text-slate-900 list-none gap-2">
+                    <span className="flex-1">Is there free shuttle service from {airport.iata} parking lots?</span>
+                    <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">↓</span>
+                  </summary>
+                  <p className="mt-3 md:mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+                    Yes, several parking facilities near {airport.iata} provide complimentary shuttle service to the terminal.
+                    Shuttle times vary by location, typically ranging from {parkings.filter(l => l.shuttleMins).length > 0 ? Math.min(...parkings.filter(l => l.shuttleMins).map(l => l.shuttleMins || 999)) : 3}-{parkings.filter(l => l.shuttleMins).length > 0 ? Math.max(...parkings.filter(l => l.shuttleMins).map(l => l.shuttleMins || 0)) : 15} minutes.
+                    Check individual listings for specific shuttle details.
+                  </p>
+                </details>
+              )}
+              <details className="p-4 md:p-6 group">
+                <summary className="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base text-slate-900 list-none gap-2">
+                  <span className="flex-1">What types of parking are available at {airport.iata}?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">↓</span>
+                </summary>
+                <p className="mt-3 md:mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+                  {airport.iata} offers {parkings.length} parking option{parkings.length > 1 ? "s" : ""} including {parkings.some(p => p.isIndoor) ? "indoor parking, " : ""}{parkings.some(p => p.hasValet) ? "valet service, " : ""}{parkings.some(p => p.is24Hours) ? "24/7 access, " : ""}and self-park facilities.
+                  Each lot has different amenities and pricing - compare options to find the best fit for your needs.
+                </p>
+              </details>
+              <details className="p-4 md:p-6 group">
+                <summary className="flex justify-between items-center cursor-pointer font-bold text-sm md:text-base text-slate-900 list-none gap-2">
+                  <span className="flex-1">How do I choose the best parking at {airport.iata}?</span>
+                  <span className="text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0">↓</span>
+                </summary>
+                <p className="mt-3 md:mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+                  Consider these factors when choosing parking at {airport.iata}: {parkings.some(p => p.shuttleMins) ? "Shuttle frequency and travel time to terminal, " : ""}price per day, customer ratings (average {parkings.filter(p => p.rating).length > 0 ? (parkings.filter(p => p.rating).reduce((sum, p) => sum + (p.rating || 0), 0) / parkings.filter(p => p.rating).length).toFixed(1) : '4.5'} stars), {parkings.some(p => p.hasValet) ? "valet vs self-park options, " : ""}{parkings.some(p => p.isIndoor) ? "indoor vs outdoor parking, " : ""}and proximity to the airport.
+                  Click on any listing to see detailed information and reviews.
+                </p>
+              </details>
+            </div>
+          </section>
+        )}
+
+        {/* Related Airports */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
+          <h2 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
+            Popular Airport Parking
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {["JFK", "LAX", "ORD", "ATL", "MIA", "DEN", "SEA", "SFO"].filter(code => code !== airport.iata).slice(0, 6).map(code => (
+              <Link
+                key={code}
+                href={`/airports/${code.toLowerCase()}/parking`}
+                className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-700 font-medium hover:border-blue-300 hover:text-blue-600 transition-colors"
+              >
+                {code} Parking
+              </Link>
+            ))}
+            <Link
+              href="/airports"
+              className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 font-medium hover:bg-blue-100 transition-colors"
+            >
+              View All Airports →
+            </Link>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="bg-slate-900 text-slate-400 py-8 mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">

@@ -74,7 +74,15 @@ async function getSearchResults(query: string): Promise<SearchResult> {
     },
     take: 20,
     orderBy: { dailyRate: "asc" },
-    include: {
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      dailyRate: true,
+      rating: true,
+      isIndoor: true,
+      hasValet: true,
+      is24Hours: true,
       airport: {
         select: {
           iata: true,

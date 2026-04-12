@@ -147,6 +147,38 @@ export default async function ParkingDetailPage({ params }: Props) {
 
   const iataLower = iata.toLowerCase();
 
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://airportmatrix.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Airports",
+        item: "https://airportmatrix.com/airports",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${parking.airport.iata} Parking`,
+        item: `https://airportmatrix.com/airports/${iataLower}/parking`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: parking.name,
+        item: `https://airportmatrix.com/airports/${iataLower}/parking/${slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <ParkingJsonLd
@@ -155,6 +187,10 @@ export default async function ParkingDetailPage({ params }: Props) {
         iata={iataLower}
         generalFAQs={generalFAQs}
         thingsToKnow={thingsToKnow}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <div className="min-h-screen bg-slate-50 font-sans pb-32 text-slate-800">
@@ -179,10 +215,10 @@ export default async function ParkingDetailPage({ params }: Props) {
           <nav aria-label="Breadcrumb" className="mb-6 md:mb-8">
             <ol className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-slate-500 font-medium flex-wrap">
               <li><Link href="/" className="hover:text-slate-900 transition-colors">Home</Link></li>
-              <li className="shrink-0">/</li>
+              <li className="shrink-0" aria-hidden="true">/</li>
               <li><Link href={`/airports/${iataLower}/parking`} className="hover:text-slate-900 transition-colors">{parking.airport.iata} Parking</Link></li>
-              <li className="shrink-0">/</li>
-              <li className="text-slate-900 font-bold truncate max-w-[180px] md:max-w-none">{parking.name}</li>
+              <li className="shrink-0" aria-hidden="true">/</li>
+              <li className="text-slate-900 font-bold truncate max-w-[180px] md:max-w-none" aria-current="page">{parking.name}</li>
             </ol>
           </nav>
 
@@ -227,7 +263,7 @@ export default async function ParkingDetailPage({ params }: Props) {
 
               {/* Airport Information */}
               <div className="bg-blue-50 rounded-2xl md:rounded-3xl border border-blue-100 p-5 md:p-6 lg:p-8 shadow-sm">
-                <h2 className="text-base md:text-lg font-black text-blue-900 mb-3 md:mb-4">About {parking.airport.iata} Airport</h2>
+                <h2 className="text-base md:text-lg font-black text-blue-900 mb-3 md:mb-4">About {parking.airport.name} ({parking.airport.iata}) Airport</h2>
                 <p className="text-sm text-blue-800/80 leading-relaxed mb-4">
                   {parking.airport.name} ({parking.airport.iata}) serves the {parking.airport.city} area.
                   This off-site parking facility offers significant savings compared to on-airport parking rates.
@@ -261,18 +297,21 @@ export default async function ParkingDetailPage({ params }: Props) {
 
         {/* Footer */}
         <footer className="bg-slate-900 text-slate-400 py-6 md:py-8 mt-10 md:mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="font-black text-lg tracking-tight text-white">
-              Airport<span className="text-blue-400">Matrix</span>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+              <div className="font-black text-lg tracking-tight text-white">
+                Airport<span className="text-blue-400">Matrix</span>
+              </div>
+              <div className="flex items-center gap-6 text-sm">
+                <Link href="/airports" className="hover:text-white transition-colors">Airports</Link>
+                <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+                <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+              </div>
             </div>
-            <div className="flex items-center gap-6 text-sm">
-              <Link href="/airports" className="hover:text-white transition-colors">Airports</Link>
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <div className="border-t border-slate-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-slate-500">
+              <p>Data last updated: {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+              <p>© {new Date().getFullYear()} AirportMatrix. All rights reserved.</p>
             </div>
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} AirportMatrix
-            </p>
           </div>
         </footer>
 

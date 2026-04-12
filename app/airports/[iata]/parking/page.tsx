@@ -220,12 +220,20 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
         {/* Hero Section */}
         <div className="bg-slate-900 text-white py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <nav className="text-sm text-slate-400 mb-4">
-              <Link href="/" className="hover:text-white">Home</Link>
-              <span className="mx-2">/</span>
-              <Link href="/airports" className="hover:text-white">Airports</Link>
-              <span className="mx-2">/</span>
-              <span className="text-white">{airport.iata}</span>
+            <nav aria-label="Breadcrumb" className="text-sm text-slate-400 mb-4">
+              <ol className="flex items-center flex-wrap">
+                <li>
+                  <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                </li>
+                <li className="mx-2" aria-hidden="true">/</li>
+                <li>
+                  <Link href="/airports" className="hover:text-white transition-colors">Airports</Link>
+                </li>
+                <li className="mx-2" aria-hidden="true">/</li>
+                <li className="text-white font-medium" aria-current="page">
+                  {airport.iata} Parking
+                </li>
+              </ol>
             </nav>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">
               {airport.iata} Airport Parking
@@ -248,10 +256,10 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
           ) : (
             <div className="space-y-8">
               {/* 表格形式 */}
-              <section>
-                <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-4 md:mb-6 border-b border-slate-200 pb-4">
-                  All Parking Options
-                  <span className="text-xs md:text-sm font-normal text-slate-500 ml-2">({parkings.length} lots)</span>
+              <section aria-labelledby="parking-lots-heading">
+                <h2 id="parking-lots-heading" className="text-lg md:text-xl font-bold text-slate-900 mb-4 md:mb-6 border-b border-slate-200 pb-4">
+                  Available Parking Lots at {airport.iata}
+                  <span className="text-xs md:text-sm font-normal text-slate-500 ml-2">({parkings.length} options)</span>
                 </h2>
                 
                 {/* 表格 */}
@@ -345,9 +353,9 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
 
         {/* FAQ Section */}
         {parkings.length > 0 && (
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
-            <h2 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
-              Frequently Asked Questions
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
+              Frequently Asked Questions about {airport.iata} Parking
             </h2>
             <div className="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-100">
               <details className="p-4 md:p-6 group">
@@ -399,9 +407,9 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
         )}
 
         {/* Related Airports */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8">
-          <h2 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
-            Popular Airport Parking
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8" aria-labelledby="related-heading">
+          <h2 id="related-heading" className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">
+            Other Popular Airport Parking Options
           </h2>
           <div className="flex flex-wrap gap-3">
             {["JFK", "LAX", "ORD", "ATL", "MIA", "DEN", "SEA", "SFO"].filter(code => code !== airport.iata).slice(0, 6).map(code => (
@@ -424,18 +432,21 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
 
         {/* Footer */}
         <footer className="bg-slate-900 text-slate-400 py-8 mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="font-black text-lg tracking-tight text-white">
-              Airport<span className="text-blue-400">Matrix</span>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+              <div className="font-black text-lg tracking-tight text-white">
+                Airport<span className="text-blue-400">Matrix</span>
+              </div>
+              <div className="flex items-center gap-6 text-sm">
+                <Link href="/airports" className="hover:text-white transition-colors">Airports</Link>
+                <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+                <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+              </div>
             </div>
-            <div className="flex items-center gap-6 text-sm">
-              <Link href="/airports" className="hover:text-white transition-colors">Airports</Link>
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <div className="border-t border-slate-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-slate-500">
+              <p>Data last updated: {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+              <p>© {new Date().getFullYear()} AirportMatrix. All rights reserved.</p>
             </div>
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} AirportMatrix
-            </p>
           </div>
         </footer>
       </div>

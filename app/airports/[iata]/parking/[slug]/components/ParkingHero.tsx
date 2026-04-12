@@ -1,11 +1,15 @@
 import { MapPin, Star, DollarSign, Clock, Car } from 'lucide-react';
 import { ParkingLot } from '../types';
+import { parseTags } from '../utils';
 
 interface ParkingHeroProps {
   parking: ParkingLot;
 }
 
 export function ParkingHero({ parking }: ParkingHeroProps) {
+  // 解析后台 tags 字段
+  const customTags = parseTags(parking.tags);
+  
   return (
     <div className="bg-white rounded-2xl md:rounded-3xl border border-slate-200 p-5 md:p-6 lg:p-8 shadow-sm">
       <div className="flex flex-col md:flex-row justify-between items-start gap-3 md:gap-4 mb-5 md:mb-6">
@@ -39,19 +43,34 @@ export function ParkingHero({ parking }: ParkingHeroProps) {
         )}
       </div>
 
-      {/* Tags */}
+      {/* Tags - 优先使用后台自定义标签，否则使用默认标签 */}
       <div className="flex flex-wrap gap-1.5 md:gap-2 mb-6 md:mb-8">
-        {parking.hasValet ? (
-          <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Valet Parking</span>
+        {customTags.length > 0 ? (
+          // 使用后台自定义标签
+          customTags.map((tag, index) => (
+            <span 
+              key={index} 
+              className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full"
+            >
+              {tag}
+            </span>
+          ))
         ) : (
-          <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Self Park</span>
+          // 默认标签
+          <>
+            {parking.hasValet ? (
+              <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Valet Parking</span>
+            ) : (
+              <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Self Park</span>
+            )}
+            {parking.isIndoor ? (
+              <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Indoor</span>
+            ) : (
+              <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Uncovered</span>
+            )}
+            <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">On-Site Staff</span>
+          </>
         )}
-        {parking.isIndoor ? (
-          <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Indoor</span>
-        ) : (
-          <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">Uncovered</span>
-        )}
-        <span className="px-2 md:px-3 py-0.5 md:py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold rounded-full">On-Site Staff</span>
         <span className="px-2 md:px-3 py-0.5 md:py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full border border-emerald-100">Free Shuttle</span>
       </div>
 

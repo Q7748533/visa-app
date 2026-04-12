@@ -242,6 +242,7 @@ export default async function ParkingDetailPage({ params }: Props) {
                 facilityRating={parking.facilityRating}
                 safetyRating={parking.safetyRating}
                 recommendationPct={parking.recommendationPct}
+                reviewSummary={parking.reviewSummary}
               />
               <ParkingShuttle
                 shuttleFrequency={parking.shuttleFrequency}
@@ -267,6 +268,9 @@ export default async function ParkingDetailPage({ params }: Props) {
                 is24Hours={parking.is24Hours}
                 isIndoor={parking.isIndoor}
                 hasValet={parking.hasValet}
+                operatingDays={parking.operatingDays}
+                contactPhone={parking.contactPhone}
+                parkingAccess={parking.parkingAccess}
               />
               <ParkingRelated lots={relatedLots} airport={parking.airport} iata={iataLower} />
 

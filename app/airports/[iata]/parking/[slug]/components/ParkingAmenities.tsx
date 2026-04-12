@@ -1,12 +1,22 @@
-import { Clock, Car, Bus } from 'lucide-react';
+import { Clock, Car, Bus, Calendar, Phone, Key } from 'lucide-react';
 
 interface ParkingAmenitiesProps {
   is24Hours: boolean;
   isIndoor: boolean;
   hasValet: boolean;
+  operatingDays?: string | null;
+  contactPhone?: string | null;
+  parkingAccess?: string | null;
 }
 
-export function ParkingAmenities({ is24Hours, isIndoor, hasValet }: ParkingAmenitiesProps) {
+export function ParkingAmenities({ 
+  is24Hours, 
+  isIndoor, 
+  hasValet,
+  operatingDays,
+  contactPhone,
+  parkingAccess
+}: ParkingAmenitiesProps) {
   return (
     <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm">
       <h2 className="text-xl font-black text-slate-900 mb-6">Amenities & Services</h2>
@@ -39,6 +49,39 @@ export function ParkingAmenities({ is24Hours, isIndoor, hasValet }: ParkingAmeni
             <p className="text-sm text-slate-500">To terminal & back</p>
           </div>
         </div>
+        
+        {/* 运营天数 */}
+        {operatingDays && (
+          <div className="flex items-center p-4 rounded-xl bg-blue-50">
+            <Calendar className="w-5 h-5 mr-3 text-blue-600" />
+            <div>
+              <p className="font-bold text-slate-900">Operating Days</p>
+              <p className="text-sm text-slate-500">{operatingDays}</p>
+            </div>
+          </div>
+        )}
+        
+        {/* 联系电话 */}
+        {contactPhone && (
+          <div className="flex items-center p-4 rounded-xl bg-blue-50">
+            <Phone className="w-5 h-5 mr-3 text-blue-600" />
+            <div>
+              <p className="font-bold text-slate-900">Contact</p>
+              <a href={`tel:${contactPhone}`} className="text-sm text-blue-600 hover:underline">{contactPhone}</a>
+            </div>
+          </div>
+        )}
+        
+        {/* 停车方式 */}
+        {parkingAccess && (
+          <div className="flex items-center p-4 rounded-xl bg-blue-50">
+            <Key className="w-5 h-5 mr-3 text-blue-600" />
+            <div>
+              <p className="font-bold text-slate-900">Parking Access</p>
+              <p className="text-sm text-slate-500">{parkingAccess}</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

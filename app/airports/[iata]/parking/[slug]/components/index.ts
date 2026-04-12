@@ -9,3 +9,4 @@ export { ParkingAmenities } from './ParkingAmenities';
 export { ParkingRelated } from './ParkingRelated';
 export { ParkingBookingCard } from './ParkingBookingCard';
 export { ParkingJsonLd } from './ParkingJsonLd';
+export { ParkingInfoCard } from './ParkingInfoCard';

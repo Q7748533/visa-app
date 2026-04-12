@@ -17,6 +17,7 @@ import {
   ParkingRelated,
   ParkingBookingCard,
   ParkingJsonLd,
+  ParkingInfoCard,
 } from "./components";
 
 // Static generation with ISR - revalidate every hour
@@ -234,8 +235,15 @@ export default async function ParkingDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8 items-start">
             {/* Left Column - Info */}
             <div className="lg:col-span-2 space-y-4 md:space-y-6">
+              {/* 1. HERO - 核心信息 */}
               <ParkingHero parking={parking} />
-              <ParkingDescription description={parking.description} />
+              
+              {/* 2. 描述 */}
+              {parking.description && (
+                <ParkingDescription description={parking.description} />
+              )}
+              
+              {/* 3. 评分与评论洞察 */}
               <ParkingRatings
                 locationRating={parking.locationRating}
                 staffRating={parking.staffRating}
@@ -244,17 +252,25 @@ export default async function ParkingDetailPage({ params }: Props) {
                 recommendationPct={parking.recommendationPct}
                 reviewSummary={parking.reviewSummary}
               />
+              
+              {/* 4. 班车服务 */}
               <ParkingShuttle
                 shuttleFrequency={parking.shuttleFrequency}
                 shuttleHours={parking.shuttleHours}
                 shuttleDesc={parking.shuttleDesc}
               />
+              
+              {/* 5. 到达指引 */}
               <ParkingDirections
                 directions={arrivalDirections}
                 textDirections={arrivalDirectionsText}
                 parkingAccess={parking.parkingAccess}
               />
+              
+              {/* 6. 须知事项 */}
               <ParkingThingsToKnow items={thingsToKnow} />
+              
+              {/* 7. FAQ */}
               <ParkingFAQ
                 airportIata={parking.airport.iata}
                 dailyRate={parking.dailyRate}
@@ -264,6 +280,8 @@ export default async function ParkingDetailPage({ params }: Props) {
                 cancellationPolicy={parking.cancellationPolicy}
                 thingsToKnow={thingsToKnow}
               />
+              
+              {/* 8. 设施与服务 */}
               <ParkingAmenities
                 is24Hours={parking.is24Hours}
                 isIndoor={parking.isIndoor}
@@ -272,14 +290,28 @@ export default async function ParkingDetailPage({ params }: Props) {
                 contactPhone={parking.contactPhone}
                 parkingAccess={parking.parkingAccess}
               />
+              
+              {/* 9. 详细信息卡片 - 展示 dataSource 等字段 */}
+              <ParkingInfoCard
+                dataSource={parking.dataSource}
+                address={parking.address}
+                contactPhone={parking.contactPhone}
+                operatingDays={parking.operatingDays}
+                type={parking.type}
+              />
+              
+              {/* 10. 相关停车场 */}
               <ParkingRelated lots={relatedLots} airport={parking.airport} iata={iataLower} />
 
-              {/* Airport Information */}
+              {/* 10. 机场信息 */}
               <div className="bg-blue-50 rounded-2xl md:rounded-3xl border border-blue-100 p-5 md:p-6 lg:p-8 shadow-sm">
-                <h2 className="text-base md:text-lg font-black text-blue-900 mb-3 md:mb-4">About {parking.airport.name} ({parking.airport.iata}) Airport</h2>
+                <h2 className="text-base md:text-lg font-black text-blue-900 mb-3 md:mb-4">
+                  About {parking.airport.name} ({parking.airport.iata}) Airport
+                </h2>
                 <p className="text-sm text-blue-800/80 leading-relaxed mb-4">
                   {parking.airport.name} ({parking.airport.iata}) serves the {parking.airport.city} area.
-                  This off-site parking facility offers significant savings compared to on-airport parking rates.
+                  This {parking.type === 'OFFICIAL' ? 'official airport' : 'off-site'} parking facility 
+                  {parking.type === 'OFF_SITE' && 'offers significant savings compared to on-airport parking rates'}.
                 </p>
                 <div className="space-y-2 text-sm">
                   <Link
@@ -303,6 +335,10 @@ export default async function ParkingDetailPage({ params }: Props) {
               <ParkingBookingCard
                 dailyRate={parking.dailyRate}
                 affiliateUrl={parking.affiliateUrl}
+                cancellationPolicy={parking.cancellationPolicy}
+                isIndoor={parking.isIndoor}
+                hasValet={parking.hasValet}
+                type={parking.type}
               />
             </div>
           </div>

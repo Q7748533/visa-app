@@ -1,11 +1,30 @@
-import { ExternalLink, Check } from 'lucide-react';
+import { ExternalLink, Check, Shield, Calendar, Car } from 'lucide-react';
 
 interface ParkingBookingCardProps {
   dailyRate: number;
   affiliateUrl: string | null;
+  cancellationPolicy?: string | null;
+  isIndoor?: boolean;
+  hasValet?: boolean;
+  type?: 'OFFICIAL' | 'OFF_SITE';
 }
 
-export function ParkingBookingCard({ dailyRate, affiliateUrl }: ParkingBookingCardProps) {
+export function ParkingBookingCard({ 
+  dailyRate, 
+  affiliateUrl,
+  cancellationPolicy,
+  isIndoor,
+  hasValet,
+  type
+}: ParkingBookingCardProps) {
+  // 根据实际数据生成卖点
+  const benefits = [
+    cancellationPolicy || 'Free cancellation available',
+    isIndoor ? 'Covered/Indoor parking' : 'Open-air parking',
+    hasValet ? 'Valet service included' : 'Self-parking',
+    type === 'OFFICIAL' ? 'Official airport facility' : 'Off-site with shuttle',
+  ];
+
   return (
     <div className="bg-white rounded-3xl border border-slate-200 p-8 sticky top-24 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
       <div className="mb-8">
@@ -38,23 +57,17 @@ export function ParkingBookingCard({ dailyRate, affiliateUrl }: ParkingBookingCa
       )}
 
       <div className="space-y-4">
-        <div className="flex items-center text-sm font-medium text-slate-600">
-          <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-          Free cancellation anytime
-        </div>
-        <div className="flex items-center text-sm font-medium text-slate-600">
-          <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-          Guaranteed parking spot
-        </div>
-        <div className="flex items-center text-sm font-medium text-slate-600">
-          <Check className="w-5 h-5 text-slate-300 mr-3 shrink-0" />
-          Direct official booking
-        </div>
+        {benefits.map((benefit, idx) => (
+          <div key={idx} className="flex items-center text-sm font-medium text-slate-600">
+            <Check className="w-5 h-5 text-emerald-500 mr-3 shrink-0" />
+            {benefit}
+          </div>
+        ))}
       </div>
 
       <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-center gap-2">
-        <Check className="w-4 h-4 text-slate-400" />
-        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Best Rate Guarantee</span>
+        <Shield className="w-4 h-4 text-slate-400" />
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Secure Booking</span>
       </div>
     </div>
   );

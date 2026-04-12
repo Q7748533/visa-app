@@ -64,10 +64,18 @@ export async function generateStaticParams() {
     select: { airportIataCode: true, slug: true }
   });
 
-  return parkings.map(p => ({
-    iata: p.airportIataCode.toLowerCase(),
-    slug: p.slug,
-  }));
+  // 生成所有可能的大小写组合，确保 URL 大小写不敏感
+  const params = [];
+  for (const p of parkings) {
+    const iataLower = p.airportIataCode.toLowerCase();
+    const iataUpper = p.airportIataCode.toUpperCase();
+    // 添加小写和大写两种形式
+    params.push({ iata: iataLower, slug: p.slug });
+    if (iataUpper !== iataLower) {
+      params.push({ iata: iataUpper, slug: p.slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

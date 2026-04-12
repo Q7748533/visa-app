@@ -124,14 +124,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       siteName: "AirportMatrix",
       images: [{
-        url: `https://airportmatrix.com/og/parking/${slug}.png`,
+        url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://airportmatrix.com'}/og/parking/${slug}.png`,
         width: 1200,
         height: 630,
         alt: `${parking.name} Parking at ${parking.airport.iata} Airport`,
       }],
     },
     alternates: {
-      canonical: `https://airportmatrix.com/airports/${iata.toLowerCase()}/parking/${slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_APP_URL || 'https://airportmatrix.com'}/airports/${iata.toLowerCase()}/parking/${slug}`,
     },
   };
 }
@@ -317,9 +317,10 @@ export default async function ParkingDetailPage({ params }: Props) {
                   About {parking.airport.name} ({parking.airport.iata}) Airport
                 </h2>
                 <p className="text-sm text-blue-800/80 leading-relaxed mb-4">
-                  {parking.airport.name} ({parking.airport.iata}) serves the {parking.airport.city} area.
-                  This {parking.type === 'OFFICIAL' ? 'official airport' : 'off-site'} parking facility 
-                  {parking.type === 'OFF_SITE' && 'offers significant savings compared to on-airport parking rates'}.
+                  {parking.description 
+                    ? `${parking.description.slice(0, 200)}${parking.description.length > 200 ? '...' : ''}`
+                    : `${parking.airport.name} (${parking.airport.iata}) serves the ${parking.airport.city} area. This ${parking.type === 'OFFICIAL' ? 'official airport' : 'off-site'} parking facility ${parking.type === 'OFF_SITE' ? 'offers significant savings compared to on-airport parking rates' : 'provides convenient terminal access'}.
+                  `}
                 </p>
                 <div className="space-y-2 text-sm">
                   <Link
@@ -366,7 +367,10 @@ export default async function ParkingDetailPage({ params }: Props) {
               </div>
             </div>
             <div className="border-t border-slate-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-slate-500">
-              <p>Data last updated: {new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+              <p>Data last updated: {parking.updatedAt 
+                ? new Date(parking.updatedAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+                : new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+              }</p>
               <p>© {new Date().getFullYear()} AirportMatrix. All rights reserved.</p>
             </div>
           </div>

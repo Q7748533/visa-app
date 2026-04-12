@@ -41,10 +41,11 @@ export async function POST(request: NextRequest) {
 
     switch (type) {
       case 'parking': {
-        // 刷新停车场详情页
-        if (slug) {
-          revalidatePath(`/parking/${slug}`);
-          revalidated.push(`/parking/${slug}`);
+        // 刷新停车场详情页 - 需要同时提供 slug 和 iata
+        if (slug && iata) {
+          const iataLower = iata.toLowerCase();
+          revalidatePath(`/airports/${iataLower}/parking/${slug}`);
+          revalidated.push(`/airports/${iataLower}/parking/${slug}`);
         }
         break;
       }

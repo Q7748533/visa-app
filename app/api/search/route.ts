@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
         isIndoor: p.isIndoor,
         hasValet: p.hasValet,
         is24Hours: p.is24Hours,
-        url: `/parking/${p.slug}`,
+        url: `/airports/${p.airport.iata.toLowerCase()}/parking/${p.slug}`,
       })),
       suggestions,
       query,

@@ -187,7 +187,7 @@ export default async function SearchResultsPage({
         ...parkings.map((parking, index) => ({
           "@type": "ListItem",
           position: airports.length + index + 1,
-          url: `https://airportmatrix.com/parking/${parking.slug}`,
+          url: `https://airportmatrix.com/airports/${parking.airportIataCode?.toLowerCase() || parking.airport?.iata?.toLowerCase()}/parking/${parking.slug}`,
           name: parking.name,
         })),
       ],
@@ -318,7 +318,7 @@ export default async function SearchResultsPage({
                     {parkings.map((parking) => (
                       <Link
                         key={parking.id}
-                        href={`/parking/${parking.slug}`}
+                        href={`/airports/${(parking.airport.iataCode || parking.airport.iata).toLowerCase()}/parking/${parking.slug}`}
                         className="block bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:border-emerald-300 transition-all"
                       >
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

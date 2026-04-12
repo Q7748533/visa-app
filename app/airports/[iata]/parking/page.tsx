@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
 import {
   MapPin,
-  Clock,
   Star,
   ArrowLeft,
+  ArrowRight,
   Shield,
   Car,
   Bus,
@@ -246,35 +246,99 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
               <p className="text-slate-500">We&apos;re currently adding parking options for this airport.</p>
             </div>
           ) : (
-            <div className="space-y-6">
-              {/* Featured Lots */}
-              {featuredLots.length > 0 && (
-                <div>
-                  <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center">
-                    <Star className="w-5 h-5 text-amber-500 mr-2" />
-                    Featured Options
-                  </h2>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {featuredLots.map(parking => (
-                      <ParkingCard key={parking.id} parking={parking} iata={iata} />
-                    ))}
+            <div className="space-y-8">
+              {/* 表格形式 */}
+              <section>
+                <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-4 md:mb-6 border-b border-slate-200 pb-4">
+                  All Parking Options
+                  <span className="text-xs md:text-sm font-normal text-slate-500 ml-2">({parkings.length} lots)</span>
+                </h2>
+                
+                {/* 表格 */}
+                <div className="bg-white border border-slate-200 rounded-xl md:rounded-2xl overflow-hidden shadow-sm">
+                  {/* 表头 */}
+                  <div className="hidden md:grid md:grid-cols-12 gap-4 px-6 py-4 bg-slate-50 border-b border-slate-200 text-sm font-bold text-slate-600 uppercase tracking-wider">
+                    <div className="col-span-4">Parking Lot</div>
+                    <div className="col-span-2">Distance</div>
+                    <div className="col-span-2">Shuttle</div>
+                    <div className="col-span-2 text-right">Daily Rate</div>
+                    <div className="col-span-2"></div>
                   </div>
-                </div>
-              )}
 
-              {/* Regular Lots */}
-              {regularLots.length > 0 && (
-                <div>
-                  {featuredLots.length > 0 && (
-                    <h2 className="text-lg font-bold text-slate-900 mb-4 mt-8">All Parking Options</h2>
-                  )}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {regularLots.map(parking => (
-                      <ParkingCard key={parking.id} parking={parking} iata={iata} />
+                  {/* 表格内容 */}
+                  <div className="divide-y divide-slate-100">
+                    {parkings.map((parking) => (
+                      <Link
+                        key={parking.id}
+                        href={`/airports/${iata.toLowerCase()}/parking/${parking.slug}`}
+                        className="group block md:grid md:grid-cols-12 gap-4 px-4 md:px-6 py-4 md:py-5 hover:bg-slate-50 transition-colors items-center"
+                      >
+                        {/* 停车场名称 */}
+                        <div className="md:col-span-4 mb-2 md:mb-0">
+                          <span className="md:hidden text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Lot:</span>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                              {parking.name}
+                            </span>
+                            {parking.featured && (
+                              <span className="inline-flex items-center text-xs font-medium text-amber-600">
+                                <Star className="w-3 h-3 mr-0.5" />
+                                Featured
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-wrap gap-1 mt-1 md:mt-2">
+                            {parking.isIndoor && (
+                              <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Indoor</span>
+                            )}
+                            {parking.hasValet && (
+                              <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Valet</span>
+                            )}
+                            {parking.is24Hours && (
+                              <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">24/7</span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* 距离 */}
+                        <div className="md:col-span-2 mb-2 md:mb-0">
+                          <span className="md:hidden text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Distance:</span>
+                          <div className="flex items-center text-slate-600">
+                            <MapPin className="w-4 h-4 mr-1.5 text-slate-400" />
+                            <span>{parking.distanceMiles ? `${parking.distanceMiles} mi` : '—'}</span>
+                          </div>
+                        </div>
+
+                        {/* Shuttle */}
+                        <div className="md:col-span-2 mb-2 md:mb-0">
+                          <span className="md:hidden text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Shuttle:</span>
+                          <div className="flex items-center text-slate-600">
+                            <Bus className="w-4 h-4 mr-1.5 text-slate-400" />
+                            <span>{parking.shuttleMins ? `${parking.shuttleMins} min` : '—'}</span>
+                          </div>
+                        </div>
+
+                        {/* 价格 */}
+                        <div className="md:col-span-2 text-right mb-2 md:mb-0">
+                          <span className="md:hidden text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Rate:</span>
+                          <span className="font-bold text-emerald-600 text-lg">
+                            ${parking.dailyRate.toFixed(2)}
+                          </span>
+                          <span className="text-slate-400 text-sm">/day</span>
+                        </div>
+
+                        {/* 操作按钮 */}
+                        <div className="md:col-span-2 text-right">
+                          <span className="inline-flex items-center gap-1 text-blue-600 font-bold text-sm group-hover:text-blue-700">
+                            <span className="md:hidden">View Details</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
-              )}
+              </section>
             </div>
           )}
         </main>
@@ -376,76 +440,5 @@ export default async function AirportParkingPage({ params }: { params: Promise<{
         </footer>
       </div>
     </>
-  );
-}
-
-function ParkingCard({ parking, iata }: { parking: ParkingLot; iata: string }) {
-  return (
-    <Link
-      href={`/airports/${iata.toLowerCase()}/parking/${parking.slug}`}
-      className="group bg-white rounded-xl border border-slate-200 p-5 hover:shadow-lg hover:border-blue-300 transition-all"
-    >
-      <div className="flex justify-between items-start mb-3">
-        <div>
-          <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-            {parking.name}
-          </h3>
-          {parking.featured && (
-            <span className="inline-flex items-center text-xs font-medium text-amber-600 mt-1">
-              <Star className="w-3 h-3 mr-1" />
-              Featured
-            </span>
-          )}
-        </div>
-        <div className="text-right">
-          <div className="text-2xl font-black text-slate-900">
-            ${parking.dailyRate.toFixed(2)}
-          </div>
-          <div className="text-xs text-slate-500">per day</div>
-        </div>
-      </div>
-
-      <div className="space-y-2 text-sm text-slate-600">
-        {parking.distanceMiles && (
-          <div className="flex items-center">
-            <MapPin className="w-4 h-4 mr-2 text-slate-400" />
-            {parking.distanceMiles} miles from terminal
-          </div>
-        )}
-        {parking.shuttleMins && (
-          <div className="flex items-center">
-            <Bus className="w-4 h-4 mr-2 text-slate-400" />
-            {parking.shuttleMins}-min shuttle
-          </div>
-        )}
-        {parking.is24Hours && (
-          <div className="flex items-center">
-            <Clock className="w-4 h-4 mr-2 text-slate-400" />
-            24/7 service
-          </div>
-        )}
-      </div>
-
-      <div className="flex flex-wrap gap-2 mt-4">
-        {parking.isIndoor && (
-          <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Indoor</span>
-        )}
-        {parking.hasValet && (
-          <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md">Valet</span>
-        )}
-        {parking.rating && (
-          <span className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-md flex items-center">
-            <Star className="w-3 h-3 mr-1" />
-            {parking.rating.toFixed(1)}
-          </span>
-        )}
-      </div>
-
-      <div className="mt-4 pt-4 border-t border-slate-100">
-        <span className="text-blue-600 font-medium text-sm group-hover:underline">
-          View Details →
-        </span>
-      </div>
-    </Link>
   );
 }

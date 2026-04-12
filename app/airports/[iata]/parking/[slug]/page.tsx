@@ -79,9 +79,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Title: 控制在 55 字符以内，Google 显示约 55-60 字符
   const rawTitle = `${parking.name} Parking ${parking.airport.iata} — $${Number(parking.dailyRate).toFixed(2)}/day | AirportMatrix`;
-  const title = rawTitle.length > 60 ? `${parking.name} Parking ${parking.airport.iata} | AirportMatrix` : rawTitle;
-  const description = `Book ${parking.name} parking at ${parking.airport.name} (${parking.airport.iata}). $${Number(parking.dailyRate).toFixed(2)}/day. ${parking.distanceMiles ? `${parking.distanceMiles} mi from terminal` : `${parking.shuttleMins || 5}-min shuttle`} with free ${parking.is24Hours ? '24/7 ' : ''}shuttle. ${parking.rating ? `${parking.rating}/5★ (${parking.reviewCount || 0}+ reviews). ` : ''}Save up to 60% vs on-airport rates.`;
+  const title = rawTitle.length > 55 ? `${parking.name} ${parking.airport.iata} Parking | AirportMatrix` : rawTitle;
+  
+  // Description: 控制在 155 字符以内
+  const descParts = [
+    `Book ${parking.name} parking at ${parking.airport.name} (${parking.airport.iata}).`,
+    `$${Number(parking.dailyRate).toFixed(2)}/day.`,
+    parking.distanceMiles ? `${parking.distanceMiles} mi from terminal.` : `${parking.shuttleMins || 5}-min shuttle.`,
+    parking.is24Hours ? '24/7 shuttle.' : '',
+    parking.rating ? `${parking.rating}/5★ (${parking.reviewCount || 0}+ reviews).` : '',
+    'Save up to 60% vs on-airport rates.',
+  ];
+  const description = descParts.filter(Boolean).join(' ').slice(0, 155);
 
   return {
     title,
@@ -99,6 +110,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       type: "website",
+      siteName: "AirportMatrix",
       images: [{
         url: `https://airportmatrix.com/og/parking/${slug}.png`,
         width: 1200,

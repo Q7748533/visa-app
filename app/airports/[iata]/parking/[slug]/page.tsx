@@ -93,13 +93,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     'Save up to 60% vs on-airport rates.',
   ];
   const description = descParts.filter(Boolean).join(' ').slice(0, 155);
+  
+  // 提取关键词：清理括号内容，避免特殊字符
+  const cleanName = parking.name.toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
 
   return {
     title,
     description,
     keywords: [
       `${parking.airport.iata.toLowerCase()} parking`,
-      `${parking.name.toLowerCase()}`,
+      cleanName,
       `${parking.airport.city.toLowerCase()} airport parking`,
       "off-site airport parking",
       "airport parking shuttle",
